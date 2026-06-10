@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BIM Group — Succession Planning Dashboard 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --green-primary: #006c32;
@@ -29,7 +29,7 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
     background: var(--bg-dark);
     color: var(--text-primary);
     display: flex;
@@ -601,7 +601,7 @@
   }
   .score-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 2fr 1fr 1fr;
     border-collapse: collapse;
   }
   .sg-header {
@@ -737,7 +737,7 @@
       <div class="brand-icon">BIM</div>
       <div>
         <div class="brand-name">BIM Group</div>
-        <div class="brand-sub">Talent Development</div>
+        <div class="brand-sub"></div>
       </div>
     </div>
     <div class="brand-year">BIM FUTURE LEADERS 2026</div>
@@ -765,19 +765,9 @@
       <span class="nav-badge">4</span>
     </div>
 
-    <div class="nav-section-label" style="margin-top: 24px;">Thông tin</div>
-    <div class="nav-item" style="cursor:default; opacity:0.6;">
-      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10"/><path d="M12 8v4m0 4h.01"/>
-      </svg>
-      Tài liệu nội bộ BOD
-    </div>
-  </nav>
-
   <div class="sidebar-footer">
     <div class="sidebar-footer-text">
       Cập nhật <span>06/2026</span><br>
-      Hội đồng Nhân tài — BIM Group
     </div>
   </div>
 </aside>
@@ -791,7 +781,7 @@
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Succession Planning</div>
         <div class="header-title">Danh sách <em>Vị Trí Trọng Yếu</em><br>Toàn Tập Đoàn</div>
-        <div class="header-subtitle">Kết quả thẩm định & phân loại — Hội đồng Nhân tài</div>
+        <div class="header-subtitle">Kết quả thẩm định & phân loại</div>
       </div>
       <div class="kpi-card-group">
         <div class="kpi-card highlight">
@@ -868,32 +858,26 @@
           <div class="sg-header">Nhóm yếu tố</div>
           <div class="sg-header" style="text-align:right;">Tỷ trọng</div>
           <div class="sg-header" style="text-align:right;">Điểm thành phần</div>
-          <div class="sg-header" style="text-align:right;">Điểm tiêu chuẩn</div>
 
           <div class="sg-row-label">1. Hiệu suất</div>
           <div class="sg-val">20%</div>
           <div class="sg-val hi">8</div>
-          <div class="sg-val hi">1.6</div>
-
+        
           <div class="sg-row-label">2. Gắn kết</div>
           <div class="sg-val">20%</div>
           <div class="sg-val hi">6</div>
-          <div class="sg-val hi">1.2</div>
 
           <div class="sg-row-label">3. Tiềm năng</div>
           <div class="sg-val">20%</div>
           <div class="sg-val hi">6</div>
-          <div class="sg-val hi">1.2</div>
 
           <div class="sg-row-label">4. Năng lực</div>
           <div class="sg-val">40%</div>
           <div class="sg-val hi">36</div>
-          <div class="sg-val gold">14.4</div>
 
           <div class="sg-row-label total">TỔNG</div>
           <div class="sg-val total">100%</div>
           <div class="sg-val total">56</div>
-          <div class="sg-val gold" style="background:rgba(0,108,50,0.08);font-size:14px;font-weight:800;">18.4</div>
         </div>
       </div>
 
@@ -1343,9 +1327,7 @@ const details = {
 // ──────────────────────────────────────────
 // RENDER SUMMARY TABLE
 // ──────────────────────────────────────────
-let openId = null;
-
-function renderSummary() {
+function toggleDrill(id) {
   const tbody = document.getElementById('summary-body');
 
   units.forEach(u => {
@@ -1383,33 +1365,21 @@ function renderSummary() {
 }
 
 function toggleDrill(id) {
-  // Collapse previously open row
-  if (openId !== null && openId !== id) {
-    const oldRow = document.getElementById(`row-${openId}`);
-    if (oldRow) oldRow.classList.remove('row-open');
-    const oldDrillRow = document.getElementById(`drill-row-${openId}`);
-    const oldWrapper = document.getElementById(`drill-wrapper-${openId}`);
-    if (oldWrapper) oldWrapper.classList.remove('open');
-    if (oldDrillRow) {
-      setTimeout(() => { oldDrillRow.style.display = 'none'; }, 400);
-    }
-  }
-
   const drillRow = document.getElementById(`drill-row-${id}`);
   const wrapper = document.getElementById(`drill-wrapper-${id}`);
   const panel = document.getElementById(`drill-panel-${id}`);
   const row = document.getElementById(`row-${id}`);
 
-  if (openId === id) {
-    // Collapse current
+if (wrapper.classList.contains('open')) {
     row.classList.remove('row-open');
     wrapper.classList.remove('open');
-    setTimeout(() => { drillRow.style.display = 'none'; }, 400);
-    openId = null;
-    return;
-  }
 
-  openId = id;
+    setTimeout(() => {
+        drillRow.style.display = 'none';
+    }, 400);
+
+    return;
+}
   row.classList.add('row-open');
 
   const unit = units.find(u => u.id === id);
