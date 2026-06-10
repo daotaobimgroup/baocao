@@ -23,7 +23,7 @@
     --gold: #b07a10;
     --blue-kpi: #1565c0;
     --red-alert: #c0392b;
-    --sidebar-w: 260px;
+    --sidebar-w: 280px; /* Tăng chiều rộng để Sidebar to rõ chữ không bị xuống hàng */
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +38,7 @@
     font-size: 14px;
   }
 
-  /* ──────────── SIDEBAR ──────────── */
+  /* ──────────── SIDEBAR (ĐÃ TĂNG SIZE CHỮ THEO IMAGE_E075C5.PNG) ──────────── */
   .sidebar {
     width: var(--sidebar-w);
     background: var(--bg-panel);
@@ -56,59 +56,59 @@
   .brand-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 6px;
   }
   .brand-icon {
-    width: 34px; height: 34px;
+    width: 38px; height: 38px;
     background: var(--green-primary);
     border-radius: 7px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 13px; color: #fff; letter-spacing: -0.5px;
+    font-weight: 800; font-size: 15px; color: #fff; letter-spacing: -0.5px;
   }
   .brand-name {
-    font-size: 15px; font-weight: 700; color: var(--text-primary);
+    font-size: 17px; font-weight: 700; color: var(--text-primary);
     letter-spacing: 0.3px;
   }
   .brand-sub {
-    font-size: 10px; color: var(--text-muted); letter-spacing: 1.2px;
+    font-size: 11px; color: var(--text-muted); letter-spacing: 1.2px;
     text-transform: uppercase; margin-top: 2px;
   }
   .brand-year {
     display: inline-block;
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
-    font-size: 10px; font-weight: 600;
-    padding: 2px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 4px;
     margin-top: 8px;
     letter-spacing: 0.8px;
   }
 
   .sidebar-nav {
     flex: 1;
-    padding: 16px 12px;
+    padding: 20px 14px;
     overflow-y: auto;
   }
   .nav-section-label {
-    font-size: 9px; font-weight: 600;
+    font-size: 12px; font-weight: 700;
     color: var(--text-muted);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 0 8px;
-    margin: 16px 0 8px;
+    margin: 16px 0 12px;
   }
   .nav-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
+    gap: 12px;
+    padding: 12px 14px;
     border-radius: 8px;
     cursor: pointer;
     color: var(--text-secondary);
-    font-size: 12.5px;
+    font-size: 15px; /* Tăng cỡ chữ các mục điều hướng */
     font-weight: 500;
     transition: all 0.18s ease;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     border: 1px solid transparent;
     user-select: none;
   }
@@ -122,7 +122,7 @@
     border-color: rgba(0, 108, 50, 0.3);
   }
   .nav-item .nav-icon {
-    width: 18px; height: 18px;
+    width: 22px; height: 22px; /* Tăng cỡ icon */
     opacity: 0.7;
     flex-shrink: 0;
   }
@@ -131,8 +131,8 @@
     margin-left: auto;
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
-    font-size: 10px; font-weight: 600;
-    padding: 1px 7px; border-radius: 10px;
+    font-size: 12px; font-weight: 700; /* Tăng cỡ badge số */
+    padding: 2px 9px; border-radius: 12px;
   }
   .nav-item.active .nav-badge {
     background: var(--green-primary);
@@ -144,7 +144,7 @@
     border-top: 1px solid var(--border);
   }
   .sidebar-footer-text {
-    font-size: 10px; color: var(--text-muted);
+    font-size: 11px; color: var(--text-muted);
     line-height: 1.5;
   }
   .sidebar-footer-text span {
@@ -563,7 +563,7 @@
 
 <main class="main">
 
-  <!-- TAB 1: VTTY (ĐÃ THÊM CLASS TĂNG SIZE CHỮ) -->
+  <!-- TAB 1: VTTY -->
   <div id="tab-vtty" class="tab-panel active custom-big-text-tab1">
     <div class="tab1-header">
       <div class="header-title-block">
@@ -746,7 +746,7 @@
           </thead>
           <tbody>
             <tr class="section-break">
-              <td colspan="5">NĂNG LỰC CỐT LÕI (Core Competencies)</td>
+              <td colspan="5">Năng lực CỐT LÕI (Core Competencies)</td>
             </tr>
             <tr>
               <td style="text-align:center;">1</td>
@@ -784,7 +784,7 @@
               <td class="ct-def">Chủ động nghiên cứu, đề xuất đột phá và áp dụng thành công các ý tưởng mới cải tiến quy trình, mang lại giá trị gia tăng thực tế cao cho hệ thống.</td>
             </tr>
             <tr class="section-break">
-              <td colspan="5">NĂNG LỰC LÃNH ĐẠO (Leadership Competencies)</td>
+              <td colspan="5">Năng lực LÃNH ĐẠO (Leadership Competencies)</td>
             </tr>
             <tr>
               <td style="text-align:center;">6</td>
@@ -945,7 +945,7 @@ const details = {
   11: [
     { pos: "Giám đốc Tài chính và Hỗ trợ Vận hành", people: "Trần Hồng Hạnh", level: "Cấp 2", priority: true,
       conclusion: "NS đương nhiệm (Ms. Hạnh) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Nguyễn Minh Đức", level: "Cấp 2", priority: true,
+    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Trần Minh Đức", level: "Cấp 2", priority: true,
       conclusion: "NS đương nhiệm (Mr. Đức) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
   ],
   12: [],
@@ -987,7 +987,7 @@ const details = {
 };
 
 // ──────────────────────────────────────────
-// RENDER SUMMARY TABLE (GIỮ NGUYÊN)
+// RENDER SUMMARY TABLE
 // ──────────────────────────────────────────
 function renderSummary() {
   const tbody = document.getElementById('summary-body');
@@ -1106,9 +1106,6 @@ function toggleDrill(id) {
   });
 }
 
-// ──────────────────────────────────────────
-// TAB SWITCHING (GIỮ NGUYÊN)
-// ──────────────────────────────────────────
 function switchTab(tabId, navEl) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -1118,7 +1115,6 @@ function switchTab(tabId, navEl) {
   if (navEl) navEl.classList.add('active');
 }
 
-// KHỜI TẠO HÀM RENDER
 renderSummary();
 </script>
 </body>
