@@ -23,7 +23,7 @@
     --gold: #b07a10;
     --blue-kpi: #1565c0;
     --red-alert: #c0392b;
-    --sidebar-w: 280px; /* Tăng chiều rộng để Sidebar to rõ chữ không bị xuống hàng */
+    --sidebar-w: 280px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +38,7 @@
     font-size: 14px;
   }
 
-  /* ──────────── SIDEBAR (ĐÃ TĂNG SIZE CHỮ THEO IMAGE_E075C5.PNG) ──────────── */
+  /* ──────────── SIDEBAR ──────────── */
   .sidebar {
     width: var(--sidebar-w);
     background: var(--bg-panel);
@@ -105,7 +105,7 @@
     border-radius: 8px;
     cursor: pointer;
     color: var(--text-secondary);
-    font-size: 15px; /* Tăng cỡ chữ các mục điều hướng */
+    font-size: 15px;
     font-weight: 500;
     transition: all 0.18s ease;
     margin-bottom: 4px;
@@ -122,7 +122,7 @@
     border-color: rgba(0, 108, 50, 0.3);
   }
   .nav-item .nav-icon {
-    width: 22px; height: 22px; /* Tăng cỡ icon */
+    width: 22px; height: 22px;
     opacity: 0.7;
     flex-shrink: 0;
   }
@@ -131,7 +131,7 @@
     margin-left: auto;
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
-    font-size: 12px; font-weight: 700; /* Tăng cỡ badge số */
+    font-size: 12px; font-weight: 700;
     padding: 2px 9px; border-radius: 12px;
   }
   .nav-item.active .nav-badge {
@@ -442,7 +442,7 @@
     font-size: 11.5px;
     color: var(--text-secondary);
     line-height: 1.6;
-    max-width: 380px;
+    max-width: 550px;
   }
   .priority-tag {
     display: inline-flex; align-items: center; gap: 4px;
@@ -473,7 +473,7 @@
   .custom-big-text-tab1 .detail-table .dt-stt { font-size: 14px; }
   .custom-big-text-tab1 .detail-table .dt-personnel { font-size: 15px; }
   .custom-big-text-tab1 .detail-table .dt-level { font-size: 13px; padding: 3px 10px; }
-  .custom-big-text-tab1 .detail-table .dt-conclusion { font-size: 15px; max-width: 450px; }
+  .custom-big-text-tab1 .detail-table .dt-conclusion { font-size: 15px; max-width: 650px; }
   .custom-big-text-tab1 .detail-table .priority-tag { font-size: 11px; }
 
   /* ──────────── CSS TỐI ƯU RIÊNG CHO TAB 2 ──────────── */
@@ -563,7 +563,6 @@
 
 <main class="main">
 
-  <!-- TAB 1: VTTY -->
   <div id="tab-vtty" class="tab-panel active custom-big-text-tab1">
     <div class="tab1-header">
       <div class="header-title-block">
@@ -581,7 +580,7 @@
           <div class="kpi-label">Đơn vị</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-number">31</div>
+          <div class="kpi-number">27</div>
           <div class="kpi-label">Ưu tiên cao</div>
         </div>
       </div>
@@ -610,7 +609,6 @@
     </div>
   </div>
 
-  <!-- TAB 2: KHUNG CHÂN DUNG KẾ NHIỆM -->
   <div id="tab-chandung" class="tab-panel custom-big-text">
     <div class="tab1-header tab2-header" style="background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%); border-bottom: 1px solid var(--border); position: relative;">
       <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), #f0c060, var(--gold));"></div>
@@ -741,7 +739,7 @@
               <th style="width: 140px;">Hệ năng lực</th>
               <th style="width: 110px;">Mã số</th>
               <th style="width: 320px;">Tên năng lực tiêu chuẩn</th>
-              <th>Định nghĩa hành vi kỳ vọng</th>
+              <th>Định nghĩa Năng lực</th>
             </tr>
           </thead>
           <tbody>
@@ -844,146 +842,146 @@
 </main>
 
 <script>
-// ──────────────────────────────────────────
-// DATA GỐC (GIỮ NGUYÊN)
-// ──────────────────────────────────────────
 const units = [
-  { id: 1,  name: "Ban Pháp chế",                 count: 2 },
-  { id: 2,  name: "Elite Fitness",                    count: 2 },
-  { id: 3,  name: "Chi nhánh Quảng Ninh",            count: 1 },
-  { id: 4,  name: "Ban Đầu tư",                       count: 3 },
-  { id: 5,  name: "Truyền thông đối ngoại",          count: 1 },
-  { id: 6,  name: "Khối Xây dựng",                  count: 5 },
-  { id: 7,  name: "Hùng Thắng",                       count: 2 },
-  { id: 8,  name: "Ngành Năng lượng",                count: 4 },
-  { id: 9,  name: "Khối TMBĐS",                       count: 7 },
-  { id: 10, name: "Ban Marcom",                       count: 6 },
-  { id: 11, name: "Khối Khách sạn & TMDV",           count: 2 },
-  { id: 12, name: "Chi nhánh Thanh Xuân",             count: 0 },
-  { id: 13, name: "Ban Kiểm soát nội bộ",             count: 1 },
-  { id: 14, name: "QLDA Đặc Thù",                     count: 1 },
-  { id: 15, name: "Công ty QLBĐS BIM",               count: 2 },
-  { id: 16, name: "Ban Tài chính - Kế toán",         count: 6 },
-  { id: 17, name: "Ban PTDA",                         count: 2 },
-  { id: 18, name: "Ban CNTT",                         count: 0 },
-  { id: 19, name: "Ngành Nông nghiệp - Thực phẩm",  count: 0 },
-  { id: 20, name: "Ban Nhân sự",                      count: 1 },
-  { id: 21, name: "Ban Muối Công nghiệp",             count: 0 },
+  { id: 1,  name: "Khối Xây dựng",                    count: 5 },
+  { id: 2,  name: "Khối TMBĐS",                        count: 7 },
+  { id: 3,  name: "Khối Khách sạn & TMDV",             count: 2 },
+  { id: 4,  name: "Ngành Năng lượng",                  count: 4 },
+  { id: 5,  name: "Công ty Quản lý Bất động sản BIM",  count: 2 },
+  { id: 6,  name: "Elite Fitness",                     count: 2 },
+  { id: 7,  name: "Ban Pháp chế",                      count: 2 },
+  { id: 8,  name: "Ban Đầu tư",                        count: 3 },
+  { id: 9,  name: "Ban Marcom",                        count: 6 },
+  { id: 10, name: "Ban Tài chính - Kế toán",           count: 6 },
+  { id: 11, name: "Ban Kiểm soát nội bộ",              count: 1 },
+  { id: 12, name: "Ban PTDA",                          count: 2 },
+  { id: 13, name: "Ban CNTT",                          count: 0 },
+  { id: 14, name: "Ban Nhân sự",                       count: 1 },
+  { id: 15, name: "Truyền thông đối ngoại",            count: 1 },
+  { id: 16, name: "QLDA Đặc Thù",                      count: 1 },
+  { id: 17, name: "Hùng Thắng",                        count: 2 },
+  { id: 18, name: "Chi nhánh Thanh Xuân",              count: 0 },
+  { id: 19, name: "Chi nhánh Quảng Ninh",              count: 1 },
+  { id: 20, name: "Ngành Nông nghiệp - Thực phẩm",     count: 0 },
+  { id: 21, name: "Ban Muối Công nghiệp",              count: 0 }
 ];
 
+// ──────────────────────────────────────────
+// BÊ NGUYÊN VĂN 100% TỪNG TỪ TỪNG CHỮ KHÔNG CẮT BỚT
+// ──────────────────────────────────────────
 const details = {
   1: [
-    { pos: "Phó Ban Pháp chế", people: "Anh Việt", level: "—", priority: true,
-      conclusion: "Vị trí Phó TGĐ phụ trách Ban pháp chế có band nằm ngoài phạm vi chương trình. Tuy nhiên, BNS đánh giá đây là vị trí quan trọng cần có kế nhiệm. NS đương nhiệm (Mr. Việt) là lợi thế để đồng hành và hướng dẫn ứng viên kế cận." },
-    { pos: "Trưởng phòng Pháp lý", people: "(1) Đinh Thị Kim Ngân  (2) Nguyễn Hồng Hà", level: "Cấp 2", priority: false, conclusion: "—" },
-  ],
-  2: [
-    { pos: "Giám đốc điều hành", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Phó Giám đốc Vận hành", people: "Nguyễn Văn Quý", level: "Cấp 3", priority: true,
-      conclusion: "Thang điểm đánh giá nên được điều chỉnh lên Cấp 2. NS đương nhiệm (Mr. Quý) là lợi thế đồng hành ứng viên kế nhiệm. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-  ],
-  3: [
-    { pos: "Trưởng phòng Hành chính Nhân sự Miền", people: "(1) Nguyễn Tiến Hữu  (2) Đỗ Khắc Hoàng Thạch", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hữu / Mr. Thạch) là lợi thế đồng hành. Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, ảnh hưởng đến vận hành khu vực." },
-  ],
-  4: [
-    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Sơn) là lợi thế đồng hành. Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, quan trọng với vận hành khu vực." },
-    { pos: "Trưởng phòng Nghiên cứu chiến lược", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Ban Đầu tư", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-  ],
-  5: [
-    { pos: "Giám đốc Truyền thông đối ngoại", people: "Phạm Thị Lý", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mrs. Lý) là lợi thế đồng hành. Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
-  ],
-  6: [
     { pos: "Giám đốc Kiểm soát Thiết kế", people: "Nguyễn Bá Hùng", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Bá Hùng) là lợi thế đồng hành. Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
+      conclusion: "NS đương nhiệm (Mr. Bá Hùng) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
     { pos: "Phó Giám đốc Khối XD phụ trách BQLDA", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Phó Giám đốc Khối XD phụ trách Thương mại", people: "Lò Hồng Hiệp", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Trưởng ban Quản lý dự án (Phú Quốc)", people: "Nguyễn Mai Ngọc Long", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Long) là lợi thế đồng hành. Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
+      conclusion: "NS đương nhiệm (Mr. Long) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
     { pos: "Trưởng phòng Thẩm định thiết kế", people: "Vũ Quang Chính", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Chính) là lợi thế đồng hành. Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Mr. Chính) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
   ],
-  7: [
-    { pos: "Giám đốc CTCP XD Hùng Thắng", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Giám đốc phụ trách thi công", people: "Bùi Viết Sâm", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Sâm) là lợi thế đồng hành. Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự." },
-  ],
-  8: [
-    { pos: "Phó Tổng Giám đốc Ngành Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hậu Hữu) là lợi thế đồng hành. Đây là vị trí QL cấp cao chuyên môn, cần ưu tiên nguồn kế cận hơn các vị trí khác trong Ngành Năng lượng." },
-    { pos: "Trưởng ban KT-TM", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Trưởng ban PTDA Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-  ],
-  9: [
+  2: [
     { pos: "Trưởng phòng Nghiên cứu chiến lược (RnD)", people: "Ngụy Thị Hải Hà", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Hà) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Ms. Hà) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
     { pos: "Trưởng phòng Phát triển sản phẩm tiện ích", people: "Nguyễn Hồng Lê", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Giám đốc Quản trị giao dịch", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
     { pos: "Giám đốc Kinh doanh khu vực", people: "Nguyễn Trọng Nhân; Trần Thị Thanh Nhàn", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Nhân / Ms. Nhàn) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự — cần ưu tiên xây dựng nguồn kế cận." },
+      conclusion: "NS đương nhiệm (Mr. Nhân / Ms. Nhàn) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự — cần ưu tiên xây dựng nguồn kế cận." },
     { pos: "Trưởng phòng Phát triển Đối tác & Hợp tác Kinh doanh", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
     { pos: "Trưởng phòng Hợp tác kinh doanh và Cho thuê", people: "Nguyễn Lê Phương Thanh", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Thanh) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Ms. Thanh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
     { pos: "Trưởng phòng Bàn giao (DV khách hàng)", people: "Nguyễn Tuấn Anh", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Tuấn Anh) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Mr. Tuấn Anh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
   ],
-  10: [
+  3: [
+    { pos: "Giám đốc Tài chính và Hỗ trợ Vận hành", people: "Trần Hồng Hạnh", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Ms. Hạnh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
+    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Nguyễn Minh Đức", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Đức) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+  ],
+  4: [
+    { pos: "Phó Tổng Giám đốc Ngành Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
+    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Hậu Hữu) là lợi thế đồng hành.<br>- Đây là vị trí thuộc QL cấp cao phụ trách chuyên môn nên rất cần xây dựng nguồn kế cận để đảm bảo vận hành so với các vị trí khác thuộc Ngành Năng lương." },
+    { pos: "Trưởng ban KT-TM", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
+    { pos: "Trưởng ban PTDA Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" }
+  ],
+  5: [
+    { pos: "Giám đốc Vận hành (HO)", people: "Trần Trung Hiếu", level: "Cấp 1", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Hiếu) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
+    { pos: "Giám đốc Ban Quản lý (Khu đô thị)", people: "Trịnh Việt Dũng, Vũ Thị Như", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Dũng / Ms. Như) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+  ],
+  6: [
+    { pos: "Giám đốc điều hành", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
+    { pos: "Phó Giám đốc Vận hành", people: "Nguyễn Văn Quý", level: "Cấp 3", priority: true,
+      conclusion: "Thang điểm đánh giá nên được điều chỉnh lên Cấp 2.<br>- NS đương nhiệm (Mr. Quý) là lợi thế đồng hành ứng viên kế nhiệm.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận hơn vị trí Phó GĐ vận hành" }
+  ],
+  7: [
+    { pos: "Phó Ban Pháp chế", people: "Mai Lương Việt", level: "—", priority: true,
+      conclusion: "Ưu tiên:<br>- Vị trí Phó TGĐ phụ trách Ban pháp chế có band nằm ngoài phạm vi chương trình. Tuy nhiên, BNS đánh giá đây là vị trí quan trọng cần có kế nhiệm => Đề xuất đưa vào chương trình vị trí \"Phó Ban Pháp chế\"<br>- NS đương nhiệm ở vị trí Phó TGĐ phụ trách Ban pháp chế (Mr. Việt) là 1 lợi thế để đồng hành và hướng dẫn cho ứng viên ở vị trí Phó Ban Pháp chế" },
+    { pos: "Trưởng phòng Pháp lý", people: "(1) Đinh Thị Kim Ngân  (2) Nguyễn Hồng Hà", level: "Cấp 2", priority: false, conclusion: "—" }
+  ],
+  8: [
+    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Sơn) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận. Đây cũng là vị trí quan trọng với vận hành khu vực." },
+    { pos: "Trưởng phòng Nghiên cứu chiến lược", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
+    { pos: "Phó Ban Đầu tư", people: "—", level: "Cấp 2", priority: false, conclusion: "—" }
+  ],
+  9: [
     { pos: "Trưởng phòng MKT BĐS", people: "Vũ Thị Thu Trang", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Trang) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Ms. Trang) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
     { pos: "Trưởng phòng Quản lý Thương hiệu", people: "Nguyễn Thùy Dung", level: "Cấp 1", priority: false, conclusion: "—" },
     { pos: "Giám đốc Sáng tạo", people: "Phạm Minh Khuyến", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Khuyến) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
+      conclusion: "NS đương nhiệm (Mr. Khuyến) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
     { pos: "Trưởng phòng Digital Marketing", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Trưởng phòng Quản lý Sự kiện và Vận hành", people: "Nguyễn Thị Nhung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Nhung) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-    { pos: "Trưởng phòng Quản trị quan hệ Khách hàng", people: "Ngọc Mai", level: "Cấp 1", priority: true, conclusion: "Ưu tiên." },
+      conclusion: "NS đương nhiệm (Ms. Nhung) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự,  vì vậy cần ưu tiên xây dựng nguồn kế cận." },
+    { pos: "Trưởng phòng Quản trị quan hệ Khách hàng", people: "Ngọc Mai", level: "Cấp 1", priority: true, conclusion: "Ưu tiên." }
   ],
-  11: [
-    { pos: "Giám đốc Tài chính và Hỗ trợ Vận hành", people: "Trần Hồng Hạnh", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Hạnh) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Trần Minh Đức", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Đức) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-  ],
-  12: [],
-  13: [
-    { pos: "Trưởng phòng Kiểm soát nội bộ", people: "Lê Tiến Lưu", level: "Cấp 2", priority: false, conclusion: "—" },
-  ],
-  14: [
-    { pos: "Trưởng phòng QLDA Đặc Thù", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-  ],
-  15: [
-    { pos: "Giám đốc Vận hành (HO)", people: "Trần Trung Hiếu", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hiếu) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-    { pos: "Giám đốc Ban Quản lý (Khu đô thị)", people: "Trịnh Việt Dũng, Vũ Thị Như", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Dũng / Ms. Như) là lợi thế đồng hành. Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự." },
-  ],
-  16: [
+  10: [
     { pos: "Trưởng phòng Nguồn vốn trong nước", people: "Chưa có", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Trưởng phòng Bảo hiểm", people: "Chưa có", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Phó Ban Tài chính", people: "—", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Vân / Ms. Trang) là lợi thế đồng hành. Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
+      conclusion: "NS đương nhiệm (Ms. Vân / Ms. Trang) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
     { pos: "Trưởng Ban Kế Toán", people: "Nguyễn Hải Hà", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hải Hà) là lợi thế đồng hành. Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
+      conclusion: "NS đương nhiệm (Mr. Hải Hà) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
     { pos: "Trưởng Phòng Kế toán Tập đoàn", people: "(1) Mai Bá Hoàng  (2) Khổng Châu Anh", level: "Cấp 2", priority: false, conclusion: "—" },
     { pos: "Trưởng Phòng Kế toán Vận hành", people: "(1) Nguyễn Trọng Huyên  (2) Bùi Thị Tuyết Nhung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Huyên / Ms. Nhung) là lợi thế đồng hành. Đây là vị trí QL cấp trung, ưu tiên do tính khan hiếm khi tìm kiếm nhân sự thích ứng hệ thống." },
+      conclusion: "NS đương nhiệm (Mr. Huyên / Ms. Nhung) là lợi thế đồng hành.<br>- Đây là vị trí thuộc QL cấp cao phụ trách chuyên môn nên rất cần xây dựng nguồn kế cận để đảm bảo vận hành.<br>- Vị trí này cũng ưu tiên hơn so với Trưởng phòng PTDA vì chỉ có 1 nhân sự đương nhiệm duy nhất, không thể được back up  cho nhau như vị trí Trưởng phòng (3 nhân sự)." }
+  ],
+  11: [
+    { pos: "Trưởng phòng Kiểm soát nội bộ", people: "Lê Tiến Lưu", level: "Cấp 2", priority: false, conclusion: "—" }
+  ],
+  12: [
+    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Trung) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao, ưu tiên hơn Trưởng phòng PTDA vì chỉ có 1 nhân sự duy nhất, không thể back-up cho nhau." },
+    { pos: "Trưởng phòng PTDA", people: "Hà Minh Tiến, Bùi Quốc Trung, Đỗ Quang Huy", level: "Cấp 2", priority: false, conclusion: "—" }
+  ],
+  13: [],
+  14: [
+    { pos: "Trưởng phòng CS & PTTC", people: "Nguyễn Mạnh Hùng", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Hùng / Ms. Lã Thủy) là lợi thế đồng hành và hướng dẫn cho ứng viên kế nhiệm ở vị trí này.<br>- Đây là vị trí thuộc QL cấp trung, dễ xảy ra dứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận.<br>- Đây là vị trí cần ưu tiên do tính khan hiếm khi tìm kiếm nhân sự để thích ứng với hệ thống." }
+  ],
+  15: [
+    { pos: "Giám đốc Truyền thông đối ngoại", people: "Phạm Thị Lý", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mrs. Lý) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." }
+  ],
+  16: [
+    { pos: "Trưởng phòng QLDA Đặc Thù", people: "—", level: "Cấp 2", priority: false, conclusion: "—" }
   ],
   17: [
-    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Trung) là lợi thế đồng hành. Đây là vị trí QL cấp cao, ưu tiên hơn Trưởng phòng PTDA vì chỉ có 1 nhân sự duy nhất, không thể back-up cho nhau." },
-    { pos: "Trưởng phòng PTDA", people: "Hà Minh Tiến, Bùi Quốc Trung, Đỗ Quang Huy", level: "Cấp 2", priority: false, conclusion: "—" },
+    { pos: "Giám đốc CTCP XD Hùng Thắng", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
+    { pos: "Phó Giám đốc phụ trách thi công", people: "Bùi Viết Sâm", level: "Cấp 2", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Sâm) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
   ],
   18: [],
-  19: [],
-  20: [
-    { pos: "Trưởng phòng CS & PTTC", people: "Nguyễn Mạnh Hùng", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hùng / Ms. Lã Thủy) là lợi thế đồng hành. Đây là vị trí ưu tiên do tính khan hiếm khi tìm kiếm nhân sự thích ứng hệ thống." },
+  19: [
+    { pos: "Trưởng phòng Hành chính Nhân sự Miền", people: "(1) Nguyễn Tiến Hữu  (2) Đỗ Khắc Hoàng Thạch", level: "—", priority: true,
+      conclusion: "NS đương nhiệm (Mr. Hữu / Mr. Thạch) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận. Đây cũng là vị trí ảnh hưởng đến vận hành khu vực." }
   ],
-  21: [],
+  20: [],
+  21: []
 };
 
 // ──────────────────────────────────────────
@@ -995,11 +993,11 @@ function renderSummary() {
   
   tbody.innerHTML = '';
 
-  units.forEach((u) => {
+  units.forEach((u, index) => {
     const tr = document.createElement('tr');
     tr.id = `row-${u.id}`;
     tr.innerHTML = `
-      <td class="td-stt">${u.id}</td>
+      <td class="td-stt">${index + 1}</td>
       <td class="td-unit">
         <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="9 18 15 12 9 6"/>
