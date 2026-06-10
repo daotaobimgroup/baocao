@@ -1327,10 +1327,7 @@ const details = {
 // ──────────────────────────────────────────
 // RENDER SUMMARY TABLE
 // ──────────────────────────────────────────
-function toggleDrill(id) {
-  const tbody = document.getElementById('summary-body');
-
-  units.forEach(u => {
+function renderSummary() {
     // Data row
     const tr = document.createElement('tr');
     tr.id = `row-${u.id}`;
