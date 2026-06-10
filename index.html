@@ -161,9 +161,16 @@
   }
 
   /* ──────────── TAB PANEL ──────────── */
-  .tab-panel { display: none; flex-direction: column; flex: 1; }
-  .tab-panel.active { display: flex; }
-
+.tab-panel { 
+  display: none; 
+  flex-direction: column; 
+  flex: 1; 
+  height: 100%;
+  overflow-y: auto; /* Giúp cuộn trang mượt mà khi xem danh sách dài */
+}
+.tab-panel.active { 
+  display: flex !important; /* Thêm !important để đảm bảo tab active được hiển thị dạng flex */
+}
   /* ──────────── TAB 1: VTTY ──────────── */
   .tab1-header {
     background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%);
@@ -776,7 +783,7 @@
 <main class="main">
 
   <!-- ─── TAB 1: VTTY ─── -->
-  <div id="tab-vtty" class="tab-panel active">
+  <div id="tab-vtty" class="tab-panel">
     <div class="tab1-header">
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Succession Planning</div>
@@ -1465,4 +1472,3 @@ renderSummary();
 </script>
 </body>
 </html>
-
