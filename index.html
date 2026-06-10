@@ -576,7 +576,7 @@
           <div class="kpi-label">Tổng số VTTY</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-number">17/21</div>
+          <div class="kpi-number" id="unit-kpi"></div>
           <div class="kpi-label">Đơn vị</div>
         </div>
         <div class="kpi-card">
@@ -1114,6 +1114,11 @@ function switchTab(tabId, navEl) {
 }
 
 renderSummary();
+  const totalUnits = units.length;
+const unitsWithVTTY = units.filter(u => u.count > 0).length;
+
+document.getElementById('unit-kpi').textContent =
+  `${unitsWithVTTY}/${totalUnits}`;
 </script>
 </body>
 </html>
