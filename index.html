@@ -1328,7 +1328,15 @@ const details = {
 // RENDER SUMMARY TABLE
 // ──────────────────────────────────────────
 function renderSummary() {
-    // Data row
+  // Lấy phần tử tbody từ giao diện ra để chèn dữ liệu
+  const tbody = document.getElementById('summary-body');
+  if (!tbody) return;
+  
+  tbody.innerHTML = ''; // Làm sạch dữ liệu cũ nếu có
+
+  // Duyệt qua từng đơn vị trong danh sách để render
+  units.forEach((u) => {
+    // 1. Tạo dòng dữ liệu chính cho đơn vị
     const tr = document.createElement('tr');
     tr.id = `row-${u.id}`;
     tr.innerHTML = `
@@ -1344,23 +1352,25 @@ function renderSummary() {
     tr.onclick = () => toggleDrill(u.id);
     tbody.appendChild(tr);
 
-    // Drill row (hidden by default, sits right after the data row)
+    // 2. Tạo dòng ẩn bên dưới phục vụ cho việc bấm vào sẽ xổ ra chi tiết (Drill-down)
     const drillTr = document.createElement('tr');
     drillTr.id = `drill-row-${u.id}`;
     drillTr.style.display = 'none';
+    
     const drillTd = document.createElement('td');
     drillTd.colSpan = 3;
     drillTd.style.padding = '0';
+    
     const wrapper = document.createElement('div');
     wrapper.id = `drill-wrapper-${u.id}`;
     wrapper.className = 'drill-down-wrapper';
     wrapper.innerHTML = `<div id="drill-panel-${u.id}" class="drill-down-panel"></div>`;
+    
     drillTd.appendChild(wrapper);
     drillTr.appendChild(drillTd);
     tbody.appendChild(drillTr);
   });
 }
-
 function toggleDrill(id) {
   const drillRow = document.getElementById(`drill-row-${id}`);
   const wrapper = document.getElementById(`drill-wrapper-${id}`);
