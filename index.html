@@ -158,17 +158,14 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    height: 100vh;
   }
 
   /* ──────────── TAB PANEL ──────────── */
   .tab-panel { 
-    display: none; 
     flex-direction: column; 
     flex: 1; 
-  }
-  /* Ép hiển thị flexbox chuẩn cho tab nào đang có class active */
-  .tab-panel.active { 
-    display: flex !important; 
+    width: 100%;
   }
 
   /* ──────────── TAB 1: VTTY ──────────── */
@@ -783,7 +780,7 @@
 <main class="main">
 
   <!-- ─── TAB 1: VTTY ─── -->
-  <div id="tab-vtty" class="tab-panel">
+  <div id="tab-vtty" class="tab-panel" style="display: block;">
     <div class="tab1-header">
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Succession Planning</div>
@@ -831,7 +828,7 @@
   </div>
 
   <!-- ─── TAB 2: CHÂN DUNG KẾ NHIỆM ─── -->
-  <div id="tab-chandung" class="tab-panel">
+  <div id="tab-chandung" class="tab-panel" style="display: none;">
     <div class="tab2-header">
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Competency Framework</div>
@@ -1452,20 +1449,26 @@ function toggleDrill(id) {
 }
 
 // ──────────────────────────────────────────
-// TAB SWITCHING
+// TAB SWITCHING — SỬ DỤNG TRỰC TIẾP BLOCK/NONE ĐỂ SỬA LỖI ĐÈ CSS
 // ──────────────────────────────────────────
 function switchTab(tabId, navEl) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  // 1. Ẩn toàn bộ các tab
+  document.getElementById('tab-vtty').style.display = 'none';
+  document.getElementById('tab-chandung').style.display = 'none';
   
+  // 2. Hiện đúng tab được chọn bằng thuộc tính block (bỏ flex ngầm lỗi)
   const targetTab = document.getElementById('tab-' + tabId);
-  if (targetTab) targetTab.classList.add('active');
+  if (targetTab) {
+    targetTab.style.display = 'block';
+  }
+  
+  // 3. Thay đổi trạng thái active ở menu sidebar
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   if (navEl) navEl.classList.add('active');
 }
 
-// INIT — CHẠY ĐỒNG BỘ ĐỂ HIỂN THỊ NGAY LẬP TỨC
+// KHỞI TẠO — Vẽ dữ liệu lên bảng
 renderSummary();
-switchTab('vtty', document.querySelector('.nav-item')); 
 </script>
 </body>
 </html>
