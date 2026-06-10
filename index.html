@@ -23,7 +23,7 @@
     --gold: #b07a10;
     --blue-kpi: #1565c0;
     --red-alert: #c0392b;
-    --sidebar-w: 260px;
+    --sidebar-w: 280px; /* Tăng nhẹ để sidebar thoáng hơn */
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +35,7 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
-    font-size: 14px;
+    font-size: 16px; /* TĂNG SIZE CHỮ CƠ SỞ TỪ 14px LÊN 16px */
   }
 
   /* ──────────── SIDEBAR ──────────── */
@@ -50,65 +50,65 @@
   }
 
   .sidebar-brand {
-    padding: 24px 20px 20px;
+    padding: 26px 22px 22px;
     border-bottom: 1px solid var(--border);
   }
   .brand-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
+    gap: 12px;
+    margin-bottom: 8px;
   }
   .brand-icon {
-    width: 34px; height: 34px;
+    width: 40px; height: 40px;
     background: var(--green-primary);
-    border-radius: 7px;
+    border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 13px; color: #fff; letter-spacing: -0.5px;
+    font-weight: 800; font-size: 15px; color: #fff; letter-spacing: -0.5px;
   }
   .brand-name {
-    font-size: 15px; font-weight: 700; color: var(--text-primary);
+    font-size: 18px; font-weight: 700; color: var(--text-primary);
     letter-spacing: 0.3px;
   }
   .brand-sub {
-    font-size: 10px; color: var(--text-muted); letter-spacing: 1.2px;
+    font-size: 11px; color: var(--text-muted); letter-spacing: 1.2px;
     text-transform: uppercase; margin-top: 2px;
   }
   .brand-year {
     display: inline-block;
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
-    font-size: 10px; font-weight: 600;
-    padding: 2px 8px; border-radius: 4px;
-    margin-top: 8px;
+    font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 4px;
+    margin-top: 10px;
     letter-spacing: 0.8px;
   }
 
   .sidebar-nav {
     flex: 1;
-    padding: 16px 12px;
+    padding: 20px 14px;
     overflow-y: auto;
   }
   .nav-section-label {
-    font-size: 9px; font-weight: 600;
+    font-size: 11px; font-weight: 600;
     color: var(--text-muted);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 0 8px;
-    margin: 16px 0 8px;
+    margin: 18px 0 10px;
   }
   .nav-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
+    gap: 12px;
+    padding: 12px 14px;
     border-radius: 8px;
     cursor: pointer;
     color: var(--text-secondary);
-    font-size: 12.5px;
+    font-size: 15px; /* Tăng size chữ menu */
     font-weight: 500;
     transition: all 0.18s ease;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
     border: 1px solid transparent;
     user-select: none;
   }
@@ -122,7 +122,7 @@
     border-color: rgba(0, 108, 50, 0.3);
   }
   .nav-item .nav-icon {
-    width: 18px; height: 18px;
+    width: 20px; height: 20px;
     opacity: 0.7;
     flex-shrink: 0;
   }
@@ -131,8 +131,8 @@
     margin-left: auto;
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
-    font-size: 10px; font-weight: 600;
-    padding: 1px 7px; border-radius: 10px;
+    font-size: 12px; font-weight: 600;
+    padding: 2px 9px; border-radius: 12px;
   }
   .nav-item.active .nav-badge {
     background: var(--green-primary);
@@ -140,11 +140,11 @@
   }
 
   .sidebar-footer {
-    padding: 16px 20px;
+    padding: 18px 22px;
     border-top: 1px solid var(--border);
   }
   .sidebar-footer-text {
-    font-size: 10px; color: var(--text-muted);
+    font-size: 11px; color: var(--text-muted);
     line-height: 1.5;
   }
   .sidebar-footer-text span {
@@ -169,10 +169,10 @@
   }
 
   /* ──────────── TAB 1: VTTY ──────────── */
-  .tab1-header {
+  .tab1-header, .tab2-header {
     background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%);
     border-bottom: 1px solid var(--border);
-    padding: 28px 36px 24px;
+    padding: 32px 40px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -180,81 +180,78 @@
     position: relative;
     overflow: hidden;
   }
-  .tab1-header::before {
+  .tab1-header::before, .tab2-header::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 2px;
+    height: 3px;
     background: linear-gradient(90deg, var(--green-primary), var(--green-accent), var(--green-primary));
   }
-  .tab1-header::after {
-    content: '';
-    position: absolute;
-    right: -60px; top: -60px;
-    width: 220px; height: 220px;
-    background: radial-gradient(circle, rgba(0,108,50,0.07) 0%, transparent 70%);
-    pointer-events: none;
+  .tab2-header::before {
+    background: linear-gradient(90deg, var(--gold), #f0c060, var(--gold));
   }
-  .header-title-block {}
+  
   .header-eyebrow {
-    font-size: 10px; font-weight: 600;
+    font-size: 12px; font-weight: 600;
     color: var(--green-accent);
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
+  .tab2-header .header-eyebrow { color: var(--gold); }
+  
   .header-title {
-    font-size: 22px; font-weight: 800;
+    font-size: 26px; font-weight: 800; /* Tăng size tiêu đề lớn */
     color: #0d2a18;
     letter-spacing: -0.3px;
-    line-height: 1.2;
+    line-height: 1.3;
   }
   .header-title em {
     font-style: normal;
     color: var(--green-accent);
   }
   .header-subtitle {
-    font-size: 12px; color: var(--text-muted);
-    margin-top: 6px;
+    font-size: 14px; color: var(--text-muted);
+    margin-top: 8px;
   }
 
-  .kpi-card-group { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+  .kpi-card-group { display: flex; gap: 16px; align-items: center; flex-shrink: 0; }
   .kpi-card {
     background: #ffffff;
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 14px 22px;
+    padding: 16px 26px;
     text-align: center;
-    min-width: 120px;
+    min-width: 140px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,108,50,0.08);
+    box-shadow: 0 2px 6px rgba(0,108,50,0.08);
   }
   .kpi-card::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
+    top: 0; left: 0; right: 0; height: 3px;
     background: var(--green-primary);
   }
   .kpi-card.highlight::before { background: var(--gold); }
   .kpi-number {
-    font-size: 34px; font-weight: 800;
+    font-size: 38px; font-weight: 800; /* Tăng số KPI */
     color: var(--green-accent);
     line-height: 1;
     letter-spacing: -1px;
   }
   .kpi-card.highlight .kpi-number { color: var(--gold); }
   .kpi-label {
-    font-size: 10px; font-weight: 600;
+    font-size: 11px; font-weight: 600;
     color: var(--text-muted);
     letter-spacing: 1px;
     text-transform: uppercase;
-    margin-top: 4px;
+    margin-top: 6px;
   }
 
   /* ──────────── CONTENT BODY ──────────── */
   .content-body {
-    padding: 28px 36px;
+    padding: 32px 40px;
     flex: 1;
   }
 
@@ -263,10 +260,10 @@
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
   }
   .section-card-header {
-    padding: 16px 22px;
+    padding: 18px 24px;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -274,32 +271,35 @@
     background: rgba(0,108,50,0.03);
   }
   .section-card-title {
-    font-size: 12px; font-weight: 700;
+    font-size: 14px; font-weight: 700; /* Tăng size */
     color: var(--text-primary);
     letter-spacing: 0.8px;
     text-transform: uppercase;
-    display: flex; align-items: center; gap: 8px;
+    display: flex; align-items: center; gap: 10px;
   }
   .section-card-title::before {
     content: '';
     display: block;
-    width: 3px; height: 14px;
+    width: 4px; height: 16px;
     background: var(--green-accent);
     border-radius: 2px;
   }
+  .score-matrix-title::before {
+    background: var(--gold);
+  }
   .section-hint {
-    font-size: 11px; color: var(--text-muted);
-    display: flex; align-items: center; gap: 5px;
+    font-size: 13px; color: var(--text-muted);
+    display: flex; align-items: center; gap: 6px;
   }
 
-  /* ──────────── SUMMARY TABLE ──────────── */
-  .summary-table {
+  /* ──────────── TABLES ──────────── */
+  .summary-table, .comp-table, .detail-table {
     width: 100%;
     border-collapse: collapse;
   }
-  .summary-table thead th {
-    padding: 11px 18px;
-    font-size: 10px; font-weight: 700;
+  .summary-table thead th, .comp-table thead th, .detail-table thead th {
+    padding: 14px 20px;
+    font-size: 12px; font-weight: 700; /* Tăng size header bảng */
     color: var(--text-muted);
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -308,433 +308,177 @@
     background: rgba(0,108,50,0.05);
   }
   .summary-table thead th:last-child { text-align: center; }
-  .summary-table tbody tr {
+  
+  .summary-table tbody tr, .comp-table tbody tr, .detail-table tbody tr {
     border-bottom: 1px solid var(--border);
-    cursor: pointer;
     transition: background 0.15s ease;
   }
-  .summary-table tbody tr:last-child { border-bottom: none; }
-  .summary-table tbody tr:hover { background: var(--bg-hover); }
-  .summary-table tbody tr.row-open {
-    background: rgba(0,108,50,0.1);
-    border-left: 3px solid var(--green-accent);
-  }
-  .summary-table td {
-    padding: 13px 18px;
-    font-size: 13px;
+  .summary-table tbody tr:hover, .comp-table tbody tr:hover, .detail-table tbody tr:hover { background: var(--bg-hover); }
+  
+  .summary-table td, .comp-table td, .detail-table td {
+    padding: 16px 20px;
+    font-size: 15px; /* Tăng size chữ trong bảng dữ liệu */
     color: var(--text-primary);
     vertical-align: middle;
   }
-  .td-stt {
+  .comp-table td, .detail-table td { vertical-align: top; }
+
+  .td-stt, .ct-stt, .dt-stt {
     color: var(--text-muted);
-    font-size: 12px;
     font-weight: 500;
-    width: 48px;
+    width: 60px;
   }
-  .td-unit {
-    font-weight: 600;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .td-unit .arrow {
-    width: 16px; height: 16px;
-    transition: transform 0.25s ease;
-    opacity: 0.5;
-    color: var(--green-accent);
-  }
-  .row-open .td-unit .arrow { transform: rotate(90deg); opacity: 1; }
-  .td-count {
-    text-align: center;
-  }
+  .td-unit { font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .td-count { text-align: center; }
+  
   .count-badge {
     display: inline-flex;
     align-items: center; justify-content: center;
     background: rgba(0,108,50,0.2);
     color: var(--green-accent);
-    font-size: 13px; font-weight: 700;
-    width: 34px; height: 34px;
+    font-size: 14px; font-weight: 700;
+    width: 38px; height: 38px;
     border-radius: 8px;
-    border: 1px solid rgba(0,144,68,0.25);
-  }
-  .count-badge.zero {
-    background: rgba(0,0,0,0.04);
-    color: var(--text-muted);
-    border-color: var(--border);
   }
 
   /* ──────────── DRILL-DOWN PANEL ──────────── */
-  .drill-down-wrapper {
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
-  }
-  .drill-down-wrapper.open {
-    max-height: 2000px;
-  }
-  .drill-down-panel {
-    border-top: 1px solid var(--border);
-    background: #f5faf7;
-  }
+  .drill-down-wrapper { overflow: hidden; max-height: 0; transition: max-height 0.4s ease; }
+  .drill-down-wrapper.open { max-height: 2000px; }
+  .drill-down-panel { border-top: 1px solid var(--border); background: #f5faf7; }
   .drill-down-header {
-    padding: 12px 22px;
+    padding: 14px 24px;
     background: rgba(0,108,50,0.08);
     border-bottom: 1px solid var(--border);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .drill-label {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--green-accent);
-  }
-  .drill-unit-name {
-    font-size: 12px; font-weight: 600;
-    color: var(--text-primary);
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px;
   }
 
-  .detail-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .detail-table thead th {
-    padding: 10px 16px;
-    font-size: 9.5px; font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0,108,50,0.05);
-  }
-  .detail-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
-  .detail-table tbody tr:hover { background: var(--bg-hover); }
-  .detail-table td {
-    padding: 12px 16px;
-    font-size: 12.5px;
-    color: var(--text-primary);
-    vertical-align: top;
-  }
-  .dt-stt { color: var(--text-muted); font-size: 11px; width: 38px; }
-  .dt-position { font-weight: 600; min-width: 200px; }
-  .dt-personnel { color: #1a5c8a; font-size: 12px; }
-  .dt-level {
-    display: inline-block;
-    border-radius: 5px;
-    padding: 2px 9px;
-    font-size: 11px; font-weight: 700;
-    white-space: nowrap;
-  }
-  .dt-level.cap1 {
-    background: rgba(176,60,16,0.1);
-    color: #b03c10;
-    border: 1px solid rgba(176,60,16,0.3);
-  }
-  .dt-level.cap2 {
-    background: rgba(0,108,50,0.1);
-    color: #006c32;
-    border: 1px solid rgba(0,108,50,0.3);
-  }
-  .dt-level.cap3 {
-    background: rgba(21,101,192,0.1);
-    color: #1565c0;
-    border: 1px solid rgba(21,101,192,0.25);
-  }
-  .dt-level.none {
-    background: rgba(0,0,0,0.04);
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-  }
-  .dt-conclusion {
-    font-size: 11.5px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    max-width: 380px;
-  }
-  .priority-tag {
-    display: inline-flex; align-items: center; gap: 4px;
-    background: rgba(212,168,67,0.12);
-    color: var(--gold);
-    border: 1px solid rgba(212,168,67,0.25);
-    border-radius: 4px;
-    padding: 1px 7px;
-    font-size: 10px; font-weight: 700;
-    margin-bottom: 5px;
-  }
-
-  /* ──────────── TAB 2: KHUNG CHÂN DUNG ──────────── */
-  .tab2-header {
-    background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 28px 36px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-shrink: 0;
-    position: relative; overflow: hidden;
-  }
-  .tab2-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, var(--gold), #f0c060, var(--gold));
-  }
-
+  /* ──────────── TAB 2: KHUNG CHÂN DUNG (SỬA ĐỔI) ──────────── */
   .framework-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 24px;
+    margin-bottom: 24px;
   }
-  .framework-grid.full { grid-template-columns: 1fr; }
 
   .factor-card {
     background: var(--bg-panel);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
   }
   .factor-header {
-    padding: 14px 20px;
+    padding: 18px 24px;
     border-bottom: 1px solid var(--border);
     display: flex; align-items: center; justify-content: space-between;
     background: rgba(0,108,50,0.04);
   }
-  .factor-title-block { display: flex; align-items: center; gap: 10px; }
+  .factor-title-block { display: flex; align-items: center; gap: 12px; }
   .factor-number {
-    width: 26px; height: 26px;
+    width: 32px; height: 32px;
     background: rgba(0,108,50,0.1);
     border: 1px solid rgba(0,108,50,0.3);
     border-radius: 6px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800;
+    font-size: 14px; font-weight: 800;
     color: var(--green-primary);
-    flex-shrink: 0;
   }
   .factor-number.gold {
     background: rgba(212,168,67,0.15);
     border-color: rgba(212,168,67,0.3);
     color: var(--gold);
   }
-  .factor-name {
-    font-size: 12px; font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.3;
-  }
+  .factor-name { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+  
   .factor-weight {
     background: rgba(0,108,50,0.1);
     color: var(--green-primary);
     border: 1px solid rgba(0,108,50,0.25);
     border-radius: 20px;
-    padding: 2px 10px;
-    font-size: 11px; font-weight: 700;
-    white-space: nowrap;
+    padding: 4px 14px;
+    font-size: 14px; font-weight: 700;
   }
   .factor-weight.gold {
     background: rgba(212,168,67,0.12);
     color: var(--gold);
     border-color: rgba(212,168,67,0.25);
   }
-  .factor-body { padding: 0; }
+  .factor-body { padding: 20px 24px; }
+  .factor-desc { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
 
-  .factor-item {
-    display: grid;
-    grid-template-columns: 50px 1fr 60px 80px 80px;
-    gap: 0;
-    border-bottom: 1px solid var(--border);
-    transition: background 0.12s;
-  }
-  .factor-item:last-child { border-bottom: none; }
-  .factor-item:hover { background: var(--bg-hover); }
-  .fi-cell {
-    padding: 11px 14px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    display: flex; align-items: flex-start;
-    border-right: 1px solid var(--border);
-  }
-  .fi-cell:last-child { border-right: none; }
-  .fi-stt { color: var(--text-muted); font-size: 11px; justify-content: center; }
-  .fi-name { flex-direction: column; gap: 3px; }
-  .fi-name strong {
-    font-size: 12px; font-weight: 600;
-    color: var(--text-primary);
-  }
-  .fi-name span {
-    font-size: 11px; color: var(--text-muted);
-    line-height: 1.5;
-  }
-  .fi-def { font-size: 11px; color: var(--text-muted); line-height: 1.55; padding-right: 10px; }
-  .fi-code {
-    font-size: 10px; font-weight: 600;
-    font-family: monospace;
-    color: #4a5a6a;
-    background: rgba(0,108,50,0.08);
-    border-radius: 4px;
-    padding: 2px 6px;
-    white-space: nowrap;
-  }
-  .fi-val {
-    text-align: center; justify-content: center;
-    font-weight: 700; font-size: 13px;
-    color: var(--green-accent);
-  }
-  .fi-std { justify-content: center; font-weight: 700; font-size: 13px; color: var(--gold); }
-
+  /* Grid tỉ trọng rút gọn */
   .score-matrix {
     background: var(--bg-panel);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 20px;
-  }
-  .score-matrix-header {
-    padding: 14px 20px;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0,108,50,0.04);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .score-matrix-title {
-    font-size: 12px; font-weight: 700;
-    color: var(--text-primary);
-    text-transform: uppercase; letter-spacing: 0.8px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .score-matrix-title::before {
-    content: '';
-    display: block;
-    width: 3px; height: 14px;
-    background: var(--gold);
-    border-radius: 2px;
+    margin-bottom: 24px;
   }
   .score-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr; /* Bỏ bớt 1 cột điểm thành phần */
     border-collapse: collapse;
   }
   .sg-header {
-    padding: 10px 16px;
-    font-size: 9.5px; font-weight: 700;
+    padding: 14px 24px;
+    font-size: 12px; font-weight: 700;
     color: var(--text-muted);
     letter-spacing: 1.2px;
     text-transform: uppercase;
     border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
     background: rgba(0,108,50,0.05);
   }
-  .sg-header:last-child { border-right: none; }
   .sg-row-label {
-    padding: 13px 16px;
-    font-size: 12.5px; font-weight: 600;
+    padding: 16px 24px;
+    font-size: 15px; font-weight: 600;
     color: var(--text-primary);
     border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
   }
-  .sg-row-label.total {
-    background: rgba(0,108,50,0.08);
-    color: var(--green-accent);
-    font-size: 13px; font-weight: 800;
-  }
+  .sg-row-label.total { background: rgba(0,108,50,0.06); font-size: 16px; font-weight: 800; color: var(--green-accent); }
   .sg-val {
-    padding: 13px 16px;
-    font-size: 13px;
+    padding: 16px 24px;
+    font-size: 15px; font-weight: 700;
     border-bottom: 1px solid var(--border);
-    border-right: 1px solid var(--border);
     text-align: right;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-variant-numeric: tabular-nums;
-  }
-  .sg-val.hi { color: var(--green-accent); }
-  .sg-val.gold { color: var(--gold); }
-  .sg-val.total {
-    background: rgba(0,108,50,0.08);
     color: var(--green-accent);
-    font-size: 14px; font-weight: 800;
   }
-  .sg-val:last-child { border-right: none; }
-  .sg-row-label:last-child, .sg-val.last { border-bottom: none; }
+  .sg-val.total { background: rgba(0,108,50,0.06); font-size: 16px; font-weight: 800; }
 
-  /* ──────────── COMPETENCY TABLE ──────────── */
-  .competency-section {
-    background: var(--bg-panel);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 20px;
-  }
-  .comp-table { width: 100%; border-collapse: collapse; }
-  .comp-table thead th {
-    padding: 10px 14px;
-    font-size: 9.5px; font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-    background: rgba(0,108,50,0.05);
-  }
-  .comp-table tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.12s;
-  }
-  .comp-table tbody tr:hover { background: var(--bg-hover); }
+  /* Bảng năng lực rút gọn */
   .comp-table tbody tr.section-break td {
-    background: rgba(0,108,50,0.05);
-    padding: 8px 14px;
-    font-size: 10px; font-weight: 700;
+    background: rgba(0,108,50,0.04);
+    padding: 12px 20px;
+    font-size: 13px; font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     border-top: 1px solid var(--border);
   }
-  .comp-table td {
-    padding: 11px 14px;
-    font-size: 12.5px;
-    color: var(--text-secondary);
-    vertical-align: top;
+  .ct-code {
+    font-family: monospace; font-size: 13px; font-weight: 600;
+    color: #4a5a6a; background: rgba(0,108,50,0.07);
+    border-radius: 4px; padding: 2px 6px;
   }
-  .ct-stt { color: var(--text-muted); width: 38px; text-align: center; }
-  .ct-cat {
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-  }
+  .ct-name { font-weight: 600; color: var(--text-primary); font-size: 15px; }
+  .ct-def { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+  .ct-cat { font-size: 12px; font-weight: 700; text-transform: uppercase; }
   .cat-core { color: var(--green-accent); }
   .cat-lead { color: #1565c0; }
-  .ct-code {
-    font-family: monospace;
-    font-size: 11px; font-weight: 600;
-    color: #4a5a6a;
-    background: rgba(0,108,50,0.07);
-    border-radius: 4px;
-    padding: 2px 6px;
-  }
-  .ct-name { font-weight: 600; color: var(--text-primary); }
-  .ct-def { font-size: 11px; line-height: 1.6; color: var(--text-muted); max-width: 360px; }
-  .ct-val {
-    text-align: center;
-    font-weight: 700; font-size: 13px;
-    color: var(--green-accent);
-  }
-  .ct-std {
-    text-align: center;
-    font-weight: 700; font-size: 13px;
-    color: var(--gold);
-  }
-  .comp-total-row td {
-    background: rgba(0,108,50,0.1);
-    border-top: 1px solid rgba(0,144,68,0.3) !important;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
+
+  /* Personnel tags style */
+  .dt-position { font-weight: 600; }
+  .dt-level { display: inline-block; border-radius: 5px; padding: 4px 10px; font-size: 13px; font-weight: 700; }
+  .dt-level.cap2 { background: rgba(0,108,50,0.1); color: #006c32; }
+  .dt-level.none { background: rgba(0,0,0,0.04); color: var(--text-muted); }
 
   /* ──────────── SCROLLBAR ──────────── */
-  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 </style>
 </head>
 <body>
 
-<!-- ═══════════ SIDEBAR ═══════════ -->
 <aside class="sidebar">
   <div class="sidebar-brand">
     <div class="brand-logo">
@@ -776,10 +520,8 @@
   </div>
 </aside>
 
-<!-- ═══════════ MAIN ═══════════ -->
 <main class="main">
 
-  <!-- ─── TAB 1: VTTY ─── -->
   <div id="tab-vtty" class="tab-panel" style="display: block;">
     <div class="tab1-header">
       <div class="header-title-block">
@@ -817,365 +559,227 @@
             <tr>
               <th class="td-stt">STT</th>
               <th>Đơn vị / Khối</th>
-              <th style="text-align:center;width:100px;">Số VTTY</th>
+              <th style="text-align:center;width:120px;">Số VTTY</th>
             </tr>
           </thead>
           <tbody id="summary-body"></tbody>
         </table>
-        <div id="drill-down-container" style="display:none;"></div>
       </div>
     </div>
   </div>
 
-  <!-- ─── TAB 2: CHÂN DUNG KẾ NHIỆM ─── -->
   <div id="tab-chandung" class="tab-panel" style="display: none;">
     <div class="tab2-header">
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Competency Framework</div>
-        <div class="header-title" style="color:var(--text-primary);">Khung <em style="color:var(--gold);">Chân Dung Kế Nhiệm</em><br>Cấp Tập Đoàn</div>
-        <div class="header-subtitle">Tiêu chuẩn đánh giá ứng viên kế cận — Vị trí trọng yếu</div>
+        <div class="header-title">Khung <em>Chân Dung Kế Nhiệm</em><br>Cấp Tập Đoàn</div>
+        <div class="header-subtitle">Tiêu chuẩn cấu trúc tỷ trọng ứng viên kế cận — Vị trí trọng yếu</div>
       </div>
       <div class="kpi-card-group">
-        <div class="kpi-card">
-          <div class="kpi-number" style="color:var(--gold);">36</div>
-          <div class="kpi-label">Tổng điểm NL</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-number">4</div>
+        <div class="kpi-card" style="border-color: var(--gold);">
+          <div class="kpi-number" style="color:var(--gold);">4</div>
           <div class="kpi-label">Nhóm yếu tố</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-number">12</div>
-          <div class="kpi-label">Năng lực</div>
+          <div class="kpi-number" style="color: var(--green-primary);">12</div>
+          <div class="kpi-label">Năng lực cốt lõi</div>
         </div>
       </div>
     </div>
 
     <div class="content-body">
 
-      <!-- Score Matrix -->
       <div class="score-matrix">
         <div class="score-matrix-header">
-          <div class="score-matrix-title">Tổng hợp hệ điểm chân dung kế nhiệm</div>
+          <div class="score-matrix-title score-matrix-title">Tổng hợp tỷ trọng bộ khung chân dung</div>
         </div>
         <div class="score-grid">
-          <div class="sg-header">Nhóm yếu tố</div>
-          <div class="sg-header" style="text-align:right;">Tỷ trọng</div>
-          <div class="sg-header" style="text-align:right;">Điểm thành phần</div>
+          <div class="sg-header">Nhóm yếu tố thành phần</div>
+          <div class="sg-header" style="text-align:right;">Tỷ trọng phân bổ</div>
 
-          <div class="sg-row-label">1. Hiệu suất</div>
+          <div class="sg-row-label">1. Hiệu suất (Performance)</div>
           <div class="sg-val">20%</div>
-          <div class="sg-val hi">8</div>
         
-          <div class="sg-row-label">2. Gắn kết</div>
+          <div class="sg-row-label">2. Gắn kết (Engagement)</div>
           <div class="sg-val">20%</div>
-          <div class="sg-val hi">6</div>
 
-          <div class="sg-row-label">3. Tiềm năng</div>
+          <div class="sg-row-label">3. Tiềm năng (Potential)</div>
           <div class="sg-val">20%</div>
-          <div class="sg-val hi">6</div>
 
-          <div class="sg-row-label">4. Năng lực</div>
+          <div class="sg-row-label">4. Năng lực (Competency)</div>
           <div class="sg-val">40%</div>
-          <div class="sg-val hi">36</div>
 
-          <div class="sg-row-label total">TỔNG</div>
+          <div class="sg-row-label total">TỔNG CỘNG HOÀN THÀNH</div>
           <div class="sg-val total">100%</div>
-          <div class="sg-val total">56</div>
         </div>
       </div>
 
-      <!-- 4 Factor Cards in 2x2 -->
       <div class="framework-grid">
-        <!-- Factor 1: Hiệu suất -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">1</div>
-              <div>
-                <div class="factor-name">Nhóm Yếu Tố Hiệu Suất</div>
-                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">Performance Factors</div>
-              </div>
+              <div class="factor-name">Nhóm Yếu Tố Hiệu Suất</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-item" style="display:block;padding:14px 18px;">
-              <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-                Mức độ hoàn thành và tạo ra kết quả công việc trong vai trò hiện tại — chất lượng thực thi, khả năng đạt mục tiêu và giá trị đóng góp đối với đơn vị.
-              </div>
-              <div style="display:flex;gap:24px;">
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">2</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">MĐQT</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">4</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Cấp độ HV</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--gold);">8</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Tiêu chuẩn</div>
-                </div>
-              </div>
+            <div class="factor-desc">
+              Mức độ hoàn thành và tạo ra kết quả công việc trong vai trò hiện tại — đánh giá qua chất lượng thực thi, khả năng đạt mục tiêu KPIs chiến lược và giá trị đóng góp trực tiếp đối với tổ chức.
             </div>
           </div>
         </div>
 
-        <!-- Factor 2: Gắn kết -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">2</div>
-              <div>
-                <div class="factor-name">Nhóm Yếu Tố Gắn Kết</div>
-                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">Engagement Factors</div>
-              </div>
+              <div class="factor-name">Nhóm Yếu Tố Gắn Kết</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-item" style="display:block;padding:14px 18px;">
-              <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-                Mức độ cá nhân mong muốn gắn bó, phát triển lâu dài và sẵn sàng đảm nhận các vai trò có trách nhiệm cao hơn — cam kết gắn bó, gắn kết vai trò, phù hợp văn hóa.
-              </div>
-              <div style="display:flex;gap:24px;">
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">2</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">MĐQT</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">3</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Cấp độ HV</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--gold);">6</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Tiêu chuẩn</div>
-                </div>
-              </div>
+            <div class="factor-desc">
+              Mức độ mong muốn gắn bó lâu dài và sẵn sàng đảm nhận các vai trò trách nhiệm cao hơn — thể hiện qua cam kết đồng hành, sự gắn kết vai trò và mức độ phù hợp với giá trị văn hóa BIM Group.
             </div>
           </div>
         </div>
 
-        <!-- Factor 3: Tiềm năng -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">3</div>
-              <div>
-                <div class="factor-name">Nhóm Yếu Tố Tiềm Năng</div>
-                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">Potential Factors</div>
-              </div>
+              <div class="factor-name">Nhóm Yếu Tố Tiềm Năng</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-item" style="display:block;padding:14px 18px;">
-              <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-                Khả năng học hỏi, thích nghi và phát triển nhanh để đảm nhận hiệu quả các vai trò có mức độ trách nhiệm cao hơn — tư duy, đổi mới, con người, động lực.
-              </div>
-              <div style="display:flex;gap:24px;">
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">2</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">MĐQT</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--green-accent);">3</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Cấp độ HV</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--gold);">6</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Tiêu chuẩn</div>
-                </div>
-              </div>
+            <div class="factor-desc">
+              Khả năng học hỏi một cách nhanh chóng (Learning Agility), nhạy bén thích nghi với sự thay đổi mở rộng và tư duy đổi mới linh hoạt để quản trị hiệu quả các bài toán phức tạp hơn trong tương lai.
             </div>
           </div>
         </div>
 
-        <!-- Factor 4: summary mini -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number gold">4</div>
-              <div>
-                <div class="factor-name">Nhóm Yếu Tố Năng Lực</div>
-                <div style="font-size:10px;color:var(--text-muted);margin-top:2px;">Competency Factors</div>
-              </div>
+              <div class="factor-name">Nhóm Yếu Tố Năng Lực</div>
             </div>
             <div class="factor-weight gold">40%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-item" style="display:block;padding:14px 18px;">
-              <div style="font-size:11px;color:var(--text-muted);line-height:1.6;margin-bottom:10px;">
-                12 năng lực cốt lõi và lãnh đạo — được đánh giá qua mức độ quan trọng (MĐQT) và cấp độ hành vi kỳ vọng, tạo thành tiêu chuẩn chân dung kế nhiệm.
-              </div>
-              <div style="display:flex;gap:24px;flex-wrap:wrap;">
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:#5ba3f5;">5</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Cốt lõi</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:#5ba3f5;">7</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Lãnh đạo</div>
-                </div>
-                <div style="text-align:center;">
-                  <div style="font-size:22px;font-weight:800;color:var(--gold);">36</div>
-                  <div style="font-size:9px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;">Tổng điểm</div>
-                </div>
-              </div>
+            <div class="factor-desc">
+              Bộ tiêu chuẩn gồm 12 năng lực cốt lõi và năng lực lãnh đạo chiến lược, được định nghĩa hành vi rõ ràng làm thước đo căn cứ cho lộ trình phát triển của thế hệ kế cận.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Competency Full Table -->
       <div class="competency-section">
         <div class="section-card-header">
-          <div class="section-card-title" style="color:var(--gold);">Chi tiết 12 Năng lực — Nhóm 4 (Tỷ trọng 40%)</div>
+          <div class="section-card-title" style="color:var(--gold);">Chi tiết hệ thống 12 Năng lực (Trọng số 40%)</div>
         </div>
         <table class="comp-table">
           <thead>
             <tr>
-              <th class="ct-stt" style="text-align:center;">STT</th>
-              <th style="width:100px;">Hệ năng lực</th>
-              <th style="width:70px;">Mã số</th>
-              <th>Tên năng lực</th>
-              <th>Định nghĩa</th>
-              <th style="text-align:center;width:70px;">MĐQT</th>
-              <th style="text-align:center;width:90px;">Cấp độ HV</th>
-              <th style="text-align:center;width:80px;">Tiêu chuẩn</th>
+              <th class="ct-stt" style="text-align:center; width: 70px;">STT</th>
+              <th style="width:140px;">Hệ năng lực</th>
+              <th style="width:100px;">Mã số</th>
+              <th style="width:300px;">Tên năng lực tiêu chuẩn</th>
+              <th>Định nghĩa hành vi kỳ vọng</th>
             </tr>
           </thead>
           <tbody>
             <tr class="section-break">
-              <td colspan="8">Năng lực CỐT LÕI (Core Competencies)</td>
+              <td colspan="5">Năng lực CỐT LÕI (Core Competencies)</td>
             </tr>
             <tr>
-              <td class="ct-stt">1</td>
+              <td class="ct-stt" style="text-align:center;">1</td>
               <td class="ct-cat cat-core">Cốt lõi</td>
               <td><span class="ct-code">CL_01</span></td>
-              <td class="ct-name">Chính trực và tuân thủ<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Integrity & Ethics</span></td>
-              <td class="ct-def">Hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ nguyên tắc ngay cả khi không có giám sát.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Chính trực và tuân thủ<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Integrity & Ethics</span></td>
+              <td class="ct-def">Hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ nghiêm túc các nguyên tắc vận hành ngay cả khi không có giám sát.</td>
             </tr>
             <tr>
-              <td class="ct-stt">2</td>
+              <td class="ct-stt" style="text-align:center;">2</td>
               <td class="ct-cat cat-core">Cốt lõi</td>
               <td><span class="ct-code">CL_02</span></td>
-              <td class="ct-name">Nhân văn & tôn trọng con người<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Human-Centered Leadership</span></td>
-              <td class="ct-def">Thấu hiểu, tôn trọng và quan tâm đến con người; lắng nghe các góc nhìn khác nhau và cân nhắc tác động của quyết định đối với các bên liên quan.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Nhân văn & tôn trọng con người<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Human-Centered Leadership</span></td>
+              <td class="ct-def">Thấu hiểu, tôn trọng và thực sự quan tâm đến lộ trình của con người; biết lắng nghe các góc nhìn đa chiều và cân nhắc toàn diện tác động của quyết định.</td>
             </tr>
             <tr>
-              <td class="ct-stt">3</td>
+              <td class="ct-stt" style="text-align:center;">3</td>
               <td class="ct-cat cat-core">Cốt lõi</td>
               <td><span class="ct-code">CL_03</span></td>
-              <td class="ct-name">Hướng đến kết quả & trách nhiệm<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Result Orientation & Ownership</span></td>
-              <td class="ct-def">Tập trung vào mục tiêu; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, chịu trách nhiệm với kết quả ngay cả trong điều kiện áp lực.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Hướng đến kết quả & trách nhiệm<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Result Orientation & Ownership</span></td>
+              <td class="ct-def">Tập trung cao độ vào mục tiêu chung; chủ động thực thi, kiên trì theo đuổi cam kết tới cùng và chịu trách nhiệm tối cao với kết quả dưới áp lực lớn.</td>
             </tr>
             <tr>
-              <td class="ct-stt">4</td>
+              <td class="ct-stt" style="text-align:center;">4</td>
               <td class="ct-cat cat-core">Cốt lõi</td>
               <td><span class="ct-code">CL_04</span></td>
-              <td class="ct-name">Học hỏi và thích ứng<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Learning Agility & Adaptability</span></td>
-              <td class="ct-def">Chủ động học hỏi từ trải nghiệm và phản hồi; nhanh chóng thích nghi với thay đổi và linh hoạt điều chỉnh cách tiếp cận để duy trì hiệu quả.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Học hỏi và thích ứng<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Learning Agility & Adaptability</span></td>
+              <td class="ct-def">Chủ động đúc rút bài học từ trải nghiệm thực tế và phản hồi; nhanh chóng làm chủ các mô hình mới và linh hoạt điều chỉnh cách tiếp cận để tối ưu hiệu quả.</td>
             </tr>
             <tr>
-              <td class="ct-stt">5</td>
+              <td class="ct-stt" style="text-align:center;">5</td>
               <td class="ct-cat cat-core">Cốt lõi</td>
               <td><span class="ct-code">CL_05</span></td>
-              <td class="ct-name">Đổi mới sáng tạo<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Innovation</span></td>
-              <td class="ct-def">Chủ động tìm kiếm, đề xuất và áp dụng ý tưởng mới nhằm nâng cao hiệu quả và tạo giá trị; thúc đẩy tư duy đổi mới và cải tiến liên tục.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Đổi mới sáng tạo<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Innovation</span></td>
+              <td class="ct-def">Chủ động nghiên cứu, đề xuất đột phá và áp dụng thành công các ý tưởng mới cải tiến quy trình, mang lại giá trị gia tăng thực tế cao cho hệ thống.</td>
             </tr>
             <tr class="section-break">
-              <td colspan="8">Năng lực LÃNH ĐẠO (Leadership Competencies)</td>
+              <td colspan="5">Năng lực LÃNH ĐẠO (Leadership Competencies)</td>
             </tr>
             <tr>
-              <td class="ct-stt">6</td>
+              <td class="ct-stt" style="text-align:center;">6</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_01</span></td>
-              <td class="ct-name">Tư duy & định hướng chiến lược<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Strategic Thinking & Direction</span></td>
-              <td class="ct-def">Nhìn nhận xu hướng và cơ hội tác động đến tổ chức; xác định định hướng phát triển phù hợp, đưa ra lựa chọn chiến lược tạo lợi thế cạnh tranh bền vững.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Tư duy & định hướng chiến lược<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Strategic Thinking & Direction</span></td>
+              <td class="ct-def">Nhìn nhận bức tranh rộng lớn, dự báo xu hướng và đón đầu cơ hội kinh doanh tổ chức; hoạch định lộ trình dài hạn tạo dựng lợi thế cạnh tranh bền vững.</td>
             </tr>
             <tr>
-              <td class="ct-stt">7</td>
+              <td class="ct-stt" style="text-align:center;">7</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_02</span></td>
-              <td class="ct-name">Tư duy hệ thống<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Systems Thinking</span></td>
-              <td class="ct-def">Nhìn nhận tổ chức dưới góc độ tổng thể; hiểu mối liên hệ và tác động qua lại giữa các thành phần; đưa ra quyết định tối ưu cho toàn hệ thống.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Tư duy hệ thống<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Systems Thinking</span></td>
+              <td class="ct-def">Nhìn nhận tổ chức dưới góc độ tổng thể đa chiều; phân tích sâu chuỗi liên kết tác động qua lại giữa các khối ban ngành nhằm đưa ra giải pháp tối ưu cho toàn bộ tập đoàn.</td>
             </tr>
             <tr>
-              <td class="ct-stt">8</td>
+              <td class="ct-stt" style="text-align:center;">8</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_03</span></td>
-              <td class="ct-name">Phân tích & ra quyết định<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Analysis & Decision Making</span></td>
-              <td class="ct-def">Thu thập và phân tích thông tin từ nhiều góc độ để xác định bản chất vấn đề; đưa ra quyết định phù hợp và có căn cứ, lựa chọn giải pháp tối ưu.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Phân tích & ra quyết định<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Analysis & Decision Making</span></td>
+              <td class="ct-def">Thu thập nhanh chóng, xử lý thông tin khách quan để bóc tách bản chất cốt lõi vấn đề; đưa ra những quyết định điều hành dứt khoát, có căn cứ dữ liệu vững chắc.</td>
             </tr>
             <tr>
-              <td class="ct-stt">9</td>
+              <td class="ct-stt" style="text-align:center;">9</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_04</span></td>
-              <td class="ct-name">Thực thi và triển khai<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Execution & Implementation</span></td>
-              <td class="ct-def">Chuyển hóa mục tiêu thành hành động cụ thể; tổ chức nguồn lực, theo dõi tiến độ và xử lý khó khăn phát sinh để đảm bảo hoàn thành cam kết.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Thực thi và triển khai<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Execution & Implementation</span></td>
+              <td class="ct-def">Chuyển hóa sắc bén mục tiêu chiến lược thành kế hoạch hành động cụ thể; phân bổ tối ưu nguồn lực, giám sát chặt chẽ tiến độ và quyết liệt tháo gỡ điểm nghẽn.</td>
             </tr>
             <tr>
-              <td class="ct-stt">10</td>
+              <td class="ct-stt" style="text-align:center;">10</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_05</span></td>
-              <td class="ct-name">Giao tiếp & tạo ảnh hưởng<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Communication & Influence</span></td>
-              <td class="ct-def">Truyền đạt thông tin và ý tưởng rõ ràng, thuyết phục; tạo ảnh hưởng qua uy tín cá nhân và hành động nhất quán để xây dựng sự đồng thuận và hợp tác.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Giao tiếp & tạo ảnh hưởng<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Communication & Influence</span></td>
+              <td class="ct-def">Truyền đạt thông điệp rõ ràng, giàu sức thuyết phục; định hướng tư duy và tạo tầm ảnh hưởng sâu sắc qua uy tín cá nhân để xây dựng sự đồng thuận cao.</td>
             </tr>
             <tr>
-              <td class="ct-stt">11</td>
+              <td class="ct-stt" style="text-align:center;">11</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_06</span></td>
-              <td class="ct-name">Dẫn dắt đội ngũ & phát triển con người<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Leading & Developing People</span></td>
-              <td class="ct-def">Định hướng, dẫn dắt và phát triển đội ngũ qua phân công, huấn luyện, phản hồi và trao quyền; xây dựng môi trường tin cậy để mỗi cá nhân phát huy năng lực.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
+              <td class="ct-name">Dẫn dắt đội ngũ & phát triển con người<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Leading & Developing People</span></td>
+              <td class="ct-def">Định hướng truyền cảm hứng, trao quyền khai phóng năng lực nhân sự qua huấn luyện bài bản; thiết lập môi trường tin cậy cao thúc đẩy tinh thần làm việc xuất sắc.</td>
             </tr>
             <tr>
-              <td class="ct-stt">12</td>
+              <td class="ct-stt" style="text-align:center;">12</td>
               <td class="ct-cat cat-lead">Lãnh đạo</td>
               <td><span class="ct-code">LĐ_07</span></td>
-              <td class="ct-name">Xây dựng mối quan hệ<br><span style="font-size:10px;color:var(--text-muted);font-weight:400;">Relationship Building</span></td>
-              <td class="ct-def">Chủ động xây dựng, duy trì và phát triển mối quan hệ tin cậy với đồng nghiệp, đối tác và các bên liên quan; tăng cường hợp tác và kết nối nguồn lực.</td>
-              <td class="ct-val">2</td>
-              <td class="ct-val">3</td>
-              <td class="ct-std">6</td>
-            </tr>
-            <tr class="comp-total-row">
-              <td colspan="7" style="font-size:13px;font-weight:700;color:var(--text-primary);padding:13px 14px;">Tổng điểm năng lực (MĐQT × Tiêu chuẩn)</td>
-              <td class="ct-std" style="font-size:16px;font-weight:800;">36</td>
+              <td class="ct-name">Xây dựng mối quan hệ<br><span style="font-size:12px;color:var(--text-muted);font-weight:400;">Relationship Building</span></td>
+              <td class="ct-def">Chủ động kết nối, xây dựng chắc chắn mạng lưới liên kết đối tác tin cậy lâu dài cả trong nội bộ lẫn bên ngoài; gia tăng hợp tác sâu rộng tạo nguồn lực tổng thể.</td>
             </tr>
           </tbody>
         </table>
@@ -1397,7 +1001,7 @@ function toggleDrill(id) {
         <div class="drill-label">Chi tiết</div>
         <div class="drill-unit-name">${unit.name}</div>
       </div>
-      <div style="padding:24px 22px;color:var(--text-muted);font-size:13px;">Chưa có dữ liệu chi tiết cho đơn vị này.</div>
+      <div style="padding:24px 22px;color:var(--text-muted);font-size:15px;">Chưa có dữ liệu chi tiết cho đơn vị này.</div>
     `;
   } else {
     let rowsHtml = rows.map((r, i) => {
@@ -1423,15 +1027,15 @@ function toggleDrill(id) {
       <div class="drill-down-header">
         <div class="drill-label">Chi tiết</div>
         <div class="drill-unit-name">${unit.name}</div>
-        <div style="margin-left:auto;font-size:11px;color:var(--text-muted);">${rows.length} vị trí trọng yếu</div>
+        <div style="margin-left:auto;font-size:13px;color:var(--text-muted);">${rows.length} vị trí trọng yếu</div>
       </div>
       <table class="detail-table">
         <thead>
           <tr>
-            <th style="width:38px;">STT</th>
+            <th style="width:50px;">STT</th>
             <th>Vị trí</th>
-            <th style="min-width:180px;">Nhân sự đương nhiệm</th>
-            <th style="width:110px;">Mức độ trọng yếu</th>
+            <th style="min-width:200px;">Nhân sự đương nhiệm</th>
+            <th style="width:130px;">Mức độ trọng yếu</th>
             <th>Kết luận thẩm định</th>
           </tr>
         </thead>
@@ -1449,25 +1053,22 @@ function toggleDrill(id) {
 }
 
 // ──────────────────────────────────────────
-// TAB SWITCHING — SỬ DỤNG TRỰC TIẾP BLOCK/NONE ĐỂ SỬA LỖI ĐÈ CSS
+// TAB SWITCHING — LIÊN KẾT CHUẨN DISPLAY BLOCK/NONE
 // ──────────────────────────────────────────
 function switchTab(tabId, navEl) {
-  // 1. Ẩn toàn bộ các tab
   document.getElementById('tab-vtty').style.display = 'none';
   document.getElementById('tab-chandung').style.display = 'none';
   
-  // 2. Hiện đúng tab được chọn bằng thuộc tính block (bỏ flex ngầm lỗi)
   const targetTab = document.getElementById('tab-' + tabId);
   if (targetTab) {
     targetTab.style.display = 'block';
   }
   
-  // 3. Thay đổi trạng thái active ở menu sidebar
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   if (navEl) navEl.classList.add('active');
 }
 
-// KHỞI TẠO — Vẽ dữ liệu lên bảng
+// KHỞI TẠO ĐỒNG BỘ HIỂN THỊ
 renderSummary();
 </script>
 </body>
