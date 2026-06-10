@@ -161,16 +161,16 @@
   }
 
   /* ──────────── TAB PANEL ──────────── */
-.tab-panel { 
-  display: none; 
-  flex-direction: column; 
-  flex: 1; 
-  height: 100%;
-  overflow-y: auto; /* Giúp cuộn trang mượt mà khi xem danh sách dài */
-}
-.tab-panel.active { 
-  display: flex !important; /* Thêm !important để đảm bảo tab active được hiển thị dạng flex */
-}
+  .tab-panel { 
+    display: none; 
+    flex-direction: column; 
+    flex: 1; 
+  }
+  /* Ép hiển thị flexbox chuẩn cho tab nào đang có class active */
+  .tab-panel.active { 
+    display: flex !important; 
+  }
+
   /* ──────────── TAB 1: VTTY ──────────── */
   .tab1-header {
     background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%);
@@ -1193,7 +1193,7 @@
 // DATA
 // ──────────────────────────────────────────
 const units = [
-  { id: 1,  name: "Ban Pháp chế",                   count: 2 },
+  { id: 1,  name: "Ban Pháp chế",                    count: 2 },
   { id: 2,  name: "Elite Fitness",                   count: 2 },
   { id: 3,  name: "Chi nhánh Quảng Ninh",            count: 1 },
   { id: 4,  name: "Ban Đầu tư",                      count: 3 },
@@ -1335,15 +1335,12 @@ const details = {
 // RENDER SUMMARY TABLE
 // ──────────────────────────────────────────
 function renderSummary() {
-  // Lấy phần tử tbody từ giao diện ra để chèn dữ liệu
   const tbody = document.getElementById('summary-body');
   if (!tbody) return;
   
-  tbody.innerHTML = ''; // Làm sạch dữ liệu cũ nếu có
+  tbody.innerHTML = '';
 
-  // Duyệt qua từng đơn vị trong danh sách để render
   units.forEach((u) => {
-    // 1. Tạo dòng dữ liệu chính cho đơn vị
     const tr = document.createElement('tr');
     tr.id = `row-${u.id}`;
     tr.innerHTML = `
@@ -1359,7 +1356,6 @@ function renderSummary() {
     tr.onclick = () => toggleDrill(u.id);
     tbody.appendChild(tr);
 
-    // 2. Tạo dòng ẩn bên dưới phục vụ cho việc bấm vào sẽ xổ ra chi tiết (Drill-down)
     const drillTr = document.createElement('tr');
     drillTr.id = `drill-row-${u.id}`;
     drillTr.style.display = 'none';
@@ -1378,22 +1374,21 @@ function renderSummary() {
     tbody.appendChild(drillTr);
   });
 }
+
 function toggleDrill(id) {
   const drillRow = document.getElementById(`drill-row-${id}`);
   const wrapper = document.getElementById(`drill-wrapper-${id}`);
   const panel = document.getElementById(`drill-panel-${id}`);
   const row = document.getElementById(`row-${id}`);
 
-if (wrapper.classList.contains('open')) {
+  if (wrapper.classList.contains('open')) {
     row.classList.remove('row-open');
     wrapper.classList.remove('open');
-
     setTimeout(() => {
         drillRow.style.display = 'none';
     }, 400);
-
     return;
-}
+  }
   row.classList.add('row-open');
 
   const unit = units.find(u => u.id === id);
@@ -1449,7 +1444,6 @@ if (wrapper.classList.contains('open')) {
   }
 
   drillRow.style.display = '';
-  // Trigger animation on next frame
   requestAnimationFrame(() => {
     requestAnimationFrame(() => {
       wrapper.classList.add('open');
@@ -1463,12 +1457,15 @@ if (wrapper.classList.contains('open')) {
 function switchTab(tabId, navEl) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('tab-' + tabId).classList.add('active');
-  navEl.classList.add('active');
+  
+  const targetTab = document.getElementById('tab-' + tabId);
+  if (targetTab) targetTab.classList.add('active');
+  if (navEl) navEl.classList.add('active');
 }
 
-// INIT
+// INIT — CHẠY ĐỒNG BỘ ĐỂ HIỂN THỊ NGAY LẬP TỨC
 renderSummary();
+switchTab('vtty', document.querySelector('.nav-item')); 
 </script>
 </body>
 </html>
