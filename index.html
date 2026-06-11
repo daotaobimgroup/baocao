@@ -680,8 +680,12 @@
           <div class="kpi-label">Đơn vị</div>
         </div>
         <div class="kpi-card highlight">
-          <div class="kpi-number">25</div>
-          <div class="kpi-label">Tổng số VTTY</div>
+          <div class="kpi-number" id="total-vtty-kpi"></div>
+          <div class="kpi-label">Tổng VTTY</div>
+        </div>
+        <div class="kpi-card highlight">
+          <div class="kpi-number" id="priority-kpi"></div>
+          <div class="kpi-label">Vị trí ưu tiên</div>
         </div>
       </div>
     </div>
@@ -955,75 +959,94 @@
 // DATA — Book1
 // ═══════════════════════════════════════
 const units = [
-  { id: 1,  name: "Khối xây dựng",                       count: 2 },
-  { id: 2,  name: "Khối TMBĐS",                          count: 4 },
-  { id: 3,  name: "Khối Khách sạn & TMDV",               count: 2 },
-  { id: 4,  name: "Ngành Năng lượng",                    count: 1 },
-  { id: 5,  name: "Công ty Quản lý Bất động sản BIM",    count: 2 },
-  { id: 6,  name: "Elite Fitness",                       count: 1 },
-  { id: 7,  name: "Ban pháp chế",                        count: 1 },
-  { id: 8,  name: "Ban Đầu tư",                          count: 1 },
-  { id: 9,  name: "Ban Marcom",                          count: 2 },
-  { id: 10, name: "Ban Tài chính - Kế toán",             count: 3 },
-  { id: 11, name: "Ban Kiểm soát nội bộ",                count: 1 },
-  { id: 12, name: "Ban PTDA",                            count: 1 },
-  { id: 13, name: "Ban CNTT",                            count: 0 },
-  { id: 14, name: "Ban Nhân sự",                         count: 1 },
-  { id: 15, name: "Truyền thông đối ngoại",              count: 1 },
-  { id: 16, name: "QLDA Đặc Thù",                        count: 0 },
-  { id: 17, name: "Hùng Thắng",                          count: 1 },
-  { id: 18, name: "Chi nhánh Thanh Xuân",                count: 0 },
-  { id: 19, name: "Chi nhánh Quảng Ninh",                count: 1 },
-  { id: 20, name: "Ngành Nông nghiệp - Thực phẩm",       count: 0 },
-  { id: 21, name: "Ban Muối Công nghiệp",                count: 0 }
+  { id: 1, name: "Khối xây dựng",                           count: 4, priority: 2 },
+  { id: 2, name: "Khối TMBĐS",                              count: 7, priority: 4 },
+  { id: 3, name: "Khối Khách sạn & TMDV",                   count: 2, priority: 2 },
+  { id: 4, name: "Ngành Năng lượng",                        count: 4, priority: 1 },
+  { id: 5, name: "Công ty Quản lý Bất động sản BIM",        count: 2, priority: 2 },
+  { id: 6, name: "Elite Fitness",                           count: 2, priority: 1 },
+  { id: 7, name: "Ban pháp chế",                            count: 1, priority: 1 },
+  { id: 8, name: "Ban Đầu tư",                              count: 3, priority: 1 },
+  { id: 9, name: "Ban Marcom",                              count: 6, priority: 2 },
+  { id: 10, name: "Ban Tài chính - Kế toán",                 count: 6, priority: 3 },
+  { id: 11, name: "Ban Kiểm soát nội bộ",                    count: 1, priority: 1 },
+  { id: 12, name: "Ban PTDA",                                count: 2, priority: 1 },
+  { id: 13, name: "Ban CNTT",                                count: 0, priority: 0 },
+  { id: 14, name: "Ban Nhân sự",                             count: 1, priority: 1 },
+  { id: 15, name: "Truyền thông đối ngoại",                  count: 1, priority: 1 },
+  { id: 16, name: "QLDA Đặc Thù",                            count: 1, priority: 0 },
+  { id: 17, name: "Hùng Thắng",                              count: 2, priority: 1 },
+  { id: 18, name: "Chi nhánh Thanh Xuân",                    count: 0, priority: 0 },
+  { id: 19, name: "Chi nhánh Quảng Ninh",                    count: 1, priority: 1 },
+  { id: 20, name: "Ngành Nông nghiệp - Thực phẩm",           count: 0, priority: 0 },
+  { id: 21, name: "Ban Muối Công nghiệp",                    count: 0, priority: 0 }
 ];
 
 // bns1 = Có nhân sự đương nhiệm, bns2 = Ưu tiên band cao hơn
 const details = {
   1: [
-    { pos: "Giám đốc Kiểm soát Thiết kế",   people: "Nguyễn Bá Hùng",        level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true },
-    { pos: "Trưởng ban Quản lý dự án",       people: "Nguyễn Mai Ngọc Long",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true }
+    { pos: "Giám đốc Kiểm soát Thiết kế", people: "Nguyễn Bá Hùng", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true },
+    { pos: "Phó Giám đốc Khối xây dựng phụ trách các Ban quản lý dự án", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Phó Giám đốc Khối xây dựng phụ trách Thương mại", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng ban Quản lý dự án", people: "Nguyễn Mai Ngọc Long", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true }
   ],
   2: [
-    { pos: "Trưởng phòng Nghiên cứu chiến lược",             people: "Ngụy Thị Hải Hà",                               level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Giám đốc kinh doanh khu vực",                    people: "Nguyễn Trọng Nhân<br>Trần Thị Thanh Nhàn",      level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Trưởng phòng Hợp tác kinh doanh và Cho thuê",    people: "Nguyễn Lê Phương Thanh",                        level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Trưởng phòng Bàn giao",                          people: "Nguyễn Tuấn Anh",                               level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Trưởng phòng Nghiên cứu chiến lược", people: "Ngụy Thị Hải Hà", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng phát triển sản phẩm tiện ích", people: "Nguyễn Hồng Lê", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Giám đốc quản trị giao dịch", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
+    { pos: "Giám đốc kinh doanh khu vực", people: "Nguyễn Trọng Nhân; Trần Thị Thanh Nhàn", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng Phát triển Đối tác & Hợp tác Kinh doanh", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng phòng Hợp tác kinh doanh và Cho thuê", people: "Nguyễn Lê Phương Thanh", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng Bàn giao", people: "Nguyễn Tuấn Anh", level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   3: [
-    { pos: "Giám đốc Tài chính và hỗ trợ Vận hành", people: "Trần Hồng Hạnh",    level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Giám đốc Ẩm thực và Vận hành",          people: "Nguyễn Minh Đức",   level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Giám đốc Tài chính và hỗ trợ Vận hành", people: "Trần Hồng Hạnh", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Nguyễn Minh Đức", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   4: [
-    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: true }
+    { pos: "Phó Tổng giám đốc", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: true },
+    { pos: "Trưởng ban KT-TM", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng ban PTDA Năng lượng", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false }
   ],
   5: [
-    { pos: "Giám đốc Vận hành",    people: "Trần Trung Hiếu",                      level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Giám đốc Ban Quản lý", people: "Trịnh Việt Dũng, Vũ Thị Như; O/H",    level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Giám đốc Vận hành", people: "Trần Trung Hiếu", level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Giám đốc Ban Quản lý", people: "Trịnh Việt Dũng, Vũ Thị Như; O/H", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   6: [
+    { pos: "Giám đốc điều hành", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
     { pos: "Phó Giám đốc Vận hành", people: "Nguyễn Văn Quý", level: "Cấp 3/ Priority 3", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   7: [
     { pos: "Trưởng phòng Pháp lý", people: "(1) Đinh Thị Kim Ngân<br>(2) Nguyễn Hồng Hà", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   8: [
-    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng nghiên cứu chiến lược", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Phó Ban đầu tư", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false }
   ],
   9: [
-    { pos: "Trưởng phòng MKT BĐS",                    people: "Vũ Thị Thu Trang",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
-    { pos: "Trưởng phòng Quản lý Sự kiện và Vận hành", people: "Nguyễn Thị Nhung",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Trưởng phòng MKT BĐS", people: "Vũ Thị Thu Trang", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng Quản lý Thương hiệu", people: "Nguyễn Thùy Dung", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false },
+    { pos: "Giám đốc Sáng tạo", people: "Phạm Minh Khuyến", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng phòng Digital Marketing", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng phòng Quản lý Sự kiện và Vận hành", people: "Nguyễn Thị Nhung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false },
+    { pos: "Trưởng phòng Quản trị quan hệ Khách hàng", people: "", level: "Cấp 1/ Priority 1", conclusion: "", bns1: false, bns2: false }
   ],
   10: [
-    { pos: "Phó ban Tài chính",              people: "(1) Trần Thị Hồng Vân<br>(2) Hoàng Thu Trang",        level: "",                  conclusion: "Ưu tiên", bns1: true, bns2: true },
-    { pos: "Trưởng Ban Kế Toán",             people: "Nguyễn Hải Hà",                                       level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true },
-    { pos: "Trưởng Phòng Kế toán vận hành", people: "(1) Nguyễn Trọng Huyên<br>(2) Bùi Thị Tuyết Nhung",   level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
+    { pos: "Trưởng phòng nguồn vốn trong nước", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng phòng bảo hiểm", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Phó ban Tài chính", people: "(1) Trần Thị Hồng Vân<br>(2) Hoàng Thu Trang", level: "", conclusion: "Ưu tiên", bns1: true, bns2: true },
+    { pos: "Trưởng Ban Kế Toán", people: "Nguyễn Hải Hà", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true },
+    { pos: "Trưởng Phòng Kế toán tập đoàn", people: "(1) Mai Bá Hoàng<br>(2) Khổng Châu Anh", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
+    { pos: "Trưởng Phòng Kế toán vận hành", people: "(1) Nguyễn Trọng Huyên<br>(2) Bùi Thị Tuyết Nhung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   11: [
     { pos: "Trưởng phòng kiểm soát nội bộ", people: "Lê Tiến Lưu", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   12: [
-    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true }
+    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true },
+    { pos: "Trưởng phòng PTDA", people: "Hà Minh Tiến, Bùi Quốc Trung, Đỗ Quang Huy", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false }
   ],
   13: [],
   14: [
@@ -1032,8 +1055,11 @@ const details = {
   15: [
     { pos: "Giám đốc Truyền thông đối ngoại", people: "Phạm Thị Lý", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: true }
   ],
-  16: [],
+  16: [
+    { pos: "Trưởng phòng QLDA Đặc Thù", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false }
+  ],
   17: [
+    { pos: "Giám đốc công ty cổ phần XD Hùng Thắng", people: "", level: "Cấp 2/ Priority 2", conclusion: "", bns1: false, bns2: false },
     { pos: "Phó Giám đốc phụ trách thi công", people: "Bùi Viết Sâm", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên", bns1: true, bns2: false }
   ],
   18: [],
@@ -1174,8 +1200,12 @@ function switchTab(tabId, navEl) {
 renderSummary();
 
 const totalUnits    = units.length;
-const unitsWithVTTY = units.filter(u => u.count > 0).length;
-document.getElementById('unit-kpi').textContent = `${unitsWithVTTY}/${totalUnits}`;
+const unitsWithPriority = units.filter(u => u.priority > 0).length;
+const totalVTTY     = units.reduce((sum, u) => sum + u.count, 0);
+const totalPriority = units.reduce((sum, u) => sum + u.priority, 0);
+document.getElementById('unit-kpi').textContent = `${unitsWithPriority}/${totalUnits}`;
+document.getElementById('total-vtty-kpi').textContent = totalVTTY;
+document.getElementById('priority-kpi').textContent = totalPriority;
 </script>
 </body>
 </html>
