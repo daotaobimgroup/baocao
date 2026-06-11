@@ -460,6 +460,12 @@
     line-height: 1.6;
     max-width: 550px;
   }
+  .dt-conclusion-bns {
+    max-width: 160px;
+    width: 160px;
+    text-align: center;
+  }
+  .dt-conclusion-bns .priority-tag { margin-bottom: 0; }
   .priority-tag {
     display: inline-flex; align-items: center; gap: 4px;
     background: rgba(212,168,67,0.12);
@@ -501,6 +507,7 @@
   .custom-big-text-tab1 .detail-table .dt-personnel { font-size: 15px; }
   .custom-big-text-tab1 .detail-table .dt-level { font-size: 13px; padding: 3px 10px; }
   .custom-big-text-tab1 .detail-table .dt-conclusion { font-size: 15px; max-width: 650px; }
+  .custom-big-text-tab1 .detail-table .dt-conclusion-bns { max-width: 180px; width: 180px; }
   .custom-big-text-tab1 .detail-table .priority-tag { font-size: 11px; }
   .custom-big-text-tab1 .detail-table .dt-bns-check { font-size: 18px; }
 
@@ -866,7 +873,6 @@
             <tr>
               <th style="width:50px; text-align:center;">STT</th>
               <th style="width:160px;">Hệ năng lực</th>
-              <th style="width:100px;">Mã số</th>
               <th style="width:280px;">Tên năng lực</th>
               <th>Định nghĩa năng lực = Kỳ vọng về năng lực đó</th>
             </tr>
@@ -876,31 +882,26 @@
             <tr>
               <td style="text-align:center;">1</td>
               <td class="ct-cat cat-core" rowspan="5" style="vertical-align:middle;">NĂNG LỰC CỐT LÕI</td>
-              <td><span class="ct-code">CL_01</span></td>
               <td class="ct-name">Chính trực và tuân thủ <br>(Integrity &amp; Ethics)</td>
               <td class="ct-def">Là khả năng hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ các nguyên tắc, quy định và chuẩn mực nghề nghiệp ngay cả khi không có giám sát. Đồng thời đề cao giá trị thực chất, không chạy theo hình thức và không đánh đổi nguyên tắc vì lợi ích ngắn hạn hoặc hình thức bề ngoài.</td>
             </tr>
             <tr>
               <td style="text-align:center;">2</td>
-              <td><span class="ct-code">CL_02</span></td>
               <td class="ct-name">Nhân văn và tôn trọng con người <br>(Human-Centered Leadership)</td>
               <td class="ct-def">Là khả năng đặt con người làm trung tâm trong quá trình lãnh đạo, ra quyết định và triển khai công việc; thấu hiểu, tôn trọng, đối xử công bằng và hành xử có trách nhiệm với người khác. Biết cân bằng giữa mục tiêu kinh doanh và giá trị con người, đồng thời tạo môi trường làm việc tích cực, phát triển và gắn kết, nơi mỗi cá nhân được lắng nghe, ghi nhận, phát huy năng lực và cùng đóng góp vào sự phát triển bền vững của tổ chức, khách hàng và cộng đồng.</td>
             </tr>
             <tr>
               <td style="text-align:center;">3</td>
-              <td><span class="ct-code">CL_03</span></td>
               <td class="ct-name">Hướng đến kết quả và trách nhiệm <br>(Result Orientation &amp; Ownership)</td>
               <td class="ct-def">Là khả năng tập trung vào mục tiêu và kết quả công việc; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, đồng thời chịu trách nhiệm đối với kết quả của bản thân và đội ngũ. Thực hiện công việc một cách cẩn trọng, có chất lượng và duy trì hiệu quả thực thi ngay cả trong điều kiện áp lực hoặc khó khăn để đảm bảo hoàn thành các mục tiêu đã cam kết.</td>
             </tr>
             <tr>
               <td style="text-align:center;">4</td>
-              <td><span class="ct-code">CL_04</span></td>
               <td class="ct-name">Học hỏi và thích ứng <br>(Learning Agility &amp; Adaptability)</td>
               <td class="ct-def">Là khả năng chủ động học hỏi từ trải nghiệm, phản hồi và các tình huống mới; nhanh chóng thích nghi với thay đổi và linh hoạt điều chỉnh cách tiếp cận nhằm duy trì hiệu quả công việc và đáp ứng yêu cầu phát triển trong môi trường luôn biến động.</td>
             </tr>
             <tr>
               <td style="text-align:center;">5</td>
-              <td><span class="ct-code">CL_05</span></td>
               <td class="ct-name">Đổi mới sáng tạo <br>(Innovation)</td>
               <td class="ct-def">Là khả năng chủ động tìm kiếm, đề xuất và áp dụng các ý tưởng, phương pháp hoặc cách tiếp cận mới nhằm nâng cao hiệu quả, tạo giá trị và giải quyết các thách thức của tổ chức; đồng thời thúc đẩy tư duy đổi mới và cải tiến liên tục trong công việc.</td>
             </tr>
@@ -908,43 +909,36 @@
             <tr>
               <td style="text-align:center;">6</td>
               <td class="ct-cat cat-lead" rowspan="7" style="vertical-align:middle;">NĂNG LỰC LÃNH ĐẠO</td>
-              <td><span class="ct-code">LĐ_01</span></td>
               <td class="ct-name">Tư duy và định hướng chiến lược <br>(Strategic Thinking &amp; Direction)</td>
               <td class="ct-def">Là khả năng nhìn nhận xu hướng, cơ hội, thách thức và các thay đổi có thể tác động đến tổ chức trong ngắn hạn, trung hạn và dài hạn; từ đó xác định định hướng phát triển phù hợp, đưa ra các lựa chọn chiến lược, chủ động dẫn dắt thay đổi và dám theo đuổi các hướng đi mới nhằm tạo lợi thế cạnh tranh và giá trị bền vững cho tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">7</td>
-              <td><span class="ct-code">LĐ_02</span></td>
               <td class="ct-name">Tư duy hệ thống <br>(Systems Thinking)</td>
               <td class="ct-def">Là khả năng nhìn nhận tổ chức, dự án hoặc vấn đề dưới góc độ tổng thể; hiểu được mối liên hệ, sự phụ thuộc và tác động qua lại giữa các thành phần trong hệ thống. Từ đó nhận diện nguyên nhân cốt lõi, dự báo các tác động dây chuyền và đưa ra các quyết định hoặc giải pháp tối ưu cho toàn hệ thống thay vì chỉ giải quyết các vấn đề riêng lẻ.</td>
             </tr>
             <tr>
               <td style="text-align:center;">8</td>
-              <td><span class="ct-code">LĐ_03</span></td>
               <td class="ct-name">Phân tích và ra quyết định <br>(Analysis &amp; Decision Making)</td>
               <td class="ct-def">Là khả năng thu thập, phân tích và đánh giá thông tin từ nhiều góc độ để xác định đúng bản chất vấn đề, nguyên nhân và mức độ tác động; từ đó đưa ra nhận định, quyết định phù hợp và có căn cứ, đồng thời chủ động phản biện và kiểm chứng các giả định nhằm lựa chọn giải pháp tối ưu cho mục tiêu chung của tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">9</td>
-              <td><span class="ct-code">LĐ_04</span></td>
               <td class="ct-name">Thực thi và triển khai <br>(Execution &amp; Implementation)</td>
               <td class="ct-def">Là khả năng chuyển hóa mục tiêu, kế hoạch và định hướng thành các hành động cụ thể; tổ chức và huy động nguồn lực phù hợp, theo dõi tiến độ, xử lý các khó khăn phát sinh và thúc đẩy việc thực hiện nhằm đảm bảo hoàn thành các mục tiêu và cam kết đã đề ra.</td>
             </tr>
             <tr>
               <td style="text-align:center;">10</td>
-              <td><span class="ct-code">LĐ_05</span></td>
               <td class="ct-name">Giao tiếp và tạo ảnh hưởng <br>(Communication &amp; Influence)</td>
               <td class="ct-def">Là khả năng truyền đạt thông tin, ý tưởng một cách rõ ràng, thuyết phục và phù hợp với từng đối tượng; đồng thời tạo ảnh hưởng thông qua uy tín cá nhân, lập luận có căn cứ và hành động nhất quán để xây dựng sự đồng thuận, thúc đẩy hợp tác và truyền cảm hứng cho người khác cùng hướng tới mục tiêu chung của tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">11</td>
-              <td><span class="ct-code">LĐ_06</span></td>
               <td class="ct-name">Dẫn dắt đội ngũ và phát triển con người <br>(Leading &amp; Developing People)</td>
               <td class="ct-def">Là khả năng định hướng, dẫn dắt và phát triển đội ngũ nhằm đạt được mục tiêu chung; thông qua việc phân công phù hợp, huấn luyện, phản hồi, trao quyền và tạo động lực cho nhân viên. Đồng thời xây dựng môi trường làm việc tin cậy, tôn trọng và công bằng để mỗi cá nhân phát huy năng lực và phát triển bền vững.</td>
             </tr>
             <tr>
               <td style="text-align:center;">12</td>
-              <td><span class="ct-code">LĐ_07</span></td>
               <td class="ct-name">Xây dựng mối quan hệ <br>(Relationship Building)</td>
               <td class="ct-def">Là khả năng chủ động xây dựng, duy trì và phát triển các mối quan hệ tin cậy với đồng nghiệp, đối tác và các bên liên quan; từ đó tăng cường sự hợp tác, kết nối nguồn lực và hỗ trợ việc thực hiện các mục tiêu chung của tổ chức.</td>
             </tr>
@@ -1131,7 +1125,7 @@ function toggleDrill(id) {
         <td><span class="dt-level ${lvlClass}">${lvlDisplay}</span></td>
         <td class="dt-bns-check">${r.bns1 ? '<span class="check-x">✕</span>' : ''}</td>
         <td class="dt-bns-check">${r.bns2 ? '<span class="check-x">✕</span>' : ''}</td>
-        <td class="dt-conclusion">
+        <td class="dt-conclusion dt-conclusion-bns">
           ${r.conclusion ? '<div class="priority-tag">⭐ ' + r.conclusion + '</div>' : ''}
         </td>
       </tr>`;
@@ -1150,12 +1144,12 @@ function toggleDrill(id) {
             <th rowspan="2" style="vertical-align:middle;">Vị trí/ Critical Position</th>
             <th rowspan="2" style="min-width:180px; vertical-align:middle;">Nhân sự đương nhiệm</th>
             <th rowspan="2" style="width:160px; vertical-align:middle;">Mức độ trọng yếu</th>
-            <th colspan="2" style="text-align:center; background:rgba(176,122,16,0.08); color:var(--gold);">BNS thẩm định</th>
-            <th rowspan="2" style="vertical-align:middle;">Kết luận thẩm định</th>
+            <th colspan="3" style="text-align:center; background:rgba(176,122,16,0.08); color:var(--gold);">BNS thẩm định</th>
           </tr>
           <tr class="th-sub">
             <th style="width:110px; text-align:center; background:rgba(176,122,16,0.05);">Có nhân sự đương nhiệm</th>
             <th style="width:110px; text-align:center; background:rgba(176,122,16,0.05);">Ưu tiên band cao hơn</th>
+            <th style="width:160px; text-align:center; background:rgba(176,122,16,0.05);">Kết luận thẩm định</th>
           </tr>
         </thead>
         <tbody>${rowsHtml}</tbody>
