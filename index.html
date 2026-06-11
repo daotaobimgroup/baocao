@@ -515,6 +515,10 @@
   .custom-big-text .comp-table .ct-code { background: rgba(0,0,0,0.05); padding: 3px 8px; border-radius: 4px; font-family: monospace; font-size: 13px; font-weight: 600; color: var(--text-primary); }
   .custom-big-text .comp-table .ct-name { font-size: 16px; font-weight: 700; }
   .custom-big-text .comp-table .ct-def { font-size: 15px; line-height: 1.6; color: var(--text-secondary); }
+
+  /* Score columns for Tab 2 */
+  .custom-big-text .comp-table .ct-score { text-align: center; font-weight: 700; font-size: 15px; color: var(--green-accent); width: 80px; }
+  .custom-big-text .comp-table .ct-score-head { text-align: center; width: 80px; }
 </style>
 </head>
 <body>
@@ -542,7 +546,7 @@
         <rect x="14" y="14" width="7" height="7" rx="1"/>
       </svg>
       Vị trí trọng yếu
-      <span class="nav-badge">48</span>
+      <span class="nav-badge">25</span>
     </div>
 
     <div class="nav-item" onclick="switchTab('chandung', this)">
@@ -563,25 +567,22 @@
 
 <main class="main">
 
+  <!-- ═══════════════════ TAB 1: VTTY ═══════════════════ -->
   <div id="tab-vtty" class="tab-panel active custom-big-text-tab1">
     <div class="tab1-header">
       <div class="header-title-block">
         <div class="header-eyebrow">BIM Future Leaders 2026 — Succession Planning</div>
-        <div class="header-title">Danh sách <em>Vị Trí Trọng Yếu</em><br>Toàn Tập Đoàn</div>
+        <div class="header-title">Danh sách <em>Vị Trí Trọng Yếu</em>Toàn Tập Đoàn</div>
         <div class="header-subtitle">Kết quả thẩm định & phân loại</div>
       </div>
       <div class="kpi-card-group">
-        <div class="kpi-card highlight">
-          <div class="kpi-number">48</div>
-          <div class="kpi-label">Tổng số VTTY</div>
-        </div>
         <div class="kpi-card">
           <div class="kpi-number" id="unit-kpi"></div>
           <div class="kpi-label">Đơn vị</div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-number">27</div>
-          <div class="kpi-label">Ưu tiên cao</div>
+        <div class="kpi-card highlight">
+          <div class="kpi-number">25</div>
+          <div class="kpi-label">Tổng số VTTY</div>
         </div>
       </div>
     </div>
@@ -598,9 +599,9 @@
         <table class="summary-table">
           <thead>
             <tr>
-              <th class="td-stt">STT</th>
-              <th>Đơn vị / Khối</th>
-              <th style="text-align:center;width:120px;">Số VTTY</th>
+              <th class="td-stt">Stt</th>
+              <th>Đơn vị/ Division</th>
+              <th style="text-align:center;width:120px;">Số lượng Vị trí trọng yếu</th>
             </tr>
           </thead>
           <tbody id="summary-body"></tbody>
@@ -609,13 +610,13 @@
     </div>
   </div>
 
+  <!-- ═══════════════════ TAB 2: KHUNG CHÂN DUNG ═══════════════════ -->
   <div id="tab-chandung" class="tab-panel custom-big-text">
     <div class="tab1-header tab2-header" style="background: linear-gradient(135deg, #f0f7f3 0%, #e6f4ec 40%, #f0f7f3 100%); border-bottom: 1px solid var(--border); position: relative;">
       <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), #f0c060, var(--gold));"></div>
       <div class="header-title-block">
         <div class="header-eyebrow" style="color: var(--gold);">BIM Future Leaders 2026 — Competency Framework</div>
-        <div class="header-title">Khung <em style="color: var(--gold);">Chân Dung Kế Nhiệm</em><br>Cấp Tập Đoàn</div>
-        <div class="header-subtitle">Tiêu chuẩn cấu trúc tỷ trọng ứng viên kế cận — Vị trí trọng yếu</div>
+        <div class="header-title">Khung <em style="color: var(--gold);">Chân Dung Kế Nhiệm</em>Cấp Tập Đoàn</div>
       </div>
       <div class="kpi-card-group">
         <div class="kpi-card" style="border-color: var(--gold);">
@@ -630,6 +631,8 @@
     </div>
 
     <div class="content-body">
+
+      <!-- Bảng tổng hợp tỷ trọng -->
       <div class="section-card">
         <div class="section-card-header">
           <div class="section-card-title" style="color: var(--gold);">Tổng hợp tỷ trọng bộ khung chân dung</div>
@@ -643,195 +646,229 @@
           </thead>
           <tbody>
             <tr>
-              <td class="row-label">1. Hiệu suất (Performance)</td>
+              <td class="row-label">1. NHÓM YẾU TỐ HIỆU SUẤT</td>
               <td class="val-cell">20%</td>
             </tr>
             <tr>
-              <td class="row-label">2. Gắn kết (Engagement)</td>
+              <td class="row-label">2. NHÓM YẾU TỐ GẮN KẾT</td>
               <td class="val-cell">20%</td>
             </tr>
             <tr>
-              <td class="row-label">3. Tiềm năng (Potential)</td>
+              <td class="row-label">3. NHÓM YẾU TỐ TIỀM NĂNG</td>
               <td class="val-cell">20%</td>
             </tr>
             <tr>
-              <td class="row-label">4. Năng lực (Competency)</td>
+              <td class="row-label">4. NHÓM YẾU TỐ NĂNG LỰC</td>
               <td class="val-cell">40%</td>
-            </tr>
-            <tr class="total-row">
-              <td>TỔNG CỘNG HOÀN THÀNH</td>
-              <td class="val-cell">100%</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <!-- 4 Factor Cards -->
       <div class="framework-grid">
+
+        <!-- Nhóm 1: Hiệu suất -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">1</div>
-              <div class="factor-name">Nhóm Yếu Tố Hiệu Suất</div>
+              <div class="factor-name">1. NHÓM YẾU TỐ HIỆU SUẤT (20%)</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-desc">
-              Mức độ hoàn thành và tạo ra kết quả công việc trong vai trò hiện tại — đánh giá qua chất lượng thực thi, khả năng đạt mục tiêu KPIs chiến lược và giá trị đóng góp trực tiếp đối với tổ chức.
-            </div>
+            <table style="width:100%; border-collapse:collapse; font-size:14px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Tên yếu tố</th>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Định nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:8px; vertical-align:top; font-weight:600;">Hiệu suất</td>
+                  <td style="padding:8px; vertical-align:top; color:var(--text-secondary); line-height:1.5; font-size:13px;">Là mức độ hoàn thành và tạo ra kết quả công việc trong vai trò hiện tại thông qua chất lượng thực thi, khả năng đạt mục tiêu và giá trị đóng góp đối với đơn vị hoặc tổ chức.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
+        <!-- Nhóm 2: Gắn kết -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">2</div>
-              <div class="factor-name">Nhóm Yếu Tố Gắn Kết</div>
+              <div class="factor-name">2. NHÓM YẾU TỐ GẮN KẾT (20%)</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-desc">
-              Mức độ mong muốn gắn bó lâu dài và sẵn sàng đảm nhận các vai trò trách nhiệm cao hơn — thể hiện qua cam kết đồng hành, sự gắn kết vai trò và mức độ phù hợp với giá trị văn hóa BIM Group.
-            </div>
+            <table style="width:100%; border-collapse:collapse; font-size:14px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Tên yếu tố</th>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Định nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:8px; vertical-align:top; font-weight:600; font-size:13px;">Gắn kết <br>(Cam kết gắn bó với tổ chức - Gắn kết với vai trò công việc - Phù hợp với văn hóa)</td>
+                  <td style="padding:8px; vertical-align:top; color:var(--text-secondary); line-height:1.5; font-size:13px;">Là mức độ cá nhân mong muốn gắn bó, phát triển lâu dài và sẵn sàng đảm nhận các vai trò có trách nhiệm hoặc phạm vi ảnh hưởng cao hơn trong tổ chức; được thể hiện qua sự chủ động đồng hành, tinh thần phát triển bản thân và sự phù hợp với văn hóa, giá trị chung.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
+        <!-- Nhóm 3: Tiềm năng -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number">3</div>
-              <div class="factor-name">Nhóm Yếu Tố Tiềm Năng</div>
+              <div class="factor-name">3. NHÓM YẾU TỐ TIỀM NĂNG (20%)</div>
             </div>
             <div class="factor-weight">20%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-desc">
-              Khả năng học hỏi một cách nhanh chóng (Learning Agility), nhạy bén thích nghi với sự thay đổi mở rộng và tư duy đổi mới linh hoạt để quản trị hiệu quả các bài toán phức tạp hơn trong tương lai.
-            </div>
+            <table style="width:100%; border-collapse:collapse; font-size:14px;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Tên yếu tố</th>
+                  <th style="text-align:left; padding:6px 8px; color:var(--text-muted); font-size:11px; border-bottom:1px solid var(--border);">Định nghĩa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding:8px; vertical-align:top; font-weight:600; font-size:13px;">Tiềm năng (Tiềm năng về Đổi mới - Tư duy - Con người - Động lực)</td>
+                  <td style="padding:8px; vertical-align:top; color:var(--text-secondary); line-height:1.5; font-size:13px;">Là khả năng học hỏi, thích nghi và phát triển nhanh để có thể đảm nhận hiệu quả các vai trò có mức độ trách nhiệm hoặc độ phức tạp cao hơn trong tương lai; được thể hiện qua tư duy xử lý vấn đề, sự cởi mở với cái mới, khả năng phối hợp và tạo ảnh hưởng với người khác, cùng động lực phát triển liên tục.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
+        <!-- Nhóm 4: Năng lực - placeholder header -->
         <div class="factor-card">
           <div class="factor-header">
             <div class="factor-title-block">
               <div class="factor-number gold">4</div>
-              <div class="factor-name">Nhóm Yếu Tố Năng Lực</div>
+              <div class="factor-name">4. NHÓM YẾU TỐ NĂNG LỰC (40%)</div>
             </div>
             <div class="factor-weight gold">40%</div>
           </div>
           <div class="factor-body">
-            <div class="factor-desc">
-              Bộ tiêu chuẩn gồm 12 năng lực cốt lõi và năng lực lãnh đạo chiến lược, được định nghĩa hành vi rõ ràng làm thước đo căn cứ cho lộ trình phát triển của thế hệ kế cận.
-            </div>
+            <div class="factor-desc" style="color:var(--text-muted); font-size:14px;">Xem chi tiết bên dưới — gồm 12 năng lực (5 Năng lực Cốt lõi + 7 Năng lực Lãnh đạo).<br>Tổng điểm năng lực tiêu chuẩn: <strong style="color:var(--green-accent);">36</strong></div>
           </div>
         </div>
       </div>
 
+      <!-- Chi tiết năng lực -->
       <div class="competency-section">
         <div class="section-card-header">
-          <div class="section-card-title" style="color:var(--gold);">Chi tiết hệ thống 12 Năng lực (Trọng số 40%)</div>
+          <div class="section-card-title" style="color:var(--gold);">Chi tiết hệ thống 12 Năng lực — Nhóm 4. NHÓM YẾU TỐ NĂNG LỰC (40%)</div>
         </div>
         <table class="comp-table">
           <thead>
             <tr>
-              <th style="width: 70px; text-align:center;">STT</th>
-              <th style="width: 140px;">Hệ năng lực</th>
-              <th style="width: 110px;">Mã số</th>
-              <th style="width: 320px;">Tên năng lực tiêu chuẩn</th>
-              <th>Định nghĩa Năng lực</th>
+              <th style="width:50px; text-align:center;">STT</th>
+              <th style="width:150px;">Hệ năng lực</th>
+              <th style="width:100px;">Mã số</th>
+              <th style="width:280px;">Tên năng lực</th>
+              <th>Định nghĩa năng lực = Kỳ vọng về năng lực đó</th>
             </tr>
           </thead>
           <tbody>
             <tr class="section-break">
-              <td colspan="5">Năng lực CỐT LÕI (Core Competencies)</td>
+              <td colspan="5">NĂNG LỰC CỐT LÕI</td>
             </tr>
             <tr>
               <td style="text-align:center;">1</td>
-              <td class="ct-cat cat-core">Cốt lõi</td>
+              <td class="ct-cat cat-core">Năng lực CỐT LÕI</td>
               <td><span class="ct-code">CL_01</span></td>
-              <td class="ct-name">Chính trực và tuân thủ<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Integrity & Ethics</span></td>
-              <td class="ct-def">Hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ nghiêm túc các nguyên tắc vận hành ngay cả khi không có giám sát.</td>
+              <td class="ct-name">Chính trực và tuân thủ (Integrity &amp; Ethics)</td>
+              <td class="ct-def">Là khả năng hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ các nguyên tắc, quy định và chuẩn mực nghề nghiệp ngay cả khi không có giám sát. Đồng thời đề cao giá trị thực chất, không chạy theo hình thức và không đánh đổi nguyên tắc vì lợi ích ngắn hạn hoặc hình thức bề ngoài.</td>
             </tr>
             <tr>
               <td style="text-align:center;">2</td>
-              <td class="ct-cat cat-core">Cốt lõi</td>
+              <td class="ct-cat cat-core">Năng lực CỐT LÕI</td>
               <td><span class="ct-code">CL_02</span></td>
-              <td class="ct-name">Nhân văn & tôn trọng con người<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Human-Centered Leadership</span></td>
-              <td class="ct-def">Thấu hiểu, tôn trọng và thực sự quan tâm đến lộ trình của con người; biết lắng nghe các góc nhìn đa chiều và cân nhắc toàn diện tác động của quyết định.</td>
+              <td class="ct-name">Nhân văn và tôn trọng con người (Human-Centered Leadership)</td>
+              <td class="ct-def">Là khả năng thấu hiểu, tôn trọng và quan tâm đến con người; biết lắng nghe các góc nhìn khác nhau và cân nhắc tác động của quyết định, hành động đối với đồng nghệp, khách hàng, đối tác và cộng đồng nhằm xây dựng môi trường làm việc nhân văn, tích cực và gắn kết.</td>
             </tr>
             <tr>
               <td style="text-align:center;">3</td>
-              <td class="ct-cat cat-core">Cốt lõi</td>
+              <td class="ct-cat cat-core">Năng lực CỐT LÕI</td>
               <td><span class="ct-code">CL_03</span></td>
-              <td class="ct-name">Hướng đến kết quả & trách nhiệm<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Result Orientation & Ownership</span></td>
-              <td class="ct-def">Tập trung cao độ vào mục tiêu chung; chủ động thực thi, kiên trì theo đuổi cam kết tới cùng và chịu trách nhiệm tối cao với kết quả dưới áp lực lớn.</td>
+              <td class="ct-name">Hướng đến kết quả và trách nhiệm (Result Orientation &amp; Ownership)</td>
+              <td class="ct-def">Là khả năng tập trung vào mục tiêu và kết quả công việc; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, đồng thời chịu trách nhiệm đối với kết quả của bản thân và đội ngũ. Thực hiện công việc một cách cẩn trọng, có chất lượng và duy trì hiệu quả thực thi ngay cả trong điều kiện áp lực hoặc khó khăn để đảm bảo hoàn thành các mục tiêu đã cam kết.</td>
             </tr>
             <tr>
               <td style="text-align:center;">4</td>
-              <td class="ct-cat cat-core">Cốt lõi</td>
+              <td class="ct-cat cat-core">Năng lực CỐT LÕI</td>
               <td><span class="ct-code">CL_04</span></td>
-              <td class="ct-name">Học hỏi và thích ứng<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Learning Agility & Adaptability</span></td>
-              <td class="ct-def">Chủ động đúc rút bài học từ trải nghiệm thực tế và phản hồi; nhanh chóng làm chủ các mô hình mới và linh hoạt điều chỉnh cách tiếp cận để tối ưu hiệu quả.</td>
+              <td class="ct-name">Học hỏi và thích ứng (Learning Agility &amp; Adaptability)</td>
+              <td class="ct-def">Là khả năng chủ động học hỏi từ trải nghiệm, phản hồi và các tình huống mới; nhanh chóng thích nghi với thay đổi và linh hoạt điều chỉnh cách tiếp cận nhằm duy trì hiệu quả công việc và đáp ứng yêu cầu phát triển trong môi trường luôn biến động.</td>
             </tr>
             <tr>
               <td style="text-align:center;">5</td>
-              <td class="ct-cat cat-core">Cốt lõi</td>
+              <td class="ct-cat cat-core">Năng lực CỐT LÕI</td>
               <td><span class="ct-code">CL_05</span></td>
-              <td class="ct-name">Đổi mới sáng tạo<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Innovation</span></td>
-              <td class="ct-def">Chủ động nghiên cứu, đề xuất đột phá và áp dụng thành công các ý tưởng mới cải tiến quy trình, mang lại giá trị gia tăng thực tế cao cho hệ thống.</td>
+              <td class="ct-name">Đổi mới sáng tạo (Innovation)</td>
+              <td class="ct-def">Là khả năng chủ động tìm kiếm, đề xuất và áp dụng các ý tưởng, phương pháp hoặc cách tiếp cận mới nhằm nâng cao hiệu quả, tạo giá trị và giải quyết các thách thức của tổ chức; đồng thời thúc đẩy tư duy đổi mới và cải tiến liên tục trong công việc.</td>
             </tr>
             <tr class="section-break">
-              <td colspan="5">Năng lực LÃNH ĐẠO (Leadership Competencies)</td>
+              <td colspan="5">Năng lực LÃNH ĐẠO</td>
             </tr>
             <tr>
               <td style="text-align:center;">6</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_01</span></td>
-              <td class="ct-name">Tư duy & định hướng chiến lược<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Strategic Thinking & Direction</span></td>
-              <td class="ct-def">Nhìn nhận bức tranh rộng lớn, dự báo xu hướng và đón đầu cơ hội kinh doanh tổ chức; hoạch định lộ trình dài hạn tạo dựng lợi thế cạnh tranh bền vững.</td>
+              <td class="ct-name">Tư duy và định hướng chiến lược (Strategic Thinking &amp; Direction)</td>
+              <td class="ct-def">Là khả năng nhìn nhận xu hướng, cơ hội, thách thức và các thay đổi có thể tác động đến tổ chức trong ngắn hạn, trung hạn và dài hạn; từ đó xác định định hướng phát triển phù hợp, đưa ra các lựa chọn chiến lược, chủ động dẫn dắt thay đổi và dám theo đuổi các hướng đi mới nhằm tạo lợi thế cạnh tranh và giá trị bền vững cho tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">7</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_02</span></td>
-              <td class="ct-name">Tư duy hệ thống<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Systems Thinking</span></td>
-              <td class="ct-def">Nhìn nhận tổ chức dưới góc độ tổng thể đa chiều; phân tích sâu chuỗi liên kết tác động qua lại giữa các khối ban ngành nhằm đưa ra giải pháp tối ưu cho toàn bộ tập đoàn.</td>
+              <td class="ct-name">Tư duy hệ thống (Systems Thinking)</td>
+              <td class="ct-def">Là khả năng nhìn nhận tổ chức, dự án hoặc vấn đề dưới góc độ tổng thể; hiểu được mối liên hệ, sự phụ thuộc và tác động qua lại giữa các thành phần trong hệ thống. Từ đó nhận diện nguyên nhân cốt lõi, dự báo các tác động dây chuyền và đưa ra các quyết định hoặc giải pháp tối ưu cho toàn hệ thống thay vì chỉ giải quyết các vấn đề riêng lẻ.</td>
             </tr>
             <tr>
               <td style="text-align:center;">8</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_03</span></td>
-              <td class="ct-name">Phân tích & ra quyết định<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Analysis & Decision Making</span></td>
-              <td class="ct-def">Thu thập nhanh chóng, xử lý thông tin khách quan để bóc tách bản chất cốt lõi vấn đề; đưa ra những quyết định điều hành dứt khoát, có căn cứ dữ liệu vững chắc.</td>
+              <td class="ct-name">Phân tích và ra quyết định (Analysis &amp; Decision Making)</td>
+              <td class="ct-def">Là khả năng thu thập, phân tích và đánh giá thông tin từ nhiều góc độ để xác định đúng bản chất vấn đề, nguyên nhân và mức độ tác động; từ đó đưa ra nhận định, quyết định phù hợp và có căn cứ, đồng thời chủ động phản biện và kiểm chứng các giả định nhằm lựa chọn giải pháp tối ưu cho mục tiêu chung của tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">9</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_04</span></td>
-              <td class="ct-name">Thực thi và triển khai<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Execution & Implementation</span></td>
-              <td class="ct-def">Chuyển hóa sắc bén mục tiêu chiến lược thành kế hoạch hành động cụ thể; phân bổ tối ưu nguồn lực, giám sát chặt chẽ tiến độ và quyết liệt tháo gỡ điểm nghẽn.</td>
+              <td class="ct-name">Thực thi và triển khai (Execution &amp; Implementation)</td>
+              <td class="ct-def">Là khả năng chuyển hóa mục tiêu, kế hoạch và định hướng thành các hành động cụ thể; tổ chức và huy động nguồn lực phù hợp, theo dõi tiến độ, xử lý các khó khăn phát sinh và thúc đẩy việc thực hiện nhằm đảm bảo hoàn thành các mục tiêu và cam kết đã đề ra.</td>
             </tr>
             <tr>
               <td style="text-align:center;">10</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_05</span></td>
-              <td class="ct-name">Giao tiếp & tạo ảnh hưởng<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Communication & Influence</span></td>
-              <td class="ct-def">Truyền đạt thông điệp rõ ràng, giàu sức thuyết phục; định hướng tư duy và tạo tầm ảnh hưởng sâu sắc qua uy tín cá nhân và hành động nhất quán để xây dựng sự đồng thuận cao.</td>
+              <td class="ct-name">Giao tiếp và tạo ảnh hưởng (Communication &amp; Influence)</td>
+              <td class="ct-def">Là khả năng truyền đạt thông tin, ý tưởng và định hướng một cách rõ ràng, thuyết phục và phù hợp với từng đối tượng; đồng thời tạo ảnh hưởng thông qua uy tín cá nhân, lập luận có căn cứ và hành động nhất quán để xây dựng sự đồng thuận, thúc đẩy hợp tác và truyền cảm hứng cho người khác cùng hướng tới mục tiêu chung của tổ chức.</td>
             </tr>
             <tr>
               <td style="text-align:center;">11</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_06</span></td>
-              <td class="ct-name">Dẫn dắt đội ngũ & phát triển con người<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Leading & Developing People</span></td>
-              <td class="ct-def">Định hướng truyền cảm hứng, trao quyền khai phóng năng lực nhân sự qua huấn luyện bài bản; thiết lập môi trường tin cậy cao thúc đẩy tinh thần làm việc xuất sắc.</td>
+              <td class="ct-name">Dẫn dắt đội ngũ và phát triển con người (Leading &amp; Developing People)</td>
+              <td class="ct-def">Là khả năng định hướng, dẫn dắt và phát triển đội ngũ nhằm đạt được mục tiêu chung; thông qua việc phân công phù hợp, huấn luyện, phản hồi, trao quyền và tạo động lực cho nhân viên. Đồng thời xây dựng môi trường làm việc tin cậy, tôn trọng và công bằng để mỗi cá nhân phát huy năng lực và phát triển bền vững.</td>
             </tr>
             <tr>
               <td style="text-align:center;">12</td>
-              <td class="ct-cat cat-lead">Lãnh đạo</td>
+              <td class="ct-cat cat-lead">Năng lực LÃNH ĐẠO</td>
               <td><span class="ct-code">LĐ_07</span></td>
-              <td class="ct-name">Xây dựng mối quan hệ<br><span style="font-size:11px;color:var(--text-muted);font-weight:400;">Relationship Building</span></td>
-              <td class="ct-def">Chủ động kết nối, xây dựng chắc chắn mạng lưới liên kết đối tác tin cậy lâu dài cả trong nội bộ lẫn bên ngoài; gia tăng hợp tác sâu rộng tạo nguồn lực tổng thể.</td>
+              <td class="ct-name">Xây dưng mối quan hệ (Relationship Building)</td>
+              <td class="ct-def">Là khả năng chủ động xây dựng, duy trì và phát triển các mối quan hệ tin cậy với đồng nghiệp, đối tác và các bên liên quan; từ đó tăng cường sự hợp tác, kết nối nguồn lực và hỗ trợ việc thực hiện các mục tiêu chung của tổ chức.</td>
             </tr>
           </tbody>
         </table>
@@ -842,155 +879,106 @@
 </main>
 
 <script>
+// ═══════════════════════════════════════
+// DATA — Book1 (nguyên si 100%)
+// ═══════════════════════════════════════
 const units = [
-  { id: 1,  name: "Khối Xây dựng",                    count: 5 },
-  { id: 2,  name: "Khối TMBĐS",                        count: 7 },
-  { id: 3,  name: "Khối Khách sạn & TMDV",             count: 2 },
-  { id: 4,  name: "Ngành Năng lượng",                  count: 4 },
-  { id: 5,  name: "Công ty Quản lý Bất động sản BIM",  count: 2 },
-  { id: 6,  name: "Elite Fitness",                     count: 2 },
-  { id: 7,  name: "Ban Pháp chế",                      count: 2 },
-  { id: 8,  name: "Ban Đầu tư",                        count: 3 },
-  { id: 9,  name: "Ban Marcom",                        count: 6 },
-  { id: 10, name: "Ban Tài chính - Kế toán",           count: 6 },
-  { id: 11, name: "Ban Kiểm soát nội bộ",              count: 1 },
-  { id: 12, name: "Ban PTDA",                          count: 2 },
-  { id: 13, name: "Ban CNTT",                          count: 0 },
-  { id: 14, name: "Ban Nhân sự",                       count: 1 },
-  { id: 15, name: "Truyền thông đối ngoại",            count: 1 },
-  { id: 16, name: "QLDA Đặc Thù",                      count: 1 },
-  { id: 17, name: "Hùng Thắng",                        count: 2 },
-  { id: 18, name: "Chi nhánh Thanh Xuân",              count: 0 },
-  { id: 19, name: "Chi nhánh Quảng Ninh",              count: 1 },
-  { id: 20, name: "Ngành Nông nghiệp - Thực phẩm",     count: 0 },
-  { id: 21, name: "Ban Muối Công nghiệp",              count: 0 }
+  { id: 1,  name: "Khối xây dựng",                       count: 2 },
+  { id: 2,  name: "Khối TMBĐS",                          count: 4 },
+  { id: 3,  name: "Khối Khách sạn & TMDV",               count: 2 },
+  { id: 4,  name: "Ngành Năng lượng",                    count: 1 },
+  { id: 5,  name: "Công ty Quản lý Bất động sản BIM",    count: 2 },
+  { id: 6,  name: "Elite Fitness",                       count: 1 },
+  { id: 7,  name: "Ban pháp chế",                        count: 1 },
+  { id: 8,  name: "Ban Đầu tư",                          count: 1 },
+  { id: 9,  name: "Ban Marcom",                          count: 2 },
+  { id: 10, name: "Ban Tài chính - Kế toán",             count: 3 },
+  { id: 11, name: "Ban Kiểm soát nội bộ",                count: 1 },
+  { id: 12, name: "Ban PTDA",                            count: 1 },
+  { id: 13, name: "Ban CNTT",                            count: 0 },
+  { id: 14, name: "Ban Nhân sự",                         count: 1 },
+  { id: 15, name: "Truyền thông đối ngoại",              count: 1 },
+  { id: 16, name: "QLDA Đặc Thù",                        count: 0 },
+  { id: 17, name: "Hùng Thắng",                          count: 1 },
+  { id: 18, name: "Chi nhánh Thanh Xuân",                count: 0 },
+  { id: 19, name: "Chi nhánh Quảng Ninh",                count: 1 },
+  { id: 20, name: "Ngành Nông nghiệp - Thực phẩm",       count: 0 },
+  { id: 21, name: "Ban Muối Công nghiệp",                count: 0 }
 ];
 
-// ──────────────────────────────────────────
-// BÊ NGUYÊN VĂN 100% TỪNG TỪ TỪNG CHỮ KHÔNG CẮT BỚT
-// ──────────────────────────────────────────
+// Detail rows — nguyên si từ Book1
+// Columns: pos, people, level, conclusion (= "Ưu tiên" cho tất cả)
 const details = {
   1: [
-    { pos: "Giám đốc Kiểm soát Thiết kế", people: "Nguyễn Bá Hùng", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Bá Hùng) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
-    { pos: "Phó Giám đốc Khối XD phụ trách BQLDA", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Giám đốc Khối XD phụ trách Thương mại", people: "Lò Hồng Hiệp", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Trưởng ban Quản lý dự án (Phú Quốc)", people: "Nguyễn Mai Ngọc Long", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Long) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
-    { pos: "Trưởng phòng Thẩm định thiết kế", people: "Vũ Quang Chính", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Chính) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+    { pos: "Giám đốc Kiểm soát Thiết kế",   people: "Nguyễn Bá Hùng",        level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Trưởng ban Quản lý dự án",       people: "Nguyễn Mai Ngọc Long",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   2: [
-    { pos: "Trưởng phòng Nghiên cứu chiến lược (RnD)", people: "Ngụy Thị Hải Hà", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Hà) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Phát triển sản phẩm tiện ích", people: "Nguyễn Hồng Lê", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Giám đốc Quản trị giao dịch", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Giám đốc Kinh doanh khu vực", people: "Nguyễn Trọng Nhân; Trần Thị Thanh Nhàn", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Nhân / Ms. Nhàn) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự — cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Phát triển Đối tác & Hợp tác Kinh doanh", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Trưởng phòng Hợp tác kinh doanh và Cho thuê", people: "Nguyễn Lê Phương Thanh", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Thanh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Bàn giao (DV khách hàng)", people: "Nguyễn Tuấn Anh", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Tuấn Anh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+    { pos: "Trưởng phòng Nghiên cứu chiến lược",             people: "Ngụy Thị Hải Hà",                          level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Giám đốc kinh doanh khu vực",                    people: "Nguyễn Trọng Nhân <br>Trần Thị Thanh Nhàn",   level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Trưởng phòng Hợp tác kinh doanh và Cho thuê",    people: "Nguyễn Lê Phương Thanh",                   level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Trưởng phòng Bàn giao",                          people: "Nguyễn Tuấn Anh",                          level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên" }
   ],
   3: [
-    { pos: "Giám đốc Tài chính và Hỗ trợ Vận hành", people: "Trần Hồng Hạnh", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Hạnh) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Giám đốc Ẩm thực và Vận hành", people: "Nguyễn Minh Đức", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Đức) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+    { pos: "Giám đốc Tài chính và hỗ trợ Vận hành", people: "Trần Hồng Hạnh",    level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Giám đốc Ẩm thực và Vận hành",          people: "Nguyễn Minh Đức",   level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   4: [
-    { pos: "Phó Tổng Giám đốc Ngành Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hậu Hữu) là lợi thế đồng hành.<br>- Đây là vị trí thuộc QL cấp cao phụ trách chuyên môn nên rất cần xây dựng nguồn kế cận để đảm bảo vận hành so với các vị trí khác thuộc Ngành Năng lương." },
-    { pos: "Trưởng ban KT-TM", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Trưởng ban PTDA Năng lượng", people: "—", level: "Cấp 1", priority: false, conclusion: "—" }
+    { pos: "Trưởng ban Xây dựng Năng lượng", people: "Nguyễn Hậu Hữu", level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên" }
   ],
   5: [
-    { pos: "Giám đốc Vận hành (HO)", people: "Trần Trung Hiếu", level: "Cấp 1", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hiếu) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Giám đốc Ban Quản lý (Khu đô thị)", people: "Trịnh Việt Dũng, Vũ Thị Như", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Dũng / Ms. Như) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+    { pos: "Giám đốc Vận hành",    people: "Trần Trung Hiếu",                  level: "Cấp 1/ Priority 1", conclusion: "Ưu tiên" },
+    { pos: "Giám đốc Ban Quản lý", people: "Trịnh Việt Dũng, Vũ Thị Như", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   6: [
-    { pos: "Giám đốc điều hành", people: "—", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Phó Giám đốc Vận hành", people: "Nguyễn Văn Quý", level: "Cấp 3", priority: true,
-      conclusion: "Thang điểm đánh giá nên được điều chỉnh lên Cấp 2.<br>- NS đương nhiệm (Mr. Quý) là lợi thế đồng hành ứng viên kế nhiệm.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận hơn vị trí Phó GĐ vận hành" }
+    { pos: "Phó Giám đốc Vận hành", people: "Nguyễn Văn Quý", level: "Cấp 3/ Priority 3", conclusion: "Ưu tiên" }
   ],
   7: [
-    { pos: "Phó Ban Pháp chế", people: "Mai Lương Việt", level: "—", priority: true,
-      conclusion: "Ưu tiên:<br>- Vị trí Phó TGĐ phụ trách Ban pháp chế có band nằm ngoài phạm vi chương trình. Tuy nhiên, BNS đánh giá đây là vị trí quan trọng cần có kế nhiệm => Đề xuất đưa vào chương trình vị trí \"Phó Ban Pháp chế\"<br>- NS đương nhiệm ở vị trí Phó TGĐ phụ trách Ban pháp chế (Mr. Việt) là 1 lợi thế để đồng hành và hướng dẫn cho ứng viên ở vị trí Phó Ban Pháp chế" },
-    { pos: "Trưởng phòng Pháp lý", people: "(1) Đinh Thị Kim Ngân  (2) Nguyễn Hồng Hà", level: "Cấp 2", priority: false, conclusion: "—" }
+    { pos: "Trưởng phòng Pháp lý", people: "(1) Đinh Thị Kim Ngân <br>(2) Nguyễn Hồng Hà", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   8: [
-    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Sơn) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận. Đây cũng là vị trí quan trọng với vận hành khu vực." },
-    { pos: "Trưởng phòng Nghiên cứu chiến lược", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Ban Đầu tư", people: "—", level: "Cấp 2", priority: false, conclusion: "—" }
+    { pos: "Trưởng phòng Đầu tư", people: "Lê Bình Sơn", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   9: [
-    { pos: "Trưởng phòng MKT BĐS", people: "Vũ Thị Thu Trang", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Trang) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Quản lý Thương hiệu", people: "Nguyễn Thùy Dung", level: "Cấp 1", priority: false, conclusion: "—" },
-    { pos: "Giám đốc Sáng tạo", people: "Phạm Minh Khuyến", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Khuyến) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Digital Marketing", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Trưởng phòng Quản lý Sự kiện và Vận hành", people: "Nguyễn Thị Nhung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Nhung) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung, dễ xảy ra đứt gãy nhân sự,  vì vậy cần ưu tiên xây dựng nguồn kế cận." },
-    { pos: "Trưởng phòng Quản trị quan hệ Khách hàng", people: "Ngọc Mai", level: "Cấp 1", priority: true, conclusion: "Ưu tiên." }
+    { pos: "Trưởng phòng MKT BĐS",                    people: "Vũ Thị Thu Trang",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Trưởng phòng Quản lý Sự kiện và Vận hành", people: "Nguyễn Thị Nhung",  level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   10: [
-    { pos: "Trưởng phòng Nguồn vốn trong nước", people: "Chưa có", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Trưởng phòng Bảo hiểm", people: "Chưa có", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Ban Tài chính", people: "—", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Ms. Vân / Ms. Trang) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
-    { pos: "Trưởng Ban Kế Toán", people: "Nguyễn Hải Hà", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hải Hà) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." },
-    { pos: "Trưởng Phòng Kế toán Tập đoàn", people: "(1) Mai Bá Hoàng  (2) Khổng Châu Anh", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Trưởng Phòng Kế toán Vận hành", people: "(1) Nguyễn Trọng Huyên  (2) Bùi Thị Tuyết Nhung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Huyên / Ms. Nhung) là lợi thế đồng hành.<br>- Đây là vị trí thuộc QL cấp cao phụ trách chuyên môn nên rất cần xây dựng nguồn kế cận để đảm bảo vận hành.<br>- Vị trí này cũng ưu tiên hơn so với Trưởng phòng PTDA vì chỉ có 1 nhân sự đương nhiệm duy nhất, không thể được back up  cho nhau như vị trí Trưởng phòng (3 nhân sự)." }
+    { pos: "Phó ban Tài chính",          people: "(1) Trần Thị Hồng Vân  <br>(2) Hoàng Thu Trang",        level: "",                  conclusion: "Ưu tiên" },
+    { pos: "Trưởng Ban Kế Toán",         people: "Nguyễn Hải Hà",                                      level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" },
+    { pos: "Trưởng Phòng Kế toán vận hành", people: "(1) Nguyễn Trọng Huyên  <br>(2) Bùi Thị Tuyết Nhung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   11: [
-    { pos: "Trưởng phòng Kiểm soát nội bộ", people: "Lê Tiến Lưu", level: "Cấp 2", priority: false, conclusion: "—" }
+    { pos: "Trưởng phòng kiểm soát nội bộ", people: "Lê Tiến Lưu", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   12: [
-    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Trung) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao, ưu tiên hơn Trưởng phòng PTDA vì chỉ có 1 nhân sự duy nhất, không thể back-up cho nhau." },
-    { pos: "Trưởng phòng PTDA", people: "Hà Minh Tiến, Bùi Quốc Trung, Đỗ Quang Huy", level: "Cấp 2", priority: false, conclusion: "—" }
+    { pos: "Phó Ban PTDA", people: "Nguyễn Đức Trung", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   13: [],
   14: [
-    { pos: "Trưởng phòng CS & PTTC", people: "Nguyễn Mạnh Hùng", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hùng / Ms. Lã Thủy) là lợi thế đồng hành và hướng dẫn cho ứng viên kế nhiệm ở vị trí này.<br>- Đây là vị trí thuộc QL cấp trung, dễ xảy ra dứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận.<br>- Đây là vị trí cần ưu tiên do tính khan hiếm khi tìm kiếm nhân sự để thích ứng với hệ thống." }
+    { pos: "Trưởng phòng CS & PTTC", people: "Nguyễn Mạnh Hùng", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   15: [
-    { pos: "Giám đốc Truyền thông đối ngoại", people: "Phạm Thị Lý", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mrs. Lý) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp cao phụ trách chuyên môn, rất cần nguồn kế cận để đảm bảo vận hành." }
+    { pos: "Giám đốc Truyền thông đối ngoại", people: "Phạm Thị Lý", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
-  16: [
-    { pos: "Trưởng phòng QLDA Đặc Thù", people: "—", level: "Cấp 2", priority: false, conclusion: "—" }
-  ],
+  16: [],
   17: [
-    { pos: "Giám đốc CTCP XD Hùng Thắng", people: "—", level: "Cấp 2", priority: false, conclusion: "—" },
-    { pos: "Phó Giám đốc phụ trách thi công", people: "Bùi Viết Sâm", level: "Cấp 2", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Sâm) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận." }
+    { pos: "Phó Giám đốc phụ trách thi công", people: "Bùi Viết Sâm", level: "Cấp 2/ Priority 2", conclusion: "Ưu tiên" }
   ],
   18: [],
   19: [
-    { pos: "Trưởng phòng Hành chính Nhân sự Miền", people: "(1) Nguyễn Tiến Hữu  (2) Đỗ Khắc Hoàng Thạch", level: "—", priority: true,
-      conclusion: "NS đương nhiệm (Mr. Hữu / Mr. Thạch) là lợi thế đồng hành.<br>- Đây là vị trí QL cấp trung dễ xảy ra đứt gãy nhân sự, vì vậy cần ưu tiên xây dựng nguồn kế cận. Đây cũng là vị trí ảnh hưởng đến vận hành khu vực." }
+    { pos: "Trưởng phòng Hành chính Nhân sự Miền", people: "(1) Nguyễn Tiến Hữu  <br>(2) Đỗ Khắc Hoàng Thạch", level: "", conclusion: "Ưu tiên" }
   ],
   20: [],
   21: []
 };
 
-// ──────────────────────────────────────────
-// RENDER SUMMARY TABLE
-// ──────────────────────────────────────────
+// ═══════════════════════════════════════
+// RENDER SUMMARY
+// ═══════════════════════════════════════
 function renderSummary() {
   const tbody = document.getElementById('summary-body');
   if (!tbody) return;
-  
   tbody.innerHTML = '';
 
   units.forEach((u, index) => {
@@ -1012,16 +1000,13 @@ function renderSummary() {
     const drillTr = document.createElement('tr');
     drillTr.id = `drill-row-${u.id}`;
     drillTr.style.display = 'none';
-    
     const drillTd = document.createElement('td');
     drillTd.colSpan = 3;
     drillTd.style.padding = '0';
-    
     const wrapper = document.createElement('div');
     wrapper.id = `drill-wrapper-${u.id}`;
     wrapper.className = 'drill-down-wrapper';
     wrapper.innerHTML = `<div id="drill-panel-${u.id}" class="drill-down-panel"></div>`;
-    
     drillTd.appendChild(wrapper);
     drillTr.appendChild(drillTd);
     tbody.appendChild(drillTr);
@@ -1030,16 +1015,14 @@ function renderSummary() {
 
 function toggleDrill(id) {
   const drillRow = document.getElementById(`drill-row-${id}`);
-  const wrapper = document.getElementById(`drill-wrapper-${id}`);
-  const panel = document.getElementById(`drill-panel-${id}`);
-  const row = document.getElementById(`row-${id}`);
+  const wrapper  = document.getElementById(`drill-wrapper-${id}`);
+  const panel    = document.getElementById(`drill-panel-${id}`);
+  const row      = document.getElementById(`row-${id}`);
 
   if (wrapper.classList.contains('open')) {
     row.classList.remove('row-open');
     wrapper.classList.remove('open');
-    setTimeout(() => {
-        drillRow.style.display = 'none';
-    }, 400);
+    setTimeout(() => { drillRow.style.display = 'none'; }, 400);
     return;
   }
   row.classList.add('row-open');
@@ -1057,23 +1040,23 @@ function toggleDrill(id) {
     `;
   } else {
     let rowsHtml = rows.map((r, i) => {
-      const lvl = r.level || '—';
+      const lvl = r.level || '';
       let lvlClass = 'none';
       if (lvl.includes('1')) lvlClass = 'cap1';
       else if (lvl.includes('2')) lvlClass = 'cap2';
       else if (lvl.includes('3')) lvlClass = 'cap3';
+      const lvlDisplay = lvl || '—';
       return `
       <tr>
         <td class="dt-stt">${i + 1}</td>
         <td class="dt-position">${r.pos}</td>
         <td class="dt-personnel">${r.people || '—'}</td>
-        <td><span class="dt-level ${lvlClass}">${lvl}</span></td>
+        <td><span class="dt-level ${lvlClass}">${lvlDisplay}</span></td>
         <td class="dt-conclusion">
-          ${r.priority ? '<div class="priority-tag">⭐ Ưu tiên</div>' : ''}
-          <div>${r.conclusion}</div>
+          ${r.conclusion ? '<div class="priority-tag">⭐ ' + r.conclusion + '</div>' : ''}
         </td>
-      </tr>
-    `}).join('');
+      </tr>`;
+    }).join('');
 
     panel.innerHTML = `
       <div class="drill-down-header">
@@ -1085,9 +1068,9 @@ function toggleDrill(id) {
         <thead>
           <tr>
             <th style="width:38px;">STT</th>
-            <th>Vị trí</th>
-            <th style="min-width:180px;">Nhân sự đương nhiệm</th>
-            <th style="width:130px;">Mức độ trọng yếu</th>
+            <th>Vị trí/ Critical Position</th>
+            <th style="min-width:200px;">Nhân sự đương nhiệm</th>
+            <th style="width:160px;">Mức độ trọng yếu</th>
             <th>Kết luận thẩm định</th>
           </tr>
         </thead>
@@ -1098,27 +1081,23 @@ function toggleDrill(id) {
 
   drillRow.style.display = '';
   requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      wrapper.classList.add('open');
-    });
+    requestAnimationFrame(() => { wrapper.classList.add('open'); });
   });
 }
 
 function switchTab(tabId, navEl) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  
-  const targetTab = document.getElementById('tab-' + tabId);
-  if (targetTab) targetTab.classList.add('active');
+  const t = document.getElementById('tab-' + tabId);
+  if (t) t.classList.add('active');
   if (navEl) navEl.classList.add('active');
 }
 
 renderSummary();
-  const totalUnits = units.length;
-const unitsWithVTTY = units.filter(u => u.count > 0).length;
 
-document.getElementById('unit-kpi').textContent =
-  `${unitsWithVTTY}/${totalUnits}`;
+const totalUnits    = units.length;
+const unitsWithVTTY = units.filter(u => u.count > 0).length;
+document.getElementById('unit-kpi').textContent = `${unitsWithVTTY}/${totalUnits}`;
 </script>
 </body>
 </html>
