@@ -91,7 +91,7 @@
   }
   .nav-section-label {
     font-size: 12px; font-weight: 700;
-    color: var(--text-muted);
+    color: rgba(255,255,255,0.4);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     padding: 0 8px;
@@ -104,7 +104,7 @@
     padding: 12px 14px;
     border-radius: 8px;
     cursor: pointer;
-    color: var(--text-secondary);
+    color: rgba(255,255,255,0.65);
     font-size: 15px;
     font-weight: 500;
     transition: all 0.18s ease;
@@ -113,24 +113,24 @@
     user-select: none;
   }
   .nav-item:hover {
-    background: var(--bg-hover);
-    color: var(--text-primary);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
   }
   .nav-item.active {
-    background: rgba(0, 108, 50, 0.12);
-    color: var(--green-primary);
-    border-color: rgba(0, 108, 50, 0.3);
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
   }
   .nav-item .nav-icon {
     width: 22px; height: 22px;
-    opacity: 0.7;
+    opacity: 0.55;
     flex-shrink: 0;
   }
   .nav-item.active .nav-icon { opacity: 1; }
   .nav-badge {
     margin-left: auto;
-    background: rgba(0,108,50,0.1);
-    color: var(--green-primary);
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
     font-size: 12px; font-weight: 700;
     padding: 2px 9px; border-radius: 12px;
   }
@@ -141,14 +141,14 @@
 
   .sidebar-footer {
     padding: 16px 20px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid rgba(255,255,255,0.1);
   }
   .sidebar-footer-text {
-    font-size: 11px; color: var(--text-muted);
+    font-size: 11px; color: rgba(255,255,255,0.4);
     line-height: 1.5;
   }
   .sidebar-footer-text span {
-    color: var(--green-primary);
+    color: rgba(255,255,255,0.75);
     font-weight: 600;
   }
 
@@ -1047,8 +1047,8 @@
 
   /* ──────────── TAB 3: FLOW ──────────── */
   .tab3-header {
-    background: linear-gradient(135deg, #0d2a18 0%, #063a22 100%);
-    border-bottom: 3px solid #1a6b8a;
+    background: #ffffff;
+    border-bottom: 3px solid var(--border);
     padding: 28px 36px 24px;
     display: flex; align-items: center; justify-content: space-between;
     flex-shrink: 0; position: relative; overflow: hidden;
@@ -1056,24 +1056,18 @@
   .tab3-header::before {
     content: '';
     position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, #1a6b8a, #2596be, #1a6b8a);
+    background: linear-gradient(90deg, var(--green-primary), var(--green-light), var(--green-primary));
   }
-  .tab3-header::after {
-    content: '';
-    position: absolute; right: -80px; top: -80px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, rgba(37,150,190,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
+  .tab3-header::after { content: none; }
   .tab3-eyebrow {
     font-size: 11px; font-weight: 800; letter-spacing: 2px;
-    text-transform: uppercase; color: #7ecae0; margin-bottom: 8px;
+    text-transform: uppercase; color: var(--green-primary); margin-bottom: 8px;
   }
   .tab3-title {
-    font-size: 22px; font-weight: 900; color: #fff;
+    font-size: 22px; font-weight: 900; color: var(--text-primary);
     letter-spacing: -0.3px; line-height: 1.2;
   }
-  .tab3-subtitle { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; }
+  .tab3-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
   .tab3-kpi-group { display: flex; gap: 12px; }
   .tab3-kpi {
     background: rgba(255,255,255,0.08);
@@ -1526,20 +1520,62 @@
   /* ── MĐQT rating tones — now handled by inline styles directly ── */
   #tab-chandung [style*="font-size:22px"][style*="font-weight:900"] { font-size: 20px !important; }
   #tab-chandung [style*="color:var(--gold)"][style*="font-weight:800"] { color: #8a6010 !important; }
+
+  /* ── Behavior level body text: darker + slightly larger ── */
+  [id^="factor-panel-"] .behavior-level-body,
+  [id^="factor-panel-"] [style*="font-size:11px"][style*="color:#5a7a6a"],
+  [id^="factor-panel-"] [style*="font-size:11px"][style*="color:#4a7a5a"],
+  [id^="factor-panel-"] [style*="font-size:11px"][style*="color:#3a6a4a"],
+  [id^="factor-panel-"] [style*="font-size:11px"][style*="color:#2a6050"] {
+    font-size: 12.5px !important;
+    color: inherit !important;
+  }
+  /* Behavior card: darken all inner text */
+  #factor-panel-1 [style*="color:#5a7a6a"],
+  #factor-panel-2 [style*="color:#5a7a6a"],
+  #factor-panel-3 [style*="color:#5a7a6a"],
+  #factor-panel-4 [style*="color:#5a7a6a"] { color: #2e4a3d !important; font-size: 12.5px !important; }
+
+  #factor-panel-1 [style*="color:#4a7a5a"],
+  #factor-panel-2 [style*="color:#4a7a5a"],
+  #factor-panel-3 [style*="color:#4a7a5a"],
+  #factor-panel-4 [style*="color:#4a7a5a"] { color: #1e4a2c !important; font-size: 12.5px !important; }
+
+  #factor-panel-1 [style*="color:#3a6a4a"],
+  #factor-panel-2 [style*="color:#3a6a4a"],
+  #factor-panel-3 [style*="color:#3a6a4a"],
+  #factor-panel-4 [style*="color:#3a6a4a"] { color: #174030 !important; font-size: 12.5px !important; }
+
+  #factor-panel-1 [style*="color:#2a6050"],
+  #factor-panel-2 [style*="color:#2a6050"],
+  #factor-panel-3 [style*="color:#2a6050"],
+  #factor-panel-4 [style*="color:#2a6050"] { color: #0f3830 !important; font-size: 12.5px !important; }
+
+  /* Italic sub-labels "Biểu hiện hành vi thường gặp:" */
+  #factor-panel-1 [style*="font-weight:700"][style*="font-style:italic"],
+  #factor-panel-2 [style*="font-weight:700"][style*="font-style:italic"],
+  #factor-panel-3 [style*="font-weight:700"][style*="font-style:italic"],
+  #factor-panel-4 [style*="font-weight:700"][style*="font-style:italic"] { font-size: 12px !important; }
+
+  /* Level heading titles in behavior cards */
+  #factor-panel-1 [style*="font-size:12.5px"][style*="font-weight:800"],
+  #factor-panel-2 [style*="font-size:12.5px"][style*="font-weight:800"],
+  #factor-panel-3 [style*="font-size:12.5px"][style*="font-weight:800"],
+  #factor-panel-4 [style*="font-size:12.5px"][style*="font-weight:800"] { font-size: 13px !important; }
 </style>
 </head>
 <body>
 
-<aside class="sidebar">
-  <div class="sidebar-brand">
-    <div class="brand-logo">
-      <div class="brand-icon">BIM</div>
-      <div>
-        <div class="brand-name">BIM Group</div>
-        <div class="brand-sub"></div>
+<aside class="sidebar" style="background:#0d2a18; border-right:1px solid rgba(255,255,255,0.1);">
+  <div class="sidebar-brand" style="background:#0d2a18; border-bottom:1px solid rgba(255,255,255,0.12); padding:20px 18px 16px;">
+    <div class="brand-logo" style="margin-bottom:10px;">
+      <div style="display:inline-block; margin-bottom:10px; line-height:1;">
+      <span style="display:none;" src="data:image/jpeg;base64,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" alt="BIM Group" style="height:36px; width:auto; object-fit:contain; display:block;"></span>
+      <span style="font-size:34px; font-weight:900; color:#ffffff; letter-spacing:-0.5px; font-family:'Rockwell Extra Bold','Rockwell','Georgia',serif; text-transform:uppercase;">BIM</span><span style="font-size:26px; font-weight:400; color:#ffffff; letter-spacing:0.5px; font-family:'Century Gothic','Gill Sans MT','Gill Sans',Calibri,sans-serif; margin-left:1px;">Group</span>
       </div>
     </div>
-    <div class="brand-year">BIM FUTURE LEADERS 2026</div>
+    <div style="font-size:10px; font-weight:700; color:rgba(255,255,255,0.5); letter-spacing:1.4px; text-transform:uppercase; margin-bottom:8px;">CHƯƠNG TRÌNH HOẠCH ĐỊNH KẾ NHIỆM</div>
+    <div style="font-size:17px; font-weight:800; color:#fff; letter-spacing:0.3px; line-height:1.25;">BIM FUTURE LEADERS <span style="color:#7ecae0;">2026</span></div>
   </div>
 
   <nav class="sidebar-nav">
@@ -1568,7 +1604,7 @@
       <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
       </svg>
-      Flow chặng 3&amp;4
+      Flow chặng 3 &amp;4
       <span class="nav-badge">3</span>
     </div>
   </nav>
@@ -1658,6 +1694,7 @@
       <div class="scoring-formula">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         <span class="formula-eq">Tiêu chuẩn (TC) = Mức độ quan trọng (MĐQT) × Cấp độ hành vi</span>
+
       </div>
 
       <!-- ══ McKINSEY SPLIT PANEL: 4 NHÓM YẾU TỐ ══ -->
@@ -1723,6 +1760,9 @@
               <div style="flex-shrink:0; min-width:46px; height:28px; padding:0 10px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; background:var(--green-primary); color:#fff; font-size:14px; font-weight:900;">40%</div>
             </button>
 
+            <!-- Summary note removed per request -->
+          </div>
+
           <!-- RIGHT: Factor Detail Panel -->
           <div style="padding: 22px 24px 24px; background:#fff; min-width:0; overflow-y: auto; max-height: 520px;">
 
@@ -1755,20 +1795,20 @@
                 <div style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; padding:8px 12px; background:rgba(176,122,16,0.06); border-radius:6px; border-left:3px solid var(--gold);">Cấp độ hành vi — Thang 1–4 (dành riêng cho Hiệu suất)</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
                   <div style="padding:12px 14px; background:#eef1ef; border-radius:8px; border:1px solid #b8ccc3; border-left:3px solid #6b8f7a;">
-                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:5px;">1 — Chưa đáp ứng kỳ vọng</div>
-                    <div style="font-size:11px; color:#5a7a6a; line-height:1.55;">Kết quả chưa ổn định, thường không đạt hoặc chỉ đạt một phần yêu cầu; cần nhiều hỗ trợ để hoàn thành</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:6px;">1 — Chưa đáp ứng kỳ vọng</div>
+                    <div style="font-size:11px; color:#5a7a6a; line-height:1.65;">Kết quả công việc chưa ổn định, thường không đạt hoặc chỉ đạt một phần yêu cầu của vai trò hiện tại; cần nhiều hướng dẫn hoặc hỗ trợ để hoàn thành công việc.</div>
                   </div>
                   <div style="padding:12px 14px; background:#e6f0ea; border-radius:8px; border:1px solid #9ec4b0; border-left:3px solid #3a7050;">
-                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:5px;">2 — Đáp ứng kỳ vọng</div>
-                    <div style="font-size:11px; color:#4a7a5a; line-height:1.55;">Hoàn thành đầy đủ mục tiêu và yêu cầu chính của vai trò với chất lượng và tiến độ phù hợp</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:6px;">2 — Đáp ứng kỳ vọng</div>
+                    <div style="font-size:11px; color:#4a7a5a; line-height:1.65;">Hoàn thành đầy đủ các mục tiêu và yêu cầu chính của vai trò hiện tại với chất lượng và tiến độ phù hợp.</div>
                   </div>
                   <div style="padding:12px 14px; background:#d8ede1; border-radius:8px; border:1px solid #7dbf9a; border-left:3px solid var(--green-primary);">
-                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:5px;">3 — Vượt kỳ vọng</div>
-                    <div style="font-size:11px; color:#3a6a4a; line-height:1.55;">Đạt kết quả cao hơn yêu cầu; chủ động cải thiện hiệu quả và tạo ra giá trị tích cực cho đơn vị hoặc tổ chức</div>
+                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:6px;">3 — Vượt kỳ vọng</div>
+                    <div style="font-size:11px; color:#3a6a4a; line-height:1.65;">Đạt kết quả cao hơn yêu cầu của vai trò hiện tại; chủ động cải thiện hiệu quả công việc và tạo ra giá trị tích cực cho đơn vị hoặc tổ chức.</div>
                   </div>
                   <div style="padding:12px 14px; background:#cce6d8; border-radius:8px; border:1px solid #5aaa80; border-left:3px solid #1a5040;">
-                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:5px;">4 — Hiệu suất nổi bật</div>
-                    <div style="font-size:11px; color:#2a6050; line-height:1.55;">Đạt kết quả vượt trội, tạo tác động rõ rệt vượt phạm vi công việc hoặc đơn vị phụ trách; đóng góp giá trị nổi bật cho đơn vị hoặc tổ chức</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:6px;">4 — Hiệu suất nổi bật</div>
+                    <div style="font-size:11px; color:#2a6050; line-height:1.65;">Đạt kết quả vượt trội và tạo ra tác động tích cực rõ rệt vượt phạm vi công việc hoặc đơn vị phụ trách; đóng góp giá trị nổi bật cho đơn vị hoặc tổ chức.</div>
                   </div>
                 </div>
               </div>
@@ -1803,20 +1843,24 @@
                 <div style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; padding:8px 12px; background:rgba(176,122,16,0.06); border-radius:6px; border-left:3px solid var(--gold);">Cấp độ hành vi — Thang 1–4 (dành riêng cho Gắn kết)</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
                   <div style="padding:12px 14px; background:#eef1ef; border-radius:8px; border:1px solid #b8ccc3; border-left:3px solid #6b8f7a;">
-                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:5px;">1 — Đáp ứng cơ bản</div>
-                    <div style="font-size:11px; color:#5a7a6a; line-height:1.55;">Hoàn thành công việc theo yêu cầu và phạm vi được giao <br> Tuân thủ quy định, quy trình và chuẩn mực chung của tổ chức <br> Hợp tác với đồng nghiệp khi cần thiết <br> Chủ yếu tập trung công việc hiện tại, ít quan tâm hoặc chưa thể hiện rõ mong muốn phát triển thêm</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:6px;">1 — Đáp ứng cơ bản</div>
+                    <div style="font-size:11px; font-weight:700; color:#5a7a6a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#5a7a6a; line-height:1.7;">- Hoàn thành công việc theo yêu cầu và phạm vi được giao;<br>- Tuân thủ quy định, quy trình và chuẩn mực chung của tổ chức;<br>- Hợp tác với đồng nghiệp khi cần thiết;<br>- Chủ yếu tập trung vào công việc hiện tại;<br>- Ít quan tâm hoặc chưa thể hiện rõ mong muốn phát triển thêm trong tổ chức.</div>
                   </div>
                   <div style="padding:12px 14px; background:#e6f0ea; border-radius:8px; border:1px solid #9ec4b0; border-left:3px solid #3a7050;">
-                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:5px;">2 — Gắn kết &amp; sẵn sàng đóng góp</div>
-                    <div style="font-size:11px; color:#4a7a5a; line-height:1.55;">Chủ động hỗ trợ mục tiêu chung; có ý thức phát triển bản thân; sẵn sàng nhận thêm nhiệm vụ khi được giao</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:6px;">2 — Gắn kết &amp; sẵn sàng đóng góp</div>
+                    <div style="font-size:11px; font-weight:700; color:#4a7a5a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#4a7a5a; line-height:1.7;">- Chủ động phối hợp để hỗ trợ mục tiêu chung của đội nhóm hoặc đơn vị;<br>- Có ý thức cải thiện hiệu quả công việc và phát triển bản thân;<br>- Sẵn sàng nhận thêm nhiệm vụ hoặc trải nghiệm mới khi được giao;<br>- Thể hiện sự phù hợp với văn hóa và cách làm việc của tổ chức;<br>- Có mong muốn tiếp tục phát triển trong tổ chức.</div>
                   </div>
                   <div style="padding:12px 14px; background:#d8ede1; border-radius:8px; border:1px solid #7dbf9a; border-left:3px solid var(--green-primary);">
-                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:5px;">3 — Cam kết phát triển dài hạn</div>
-                    <div style="font-size:11px; color:#3a6a4a; line-height:1.55;">Chủ động tìm cơ hội học hỏi; sẵn sàng nhận trách nhiệm rộng hơn; duy trì cam kết cả trong giai đoạn áp lực</div>
+                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:6px;">3 — Cam kết phát triển dài hạn</div>
+                    <div style="font-size:11px; font-weight:700; color:#3a6a4a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#3a6a4a; line-height:1.7;">- Chủ động tìm kiếm cơ hội học hỏi hoặc thử thách để chuẩn bị cho vai trò lớn hơn;<br>- Sẵn sàng nhận trách nhiệm hoặc phạm vi công việc rộng hơn;<br>- Duy trì cam kết và trách nhiệm ngay cả trong giai đoạn áp lực hoặc thay đổi;<br>- Quan tâm đến mục tiêu chung của tổ chức thay vì chỉ phạm vi cá nhân;<br>- Thể hiện mong muốn gắn bó và phát triển nghề nghiệp lâu dài trong tổ chức.</div>
                   </div>
                   <div style="padding:12px 14px; background:#cce6d8; border-radius:8px; border:1px solid #5aaa80; border-left:3px solid #1a5040;">
-                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:5px;">4 — Cam kết &amp; đồng hành phạm vi lớn</div>
-                    <div style="font-size:11px; color:#2a6050; line-height:1.55;">Chủ động nhận mục tiêu tác động lớn; ưu tiên lợi ích tổ chức; thể hiện mong muốn đóng góp lâu dài ở phạm vi rộng hơn</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:6px;">4 — Cam kết &amp; đồng hành phạm vi lớn hơn</div>
+                    <div style="font-size:11px; font-weight:700; color:#2a6050; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#2a6050; line-height:1.7;">- Chủ động nhận các nhiệm vụ hoặc mục tiêu có tác động lớn hơn ngoài phạm vi công việc hiện tại;<br>- Sẵn sàng đảm nhận vai trò hoặc trách nhiệm cao hơn khi tổ chức cần;<br>- Kiên định theo đuổi mục tiêu và duy trì cam kết trong các giai đoạn thay đổi hoặc khó khăn;<br>- Ưu tiên lợi ích và mục tiêu chung của tổ chức trong cách hành động và ra quyết định;<br>- Thể hiện mong muốn đóng góp và phát triển lâu dài cùng tổ chức ở phạm vi rộng hơn.</div>
                   </div>
                 </div>
               </div>
@@ -1851,30 +1895,34 @@
                 <div style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; padding:8px 12px; background:rgba(176,122,16,0.06); border-radius:6px; border-left:3px solid var(--gold);">Cấp độ hành vi — Thang 1–4 (dành riêng cho Tiềm năng)</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
                   <div style="padding:12px 14px; background:#eef1ef; border-radius:8px; border:1px solid #b8ccc3; border-left:3px solid #6b8f7a;">
-                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:5px;">1 — Tiềm năng ở mức cơ bản</div>
-                    <div style="font-size:11px; color:#5a7a6a; line-height:1.55;">Tiếp thu khi có hướng dẫn cụ thể; thích nghi thay đổi quen thuộc; giải quyết vấn đề dựa trên quy trình sẵn có</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:6px;">1 — Tiềm năng ở mức cơ bản</div>
+                    <div style="font-size:11px; font-weight:700; color:#5a7a6a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#5a7a6a; line-height:1.7;">- Tiếp thu kiến thức hoặc cách làm mới khi có hướng dẫn cụ thể;<br>- Thích nghi với thay đổi quen thuộc trong phạm vi công việc hiện tại;<br>- Giải quyết vấn đề chủ yếu dựa trên quy trình hoặc kinh nghiệm sẵn có;<br>- Hợp tác với người khác khi có yêu cầu;<br>- Chủ yếu tập trung hoàn thành công việc hiện tại;<br>- Chưa thể hiện rõ mong muốn phát triển hoặc thử thách bản thân.</div>
                   </div>
                   <div style="padding:12px 14px; background:#e6f0ea; border-radius:8px; border:1px solid #9ec4b0; border-left:3px solid #3a7050;">
-                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:5px;">2 — Có khả năng phát triển</div>
-                    <div style="font-size:11px; color:#4a7a5a; line-height:1.55;">Chủ động học hỏi cách làm mới; thích nghi tương đối nhanh; sẵn sàng thử các cách tiếp cận khác nhau</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:6px;">2 — Có khả năng phát triển</div>
+                    <div style="font-size:11px; font-weight:700; color:#4a7a5a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#4a7a5a; line-height:1.7;">- Chủ động học hỏi kiến thức, kỹ năng hoặc cách làm mới;<br>- Thích nghi tương đối nhanh khi có thay đổi về công việc hoặc yêu cầu;<br>- Biết phân tích và xử lý các vấn đề quen thuộc theo nhiều cách khác nhau;<br>- Sẵn sàng thử cách làm mới để cải thiện hiệu quả công việc;<br>- Chủ động phối hợp với người khác để hoàn thành mục tiêu chung;<br>- Sẵn sàng nhận thêm nhiệm vụ hoặc trải nghiệm mới để phát triển.</div>
                   </div>
                   <div style="padding:12px 14px; background:#d8ede1; border-radius:8px; border:1px solid #7dbf9a; border-left:3px solid var(--green-primary);">
-                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:5px;">3 — Tiềm năng cao</div>
-                    <div style="font-size:11px; color:#3a6a4a; line-height:1.55;">Học nhanh từ trải nghiệm; nhìn nhận vấn đề từ nhiều góc độ; đề xuất cải tiến và phối hợp hiệu quả</div>
+                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:6px;">3 — Tiềm năng cao</div>
+                    <div style="font-size:11px; font-weight:700; color:#3a6a4a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#3a6a4a; line-height:1.7;">- Học nhanh từ trải nghiệm và có thể áp dụng hiệu quả vào tình huống mới;<br>- Thích nghi tốt khi môi trường, yêu cầu hoặc phạm vi công việc thay đổi;<br>- Có khả năng nhìn nhận vấn đề từ nhiều góc độ và xác định được vấn đề cốt lõi;<br>- Chủ động đề xuất cải tiến hoặc cách tiếp cận mới để nâng cao hiệu quả;<br>- Dễ tạo sự hợp tác và phối hợp hiệu quả với nhiều đối tượng khác nhau;<br>- Chủ động tìm kiếm cơ hội phát triển và sẵn sàng nhận trách nhiệm lớn hơn.</div>
                   </div>
                   <div style="padding:12px 14px; background:#cce6d8; border-radius:8px; border:1px solid #5aaa80; border-left:3px solid #1a5040;">
-                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:5px;">4 — Tiềm năng nổi trội</div>
-                    <div style="font-size:11px; color:#2a6050; line-height:1.55;">Thích nghi nhanh trong tình huống mới/phức tạp; xử lý vấn đề chưa có tiền lệ; sẵn sàng đảm nhận vai trò ảnh hưởng lớn hơn</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:6px;">4 — Tiềm năng nổi trội</div>
+                    <div style="font-size:11px; font-weight:700; color:#2a6050; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#2a6050; line-height:1.7;">- Thích nghi nhanh và duy trì hiệu quả trong các tình huống mới, phức tạp hoặc thay đổi liên tục;<br>- Có khả năng xử lý các vấn đề chưa có tiền lệ hoặc có nhiều yếu tố tác động;<br>- Chủ động thúc đẩy cải tiến hoặc thử nghiệm các cách tiếp cận mới tạo giá trị cho tổ chức;<br>- Có khả năng kết nối và phối hợp hiệu quả với nhiều nhóm hoặc cấp độ khác nhau;<br>- Liên tục tìm kiếm cơ hội học hỏi và mở rộng phạm vi năng lực của bản thân;<br>- Sẵn sàng đảm nhận các nhiệm vụ hoặc vai trò có mức độ trách nhiệm và phạm vi ảnh hưởng lớn hơn.</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- PANEL 4: Năng lực Lãnh đạo -->
+            <!-- PANEL 4: Năng lực lãnh đạo -->
             <div id="factor-panel-4" class="factor-detail-panel" style="display:none;">
               <div style="margin-bottom:16px;">
                 <div style="font-size:18px; font-weight:900; color:var(--text-primary);">Nhóm Năng lực Lãnh đạo <span style="font-size:13px; font-weight:600; color:var(--text-muted);">(Leadership Competency — 40%)</span></div>
-                <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-top:6px;">Tập hợp các năng lực giúp cá nhân lãnh đạo bản thân, đội ngũ và tổ chức nhằm đạt được mục tiêu chung; đồng thời thể hiện khả năng đáp ứng vai trò kế nhiệm có mức độ trách nhiệm hoặc phạm vi ảnh hưởng cao hơn trong BIM Group.</div>
+                <div style="font-size:13px; color:var(--text-secondary); line-height:1.6; margin-top:6px;">Tập hợp các năng lực giúp cá nhân lãnh đạo bản thân, đội ngũ và tổ chức nhằm đạt được mục tiêu chung; đồng thời thể hiện khả năng đáp ứng vai trò kế nhiệm có mức độ trách nhiệm hoặc phạm vi ảnh hưởng cao hơn trong tổ chức.</div>
               </div>
               <!-- MĐQT -->
               <div style="margin-bottom:16px;">
@@ -1896,23 +1944,27 @@
               </div>
               <!-- Cấp độ hành vi chung cho Leadership -->
               <div>
-                <div style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; padding:8px 12px; background:rgba(176,122,16,0.06); border-radius:6px; border-left:3px solid var(--gold);">Cấp độ hành vi — Thang 1–4 (dùng chung cho 12 Năng lực Lãnh đạo)</div>
+                <div style="font-size:11px; font-weight:800; color:var(--gold); letter-spacing:1px; text-transform:uppercase; margin-bottom:10px; padding:8px 12px; background:rgba(176,122,16,0.06); border-radius:6px; border-left:3px solid var(--gold);">Cấp độ hành vi — Thang 1–4 (dùng chung cho 12 năng lực lãnh đạo)</div>
                 <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
                   <div style="padding:12px 14px; background:#eef1ef; border-radius:8px; border:1px solid #b8ccc3; border-left:3px solid #6b8f7a;">
-                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:5px;">1 — Hiệu quả thấp — Cần rèn luyện</div>
-                    <div style="font-size:11px; color:#5a7a6a; line-height:1.55;">Thực hiện công việc còn sai sót hoặc chưa ổn định; vận dụng năng lực còn hạn chế; gặp khó khăn khi xử lý tình huống mới</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#3d5a4d; margin-bottom:6px;">1 — Hiệu quả thấp — Cần rèn luyện</div>
+                    <div style="font-size:11px; font-weight:700; color:#5a7a6a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#5a7a6a; line-height:1.7;">- Thực hiện công việc còn sai sót hoặc chưa ổn định.<br>- Vận dụng năng lực còn hạn chế và phụ thuộc nhiều vào hướng dẫn.<br>- Gặp khó khăn khi xử lý tình huống mới hoặc yêu cầu phức tạp hơn.</div>
                   </div>
                   <div style="padding:12px 14px; background:#e6f0ea; border-radius:8px; border:1px solid #9ec4b0; border-left:3px solid #3a7050;">
-                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:5px;">2 — Hiệu quả — Đáp ứng yêu cầu</div>
-                    <div style="font-size:11px; color:#4a7a5a; line-height:1.55;">Đáp ứng yêu cầu trong tình huống quen thuộc; vận dụng năng lực theo quy trình; có thể làm việc độc lập ở mức cơ bản</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#2a5a3c; margin-bottom:6px;">2 — Hiệu quả — Đáp ứng yêu cầu</div>
+                    <div style="font-size:11px; font-weight:700; color:#4a7a5a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#4a7a5a; line-height:1.7;">- Đáp ứng được yêu cầu công việc trong các tình huống quen thuộc.<br>- Vận dụng năng lực theo quy trình hoặc hướng dẫn có sẵn.<br>- Có thể làm việc độc lập ở mức cơ bản nhưng đôi khi vẫn cần hỗ trợ.</div>
                   </div>
                   <div style="padding:12px 14px; background:#d8ede1; border-radius:8px; border:1px solid #7dbf9a; border-left:3px solid var(--green-primary);">
-                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:5px;">3 — Hiệu quả cao — Tinh thông</div>
-                    <div style="font-size:11px; color:#3a6a4a; line-height:1.55;">Vận dụng năng lực hiệu quả và linh hoạt; chủ động xử lý tình huống phức tạp; có khả năng hỗ trợ, hướng dẫn người khác</div>
+                    <div style="font-size:12.5px; font-weight:800; color:var(--green-primary); margin-bottom:6px;">3 — Hiệu quả cao — Tinh thông</div>
+                    <div style="font-size:11px; font-weight:700; color:#3a6a4a; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#3a6a4a; line-height:1.7;">- Vận dụng năng lực hiệu quả và linh hoạt trong công việc.<br>- Chủ động xử lý các tình huống phát sinh hoặc vấn đề phức tạp hơn.<br>- Có khả năng hỗ trợ, hướng dẫn hoặc phối hợp hiệu quả với người khác để đạt kết quả chung.</div>
                   </div>
                   <div style="padding:12px 14px; background:#cce6d8; border-radius:8px; border:1px solid #5aaa80; border-left:3px solid #1a5040;">
-                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:5px;">4 — Hiệu quả rất cao — Chuyên nghiệp</div>
-                    <div style="font-size:11px; color:#2a6050; line-height:1.55;">Vận dụng thành thạo và ổn định trong nhiều bối cảnh; chủ động dẫn dắt tích cực; đưa ra giải pháp có giá trị cho tổ chức</div>
+                    <div style="font-size:12.5px; font-weight:800; color:#1a5040; margin-bottom:6px;">4 — Hiệu quả rất cao — Chuyên nghiệp</div>
+                    <div style="font-size:11px; font-weight:700; color:#2a6050; margin-bottom:4px; font-style:italic;">Biểu hiện hành vi thường gặp:</div>
+                    <div style="font-size:11px; color:#2a6050; line-height:1.7;">- Vận dụng năng lực ở mức thành thạo và ổn định trong nhiều bối cảnh khác nhau.<br>- Chủ động dẫn dắt, định hướng hoặc tạo ảnh hưởng tích cực đến đội nhóm/người khác.<br>- Đưa ra giải pháp, quyết định hoặc định hướng có giá trị cho tổ chức trong các tình huống phức tạp hoặc có tác động lớn.</div>
                   </div>
                 </div>
               </div>
@@ -1941,7 +1993,7 @@
             <button class="competency-nav-btn active" onclick="filterCompetencies('all', this)">
               <div class="competency-nav-main">
                 <div>
-                  <div class="competency-nav-title">Tất cả năng lực</div>
+                  <div class="competency-nav-title">Tất cả Năng lực</div>
                   <div class="competency-nav-sub">Xem toàn bộ framework</div>
                 </div>
               </div>
@@ -1965,9 +2017,7 @@
               </div>
               <span class="competency-nav-count">7</span>
             </button>
-            <div class="competency-nav-note">
-              Điểm chuẩn tối đa mỗi năng lực = <strong>3 × 4 = 12 điểm</strong>
-            </div>
+
           </div>
           <div class="competency-content-panel">
             <div class="competency-content-toolbar">
@@ -1982,7 +2032,7 @@
               <div class="competency-item-card" data-category="core">
                 <div class="competency-item-top">
                   <div class="competency-item-no">1</div>
-                  <div class="competency-item-name">Chính trực và tuân thủ <span style="font-size:13px; font-weight:500; color:var(--text-muted);">(Integrity &amp; Ethics)</span></div>
+                  <div class="competency-item-name">Chính trực và tuân thủ<br><span style="font-size:13px; font-weight:500; color:var(--text-muted);">(Integrity &amp; Ethics)</span></div>
                   <span class="competency-item-category">Cốt lõi</span>
                   <div class="competency-scoring-col">
                     <div class="scoring-col-label">Mức độ<br>quan trọng</div>
@@ -1993,7 +2043,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ các nguyên tắc, quy định và chuẩn mực nghề nghiệp ngay cả khi không có giám sát. Đề cao giá trị thực chất, không chạy theo hình thức và không đánh đổi nguyên tắc vì lợi ích ngắn hạn.</div>
+                <div class="competency-item-def">Khả năng hành xử trung thực, minh bạch và nhất quán giữa cam kết, hành động và kết quả; tuân thủ các nguyên tắc, quy định và chuẩn mực nghề nghiệp ngay cả khi không có giám sát. Đồng thời đề cao giá trị thực chất, không chạy theo hình thức và không đánh đổi nguyên tắc vì lợi ích ngắn hạn hoặc hình thức bề ngoài.</div>
               </div>
               <!-- CORE 2 -->
               <div class="competency-item-card" data-category="core">
@@ -2010,7 +2060,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng tập trung vào mục tiêu và kết quả công việc; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, đồng thời chịu trách nhiệm đối với kết quả của bản thân và đội ngũ. Thực hiện công việc cẩn trọng, có chất lượng và duy trì hiệu quả thực thi ngay cả trong điều kiện áp lực.</div>
+                <div class="competency-item-def">Khả năng tập trung vào mục tiêu và kết quả công việc; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, đồng thời chịu trách nhiệm đối với kết quả của bản thân và đội ngũ. Thực hiện công việc một cách cẩn trọng, có chất lượng và duy trì hiệu quả thực thi ngay cả trong điều kiện áp lực hoặc khó khăn để đảm bảo hoàn thành các mục tiêu đã cam kết.</div>
               </div>
               <!-- CORE 3 -->
               <div class="competency-item-card" data-category="core">
@@ -2061,7 +2111,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng đặt con người làm trung tâm trong quá trình lãnh đạo, ra quyết định và triển khai công việc; thấu hiểu, tôn trọng, đối xử công bằng và hành xử có trách nhiệm với người khác. Biết cân bằng giữa mục tiêu kinh doanh và giá trị con người, tạo môi trường làm việc tích cực, gắn kết và phát triển bền vững.</div>
+                <div class="competency-item-def">Khả năng đặt con người làm trung tâm trong quá trình lãnh đạo, ra quyết định và triển khai công việc; thấu hiểu, tôn trọng, đối xử công bằng và hành xử có trách nhiệm với người khác. Biết cân bằng giữa mục tiêu kinh doanh và giá trị con người, đồng thời tạo môi trường làm việc tích cực, phát triển và gắn kết, nơi mỗi cá nhân được lắng nghe, ghi nhận, phát huy năng lực và cùng đóng góp vào sự phát triển bền vững của tổ chức, khách hàng và cộng đồng.</div>
               </div>
               <!-- LEADERSHIP 1 -->
               <div class="competency-item-card" data-category="leadership">
@@ -2078,7 +2128,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng nhìn nhận xu hướng, cơ hội, thách thức và các thay đổi có thể tác động đến tổ chức trong ngắn hạn, trung hạn và dài hạn; từ đó xác định định hướng phát triển phù hợp, chủ động dẫn dắt và định hướng thay đổi nhằm tạo lợi thế cạnh tranh và giá trị bền vững cho tổ chức</div>
+                <div class="competency-item-def">Khả năng nhìn nhận xu hướng, cơ hội, thách thức và các thay đổi có thể tác động đến tổ chức trong ngắn hạn, trung hạn và dài hạn; từ đó xác định định hướng phát triển phù hợp, chủ động dẫn dắt và định hướng thay đổi nhằm tạo lợi thế cạnh tranh và giá trị bền vững cho tổ chức.</div>
               </div>
               <!-- LEADERSHIP 2 -->
               <div class="competency-item-card" data-category="leadership">
@@ -2095,7 +2145,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng nhìn nhận tổ chức, dự án hoặc vấn đề dưới góc độ tổng thể; hiểu mối liên hệ, sự phụ thuộc và tác động qua lại giữa các thành phần trong hệ thống. Nhận diện nguyên nhân cốt lõi, dự báo tác động dây chuyền và đưa ra quyết định tối ưu cho toàn hệ thống thay vì giải quyết vấn đề riêng lẻ.</div>
+                <div class="competency-item-def">Khả năng nhìn nhận tổ chức, dự án hoặc vấn đề dưới góc độ tổng thể; hiểu được mối liên hệ, sự phụ thuộc và tác động qua lại giữa các thành phần trong hệ thống. Từ đó nhận diện nguyên nhân cốt lõi, dự báo các tác động dây chuyền và đưa ra các quyết định hoặc giải pháp tối ưu cho toàn hệ thống thay vì chỉ giải quyết các vấn đề riêng lẻ.</div>
               </div>
               <!-- LEADERSHIP 3 -->
               <div class="competency-item-card" data-category="leadership">
@@ -2146,13 +2196,13 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng truyền đạt thông tin, ý tưởng rõ ràng, thuyết phục và phù hợp với từng đối tượng; tạo ảnh hưởng thông qua uy tín cá nhân, lập luận có căn cứ và hành động nhất quán để xây dựng sự đồng thuận, thúc đẩy hợp tác và truyền cảm hứng cho người khác hướng tới mục tiêu chung.</div>
+                <div class="competency-item-def">Khả năng truyền đạt thông tin, ý tưởng một cách rõ ràng, thuyết phục và phù hợp với từng đối tượng; đồng thời tạo ảnh hưởng thông qua uy tín cá nhân, lập luận có căn cứ và hành động nhất quán để xây dựng sự đồng thuận, thúc đẩy hợp tác và truyền cảm hứng cho người khác cùng hướng tới mục tiêu chung của tổ chức.</div>
               </div>
               <!-- LEADERSHIP 6 -->
               <div class="competency-item-card" data-category="leadership">
                 <div class="competency-item-top">
                   <div class="competency-item-no">11</div>
-                  <div class="competency-item-name">Dẫn dắt đội ngũ và phát triển con người <span style="font-size:13px; font-weight:500; color:var(--text-muted);">(Leading &amp; Developing People)</span></div>
+                  <div class="competency-item-name">Dẫn dắt đội ngũ và phát triển con người<br><span style="font-size:13px; font-weight:500; color:var(--text-muted);">(Leading &amp; Developing People)</span></div>
                   <span class="competency-item-category">Lãnh đạo</span>
                   <div class="competency-scoring-col">
                     <div class="scoring-col-label">Mức độ<br>quan trọng</div>
@@ -2163,7 +2213,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng định hướng, dẫn dắt và phát triển đội ngũ nhằm đạt được mục tiêu chung; thông qua phân công phù hợp, huấn luyện, phản hồi, trao quyền và tạo động lực cho nhân viên. Xây dựng môi trường làm việc tin cậy, tôn trọng và công bằng để mỗi cá nhân phát huy năng lực và phát triển bền vững.</div>
+                <div class="competency-item-def">Khả năng định hướng, dẫn dắt và phát triển đội ngũ nhằm đạt được mục tiêu chung; thông qua việc phân công phù hợp, huấn luyện, phản hồi, trao quyền và tạo động lực cho nhân viên. Đồng thời xây dựng môi trường làm việc tin cậy, tôn trọng và công bằng để mỗi cá nhân phát huy năng lực và phát triển bền vững.</div>
               </div>
               <!-- LEADERSHIP 7 -->
               <div class="competency-item-card" data-category="leadership">
@@ -2180,7 +2230,7 @@
                     <div class="scoring-col-value">HODs chấm<br>(1–4)</div>
                   </div>
                 </div>
-                <div class="competency-item-def">Khả năng chủ động xây dựng, duy trì và phát triển các mối quan hệ tin cậy với đồng nghiệp, đối tác và các bên liên quan; tăng cường sự hợp tác, kết nối nguồn lực và hỗ trợ việc thực hiện các mục tiêu chung của tổ chức.</div>
+                <div class="competency-item-def">Khả năng chủ động xây dựng, duy trì và phát triển các mối quan hệ tin cậy với đồng nghiệp, đối tác và các bên liên quan; từ đó tăng cường sự hợp tác, kết nối nguồn lực và hỗ trợ việc thực hiện các mục tiêu chung của tổ chức.</div>
               </div>
             </div>
           </div>
@@ -2196,23 +2246,10 @@
     <div class="tab3-header">
       <div class="header-title-block">
         <div class="tab3-eyebrow">BIM Future Leaders 2026 — Talent Assessment Process</div>
-        <div class="tab3-title">Flow Triển Khai <em style="color:#7ecae0; font-style:normal;">Chặng 3 &amp; 4</em></div>
+        <div class="tab3-title">Flow Triển Khai <em style="color:var(--green-light); font-style:normal;">Chặng 3 &amp; 4</em></div>
         <div class="tab3-subtitle">Lựa chọn và đánh giá ứng viên kế nhiệm cấp Tập đoàn</div>
       </div>
-      <div class="tab3-kpi-group">
-        <div class="tab3-kpi accent">
-          <div class="num">3</div>
-          <div class="lbl">Bước chính</div>
-        </div>
-        <div class="tab3-kpi">
-          <div class="num">2</div>
-          <div class="lbl">Giai đoạn AC</div>
-        </div>
-        <div class="tab3-kpi">
-          <div class="num">7/2026</div>
-          <div class="lbl">Tháng đánh giá</div>
-        </div>
-      </div>
+
     </div>
 
     <div class="content-body">
@@ -2231,12 +2268,12 @@
             <div style="padding:14px 16px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px;">
               <div style="font-size:11px; font-weight:800; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">Chặng 1</div>
               <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Xác định Vị trí Trọng yếu</div>
-              <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Đang triển khai</div>
+              <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Đã hoàn thành — 25 VTTY toàn Tập đoàn</div>
             </div>
             <div style="padding:14px 16px; background:var(--bg-card); border:1px solid var(--border); border-radius:10px;">
               <div style="font-size:11px; font-weight:800; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">Chặng 2</div>
               <div style="font-size:14px; font-weight:700; color:var(--text-primary);">Xây dựng Khung Chân dung Kế nhiệm</div>
-              <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Đang triển khai</div>
+              <div style="font-size:12px; color:var(--text-muted); margin-top:4px;">Đã hoàn thành — 4 nhóm yếu tố, 12 năng lực</div>
             </div>
             <div style="padding:14px 16px; background:var(--green-primary); border:2px solid var(--green-primary); border-radius:10px; box-shadow: 0 4px 16px rgba(0,108,50,0.22);">
               <div style="font-size:11px; font-weight:800; color:rgba(255,255,255,0.75); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">Chặng 3 &amp; 4 — Đang triển khai</div>
@@ -2621,7 +2658,7 @@
                         PIC: Hội đồng Nhân tài + Ứng viên &nbsp;·&nbsp; Hình thức: Phỏng vấn cá nhân
                       </div>
                     </div>
-                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá Năng lực Lãnh đạo, Ngân hàng đề thi BEI & Đối thoại LĐ</div>
+                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá năng lực lãnh đạo, Ngân hàng đề thi BEI & Đối thoại LĐ</div>
                     <div class="flow-act-steps-title">Các bước triển khai</div>
                     <div class="flow-act-steps">
                       <div class="flow-act-step">
@@ -2638,7 +2675,7 @@
                       </div>
                       <div class="flow-act-step">
                         <div class="flow-act-step-n">4</div>
-                        <div class="flow-act-step-text"><strong>Hội đồng đánh giá thảo luận và thống nhất</strong> kết quả đánh giá vào Phiếu đánh giá Năng lực Lãnh đạo</div>
+                        <div class="flow-act-step-text"><strong>Hội đồng đánh giá thảo luận và thống nhất</strong> kết quả đánh giá vào Phiếu đánh giá năng lực lãnh đạo</div>
                       </div>
                     </div>
                   </div>
@@ -2660,7 +2697,7 @@
                         PIC: Hội đồng Nhân tài + Ứng viên
                       </div>
                     </div>
-                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá Năng lực Lãnh đạo, Ngân hàng đề thi Group Simulation Exercise</div>
+                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá năng lực lãnh đạo, Ngân hàng đề thi Group Simulation Exercise</div>
                     <div class="flow-act-steps-title">Các bước triển khai</div>
                     <div class="flow-act-steps">
                       <div class="flow-act-step">
@@ -2685,7 +2722,7 @@
                       </div>
                       <div class="flow-act-step">
                         <div class="flow-act-step-n">6</div>
-                        <div class="flow-act-step-text"><strong>Hội đồng đánh giá thảo luận và thống nhất</strong> kết quả vào Phiếu đánh giá Năng lực Lãnh đạo của từng Ứng viên</div>
+                        <div class="flow-act-step-text"><strong>Hội đồng đánh giá thảo luận và thống nhất</strong> kết quả vào Phiếu đánh giá năng lực lãnh đạo của từng Ứng viên</div>
                       </div>
                     </div>
                   </div>
@@ -2703,7 +2740,7 @@
                         PIC: Hội đồng Nhân tài + Ban Nhân sự (BNS)
                       </div>
                     </div>
-                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá Năng lực Lãnh đạo</div>
+                    <div class="flow-tools-text"><strong>Công cụ:</strong> Chân dung kế nhiệm từng VTTY, Kết quả Harrison, Hồ sơ Định hướng Phát triển, Phiếu đánh giá năng lực lãnh đạo</div>
                     <div class="flow-act-steps">
                       <div class="flow-act-step">
                         <div class="flow-act-step-n">1</div>
@@ -2986,8 +3023,8 @@ function toggleDrill(id) {
 function filterCompetencies(category, btn) {
   const labels = {
     all: { title: 'Tất cả năng lực', count: '12 năng lực' },
-    leadership: { title: 'Năng lực Lãnh đạo', count: '7 năng lực' },
-    core: { title: 'Năng lực Cốt lõi', count: '5 năng lực' }
+    leadership: { title: 'Năng lực lãnh đạo', count: '7 năng lực' },
+    core: { title: 'Năng lực cốt lõi', count: '5 năng lực' }
   };
 
   document.querySelectorAll('.competency-nav-btn').forEach(b => b.classList.remove('active'));
