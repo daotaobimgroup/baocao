@@ -552,7 +552,7 @@
           <div>
             <div class="eyebrow">Progress cockpit</div>
             <h1>Báo cáo <em>tiến độ triển khai</em></h1>
-            <div class="subtitle">Bấm vào từng chặng trong timeline để xem chi tiết hoạt động. Chặng đang chạy được đánh dấu màu vàng.</div>
+            <div class="subtitle">Bấm vào từng chặng trong timeline để xem chi tiết hoạt động. Chặng đang triển khai được đánh dấu màu vàng.</div>
           </div>
         </div>
 
@@ -632,11 +632,11 @@
           <div class="section-head" style="background:#004833; color:#FFFFFF; border-bottom:1px solid #003626;">
             <div>
               <div class="section-title" style="color:#FFFFFF;">Điều kiện cần – Năng lực cốt lõi</div>
-              <div class="section-sub" style="color:rgba(255,255,255,0.8);">PHẢI ĐẠT ĐỦ 5 NĂNG LỰC NÀY — nếu không đạt bất kỳ năng lực nào sẽ loại từ đầu</div>
+              <div class="section-sub" style="color:rgba(255,255,255,0.8);">PHẢI ĐẠT ĐỦ 5 NĂNG LỰC NÀY</div>
             </div>
           </div>
           <div class="section-body">
-            <div class="core-gate-label">⚠ Không đạt = Loại ngay, không đánh giá tiếp</div>
+            <div class="core-gate-label">Chưa đáp ứng điều kiện cần — Dừng xét duyệt tại đây</div>
             <div class="core-cards-grid" id="coreCardsGrid"></div>
           </div>
         </div>
@@ -652,7 +652,7 @@
             </div>
           </div>
         </div>
-        <div class="section">
+        <div class="section" id="leadershipSection" style="display:none">
           <div class="section-head">
             <div><div class="section-title">Hệ năng lực lãnh đạo</div><div class="section-sub">7 năng lực thuộc nhóm Năng lực lãnh đạo (trọng số 35%)</div></div>
           </div>
@@ -667,8 +667,7 @@
         <div class="topbar">
           <div>
             <div class="eyebrow">Selection &amp; Assessment Center Dashboard</div>
-            <h1>Chặng 3 &amp; 4 — <em>Sơ đồ Tuyển Chọn &amp; Đánh Giá Nhân Sự</em></h1>
-            <div class="subtitle">Đánh giá cấp Đơn vị - Tuyển chọn cấp Tập đoàn và Trung tâm Đánh giá (Assessment Center) nhằm kiểm chứng ứng viên từ nhiều chiều cạnh để nâng cao độ tin cậy của quyết định lựa chọn nhân tài.</div>
+            <h1>Chặng 3 &amp; 4 — <em>Lựa chọn và Đánh giá Ứng viên</em></h1>
           </div>
         </div>
 
@@ -697,8 +696,8 @@
                   </filter>
                 </defs>
                 <polygon points="0,0 360,0 295,90 65,90" fill="url(#grad-tier1-modern)" filter="url(#shadow-t1)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-                <text x="180" y="38" class="tier-svg-title">🔍 Sơ Lọc Đơn Vị (HODs)</text>
-                <text x="180" y="62" class="tier-svg-sub">Chặng 3 – Phase 1 · Chọn lọc theo chân dung</text>
+                <text x="180" y="38" class="tier-svg-title">🔍 Chặng 3: Lựa chọn Ứng viên</text>
+                <text x="180" y="62" class="tier-svg-sub">Phase 1 · Đánh giá Cấp đơn vị</text>
               </svg>
             </div>
             
@@ -716,8 +715,8 @@
                   </filter>
                 </defs>
                 <rect x="65" y="0" width="230" height="90" rx="12" fill="url(#grad-tier2-modern)" filter="url(#shadow-t2)" stroke="rgba(255,255,255,0.10)" stroke-width="1"/>
-                <text x="180" y="38" class="tier-svg-title">⚖️ HĐNT Thẩm Định &amp; Duyệt</text>
-                <text x="180" y="62" class="tier-svg-sub">Chặng 3 – Phase 2</text>
+                <text x="180" y="38" class="tier-svg-title">⚖️ Chặng 3: Lựa chọn Ứng viên</text>
+                <text x="180" y="62" class="tier-svg-sub">Phase 2 · Tuyển chọn cấp Tập đoàn</text>
               </svg>
             </div>
             
@@ -735,8 +734,8 @@
                   </filter>
                 </defs>
                 <rect x="65" y="0" width="230" height="90" rx="12" fill="url(#grad-tier3-modern)" filter="url(#shadow-t3)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-                <text x="180" y="38" class="tier-svg-title">💻 Assessment Center Online</text>
-                <text x="180" y="62" class="tier-svg-sub">Chặng 4 – Phase 1 · Harrison Test</text>
+                <text x="180" y="38" class="tier-svg-title">💻 Chặng 4: Đánh giá ứng viên</text>
+                <text x="180" y="62" class="tier-svg-sub">Phase 1 · Assessment Center Online</text>
               </svg>
             </div>
             
@@ -754,8 +753,8 @@
                   </filter>
                 </defs>
                 <rect x="65" y="0" width="230" height="90" rx="12" fill="url(#grad-tier4-modern)" filter="url(#shadow-t4)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
-                <text x="180" y="38" class="tier-svg-title">🏢 Assessment Center Offline</text>
-                <text x="180" y="62" class="tier-svg-sub">Chặng 4 – Phase 2 · BEI &amp; Simulation</text>
+                <text x="180" y="38" class="tier-svg-title">🏢 Chặng 4: Đánh giá ứng viên</text>
+                <text x="180" y="62" class="tier-svg-sub">Phase 2 · Assessment Center Offline</text>
               </svg>
             </div>
           </div>
@@ -788,7 +787,7 @@ const DATA = {
     {code:"C3",  stage:"Chặng 3", activity:"HODs đánh giá Ứng viên cấp đơn vị", timeline:"08/08/2026", status:"Chưa triển khai", progress:0},
     {code:"C3",  stage:"Chặng 3", activity:"HĐNT đánh giá tuyển chọn Ứng viên cấp Tập đoàn", timeline:"15/08/2026", status:"Chưa triển khai", progress:0},
     {code:"C3",  stage:"Chặng 3", activity:"Trình BOD phê duyệt và ban hành Danh sách Ứng viên tiềm năng", timeline:"15/08/2026", status:"Chưa triển khai", progress:0},
-    {code:"C4",  stage:"Chặng 4", activity:"Hoàn thiện thiết kế và phối hợp HĐNT xây dựng Ngân hàng đề thi Trung tâm Đánh giá.", timeline:"02/07/2026 – 11/07/2026", status:"Đang triển khai", progress:50},
+    {code:"C4",  stage:"Chặng 4", activity:"Hoàn thiện thiết kế và phối hợp HĐNT xây dựng Ngân hàng đề thi Trung tâm Đánh giá.", timeline:"02–11/07/2026", status:"Đang triển khai", progress:50},
     {code:"C4",  stage:"Chặng 4", activity:"Trình BOD phê duyệt Ngân hàng đề thi", timeline:"18/07/2026", status:"Chưa triển khai", progress:0},
     {code:"C4",  stage:"Chặng 4", activity:"Tổ chức đánh giá ứng viên (Assessment Center) Giai đoạn 1: Harrison Test (Online)", timeline:"24–29/08/2026", status:"Chưa triển khai", progress:0},
     {code:"C4",  stage:"Chặng 4", activity:"Tổ chức đánh giá ứng viên (Assessment Center) Giai đoạn 2: Phỏng vấn hành vi (BEI) & Bài tập mô phỏng", timeline:"04–05/09/2026", status:"Chưa triển khai", progress:0}
@@ -861,7 +860,7 @@ const DATA = {
     {value:"Hiệu quả", name:"Hướng đến kết quả và trách nhiệm", en:"Result Orientation & Ownership", definition:"Khả năng tập trung vào mục tiêu và kết quả công việc; chủ động hành động, kiên trì theo đuổi cam kết đến cùng, đồng thời chịu trách nhiệm đối với kết quả của bản thân và đội ngũ. Thực hiện công việc một cách cẩn trọng, có chất lượng và duy trì hiệu quả thực thi ngay cả trong điều kiện áp lực hoặc khó khăn để đảm bảo hoàn thành các mục tiêu đã cam kết."},
     {value:"Tri thức", name:"Học hỏi và thích ứng", en:"Learning Agility & Adaptability", definition:"Khả năng chủ động học hỏi từ trải nghiệm, phản hồi và các tình huống mới; nhanh chóng thích nghi với thay đổi và linh hoạt điều chỉnh cách tiếp cận nhằm duy trì hiệu quả công việc và đáp ứng yêu cầu phát triển trong môi trường luôn biến động."},
     {value:"Sáng tạo", name:"Đổi mới sáng tạo", en:"Innovation", definition:"Khả năng chủ động tìm kiếm, đề xuất và áp dụng các ý tưởng, phương pháp hoặc cách tiếp cận mới nhằm nâng cao hiệu quả, tạo giá trị và giải quyết các thách thức của tổ chức; đồng thời thúc đẩy tư duy đổi mới và cải tiến liên tục trong công việc."},
-    {value:"Nhân văn", name:"Nhân văn và tôn trọng con người", en:"Human-Centered Leadership", definition:"Khả năng đặt con người làm trung tâm trong quá trình lãnh đạo, ra quyết định và triển khai công việc; thấu hiểu, tôn trọng, đối xử công bằng và hành xử có trách nhiệm với người khác. Biết cân bằng giữa mục tiêu kinh doanh và giá trị con người, đồng thời tạo môi trường làm việc tích cực, phát triển và gắn kết, nơi mỗi cá nhân được lắng nghe, ghi nhận, phát huy năng lực và cùng đóng góp vào sự phát triển bền vững của tổ chức, khách hàng và cộng đồng."}
+    {value:"-", name:"Nhân văn và tôn trọng con người", en:"Human-Centered Leadership", definition:"Khả năng đặt con người làm trung tâm trong quá trình lãnh đạo, ra quyết định và triển khai công việc; thấu hiểu, tôn trọng, đối xử công bằng và hành xử có trách nhiệm với người khác. Biết cân bằng giữa mục tiêu kinh doanh và giá trị con người, đồng thời tạo môi trường làm việc tích cực, phát triển và gắn kết, nơi mỗi cá nhân được lắng nghe, ghi nhận, phát huy năng lực và cùng đóng góp vào sự phát triển bền vững của tổ chức, khách hàng và cộng đồng."}
   ],
   factors: [
     {name:"Hiệu suất\nPerformance", weight:25, definition:"Là mức độ hoàn thành và tạo ra kết quả công việc trong vai trò hiện tại thông qua chất lượng thực thi, khả năng đạt mục tiêu và giá trị đóng góp đối với BIM Group.", levels:["CHƯA ĐÁP ỨNG KÝ VỌNG\n\nKết quả công việc chưa ổn định, thường không đạt hoặc chỉ đạt một phần yêu cầu của vai trò hiện tại; cần nhiều hướng dẫn hoặc hỗ trợ để hoàn thành công việc","ĐÁP ỨNG KÝ VỌNG\n\nHoàn thành đầy đủ các mục tiêu và yêu cầu chính của vai trò hiện tại với chất lượng và tiến độ phù hợp","VƯỢT KỲ VỌNG\n\nĐạt kết quả cao hơn yêu cầu của vai trò hiện tại; chủ động cải thiện hiệu quả công việc và tạo ra giá trị tích cực cho đơn vị hoặc tổ chức","HIỆU SUẤT NỔI BẬT\n\nĐạt kết quả vượt trội và tạo ra tác động tích cực rõ rệt vượt phạm vi công việc hoặc đơn vị phụ trách; đóng góp giá trị nổi bật cho đơn vị hoặc tổ chức"]},
@@ -881,34 +880,32 @@ const DATA = {
   acGroups: [
     {
       chang: "Chặng 3",
-      title: "Tuyển chọn ứng viên (Quy trình Sơ Lọc)",
+      title: "Lựa chọn Ứng viên",
       phases: [
         {
           icon: "🔍",
           label: "Phase 1",
-          name: "Đánh giá cấp Đơn vị (Screening)",
-          sub: "HODs Chọn lọc Chân dung",
+          name: "Đánh giá cấp Đơn vị",
           purpose: "Xác định \"Ứng viên có đủ điều kiện được xem xét không?\"",
           output: "Sàng lọc ứng viên ban đầu rộng khắp toàn đơn vị",
-          assessor: "Trưởng đơn vị / Lãnh đạo trực tiếp (HODs) & Quản lý Nhân sự phối hợp",
-          source: "Quan sát thực tế, kết quả công việc hiện tại, quá trình cộng tác đội ngũ, thành tích cụ thể và hành vi thể hiện hàng ngày trong công việc.",
+          assessor: "Trưởng đơn vị / Lãnh đạo trực tiếp (HODs) & Quản lý Nhân sự",
+          source: "Quan sát thực tế, kết quả công việc hiện tại, quá trình cộng tác đội ngũ, thành tích cụ thể và hành vi thể hiện trong công việc.",
           steps: [
-            {num:1, phaseLabel:"Đề cử & ứng cử", title:"Tiếp nhận Tự ứng cử & Đề cử nhân sự", how:"– Hình thức 1: Đề cử – TĐV đề cử nhân sự xuất sắc phù hợp.\n– Hình thức 2: Tự ứng cử – CBNV chủ động đăng ký qua hệ thống Phiếu trực tuyến.", tool:"Phiếu Đăng ký Ứng viên tiềm năng", pic:"TĐV + QLNS + Ứng viên", deadline:"08/08/2026"},
-            {num:2, phaseLabel:"Đánh giá cấp cơ sở", title:"HODs thẩm định năng lực thực tế", how:"TĐV và QLNS cùng rà soát, đánh giá từng ứng viên theo Chân dung kế nhiệm của VTTY (bao gồm cả diện ứng viên được đề cử và tự ứng cử).", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp đơn vị", pic:"TĐV + QLNS", deadline:""}
+            {num:1, phaseLabel:"Đề cử & ứng cử Ứng viên", how:"– Hình thức 1: Đề cử – TĐV đề cử nhân sự phù hợp.\n– Hình thức 2: Tự ứng cử – CBNV chủ động đăng ký qua Phiếu đăng kí Online.", tool:"Phiếu Đăng ký Ứng viên tiềm năng", pic:"TĐV + QLNS + Ứng viên", deadline:"08/08/2026"},
+            {num:2, phaseLabel:"Đánh giá Ứng viên cấp Đơn vị", how:"TĐV và QLNS cùng rà soát, đánh giá từng ứng viên theo Chân dung kế nhiệm của VTTY (bao gồm cả diện ứng viên được đề cử và tự ứng cử).", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp đơn vị", pic:"TĐV + QLNS", deadline:""}
           ]
         },
         {
           icon: "⚖️",
           label: "Phase 2",
-          name: "Tuyển chọn cấp Tập đoàn (Selection)",
-          sub: "Chặng 3 – Phase 2",
+          name: "Tuyển chọn cấp Tập đoàn",
           purpose: "Xác định \"Ứng viên có đáng để đầu tư đánh giá và phát triển sâu hơn không?\"",
           output: "Tuyển chọn và chốt danh sách ứng viên chính thức tham gia Assessment Center",
           assessor: "Hội đồng nhân tài",
-          source: "(1) Kết quả Đánh giá chi tiết từ cấp Đơn vị\n(2) Phiếu Đăng ký thông tin Ứng viên tiềm năng\n(3) Kết quả trực tiếp từ buổi phỏng vấn rà soát với HĐNT",
+          source: "(1) Kết quả Đánh giá từ cấp Đơn vị\n(2) Phiếu Đăng ký Ứng viên tiềm năng\n(3) Kết quả của buổi phỏng vấn với HĐNT",
           steps: [
-            {num:1, phaseLabel:"Talent Review", title:"HĐNT tổ chức hội chẩn hồ sơ", how:"Hội đồng Nhân tài xem xét kỹ lưỡng:\n– Phiếu Đăng ký Ứng viên tiềm năng\n– Kết quả đánh giá ứng viên cấp đơn vị (Điểm đánh giá, Nhận xét cụ thể của Trưởng đơn vị, Nhận xét của QLNS phụ trách)\n– Kết quả phỏng vấn/đối thoại trực tiếp với HĐNT.", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp đơn vị<br>Phiếu Đăng ký Ứng viên tiềm năng<br>Phiếu đánh giá Ứng viên tiềm năng - Cấp Tập đoàn", pic:"Hội đồng Nhân tài", deadline:"15/08/2026"},
-            {num:2, phaseLabel:"Phê duyệt tối cao", title:"BOD phê duyệt ban hành danh sách chính thức", how:"Hội đồng tiến hành thảo luận tập trung và đưa ra kết luận đánh giá đồng thuận; BOD phê duyệt ban hành danh sách cấp Tập đoàn chính thức chuyển giao sang AC.", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp Tập đoàn<br>Danh sách Ứng viên cho từng VTTY", pic:"Hội đồng Nhân tài & BOD", deadline:"15/08/2026"}
+            {num:1, phaseLabel:"Talent Review", how:"Hội đồng Nhân tài xem xét:\n– Phiếu Đăng ký Ứng viên tiềm năng\n– Kết quả đánh giá ứng viên cấp đơn vị (Điểm đánh giá, Nhận xét cụ thể của Trưởng đơn vị, Nhận xét của QLNS phụ trách)\n– Kết quả phỏng vấn với HĐNT.", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp đơn vị<br>Phiếu Đăng ký Ứng viên tiềm năng<br>Phiếu đánh giá Ứng viên tiềm năng - Cấp Tập đoàn", pic:"Hội đồng Nhân tài", deadline:"15/08/2026"},
+            {num:2, phaseLabel:"Phê duyệt danh sách Ứng viên tiềm năng", how:"Hội đồng thảo luận và đưa ra kết luận đánh giá ứng viên; BOD phê duyệt danh sách cấp Tập đoàn.", tool:"Phiếu đánh giá Ứng viên tiềm năng - Cấp Tập đoàn<br>Danh sách Ứng viên cho từng VTTY", pic:"Hội đồng Nhân tài & BOD", deadline:"15/08/2026"}
           ]
         }
       ]
@@ -920,7 +917,7 @@ const DATA = {
         {
           icon: "💻",
           label: "Phase 1",
-          name: "Phase 1 – Assessment Center (Online)",
+          name: "Assessment Center (Online)",
           sub: "Harrison Test",
           purpose: "Đánh giá Ứng viên đang đáp ứng năng lực ở mức nào và còn khoảng GAP nào cần phát triển?",
           output: "Đánh giá khách quan năng lực và mức độ sẵn sàng kế nhiệm thông qua việc quan sát hành vi và minh chứng thực tế",
@@ -934,7 +931,7 @@ const DATA = {
         {
           icon: "🏢",
           label: "Phase 2",
-          name: "Phase 2 – Assessment Center (Offline)",
+          name: "Assessment Center (Offline)",
           sub: "BEI & Group Simulation",
           purpose: "Đánh giá Ứng viên đang đáp ứng năng lực ở mức nào và còn khoảng GAP nào cần phát triển?",
           output: "Đánh giá khách quan năng lực và mức độ sẵn sàng kế nhiệm thông qua việc quan sát hành vi và minh chứng thực tế",
@@ -992,7 +989,7 @@ function renderChangsTimeline(gdNum){
         <b>${esc(s.label)}</b>
         <span>${esc(s.title)}</span>
         <span>${esc(s.period)}</span>
-        <span class="pct-badge ${getPctBadge(s)}">${s.progress===100?'✓ Hoàn thành':s.progress>0?'Đang chạy':'Chưa bắt đầu'}</span>
+        <span class="pct-badge ${getPctBadge(s)}">${s.progress===100?'✓ Hoàn thành':s.progress>0?'Đang triển khai':'Chưa bắt đầu'}</span>
       </div>
     </div>
   `).join('');
@@ -1144,7 +1141,12 @@ function renderPortrait(){
 }
 function renderFactor(){
   const f = DATA.factors[activeFactor];
-  const lNames = ['Mức 1 – Thấp (<5đ)','Mức 2 – Trung bình (5–7đ)','Mức 3 – Cao (8–9đ)','Mức 4 – Rất cao (10đ)'];
+  // Chỉ hiển thị bảng 7 hệ năng lực lãnh đạo khi ô "Năng lực lãnh đạo 35%" được chọn (index 3)
+  const leadershipSection = document.getElementById('leadershipSection');
+  if(leadershipSection){
+    leadershipSection.style.display = activeFactor === 3 ? 'block' : 'none';
+  }
+  const lNames = ['Mức 1 – Thấp (<5 Điểm)','Mức 2 – Trung bình (5–7 Điểm)','Mức 3 – Cao (8–9 Điểm)','Mức 4 – Rất cao (10 Điểm)'];
   const parts = f.name.split('\n');
   document.getElementById('factorPanel').innerHTML = `
     <div class="factor-main">
