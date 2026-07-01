@@ -922,7 +922,6 @@ const DATA = {
           purpose: "Đánh giá Ứng viên đang đáp ứng năng lực ở mức nào và còn khoảng GAP nào cần phát triển?",
           output: "Đánh giá khách quan năng lực và mức độ sẵn sàng kế nhiệm thông qua việc quan sát hành vi và minh chứng thực tế",
           assessor: "Hội đồng nhân tài",
-          source: "(1) Harrison Test\n(2) Phiếu Đăng ký Ứng viên tiềm năng\n(3) Kết quả bài phỏng vấn hành vi BEI và Bài tập mô phỏng nhóm",
           phuongthuc: "Ứng viên chủ động hoàn thành theo thời hạn quy định -> Xuất báo cáo cuốn chiếu theo ngày.",
           steps: [
             {num:1, phaseLabel:"Harrison Online", title:"(1) Harrison Test [20 phút/người]", how:"Nội dung đánh giá:\n1. Tiềm năng\n2. Năng lực lãnh đạo\n3. Gắn kết", tool:"Harrison Test", pic:"BNS + Harrison + Ứng viên", deadline:"24 - 29/08/2026"}
@@ -936,7 +935,6 @@ const DATA = {
           purpose: "Đánh giá Ứng viên đang đáp ứng năng lực ở mức nào và còn khoảng GAP nào cần phát triển?",
           output: "Đánh giá khách quan năng lực và mức độ sẵn sàng kế nhiệm thông qua việc quan sát hành vi và minh chứng thực tế",
           assessor: "Hội đồng nhân tài",
-          source: "(1) Harrison Test\n(2) Phiếu Đăng ký Ứng viên tiềm năng\n(3) Kết quả bài phỏng vấn hành vi BEI và Bài tập mô phỏng nhóm",
           phuongthuc: "Chia thành 3 Hội đồng đánh giá (02 Thành viên HĐNT/1 Hội đồng).\n Mỗi Hội đồng phụ trách đánh giá khoảng 20 Ứng viên.\n* Nội dung đánh giá:\n1. Đánh giá năng lực lãnh đạo\n2. Mức độ sẵn sàng kế nhiệm\n3. Khoảng GAP năng lực",
           steps: [
             {num:1, phaseLabel:"Trạm 1: Phỏng vấn BEI", title:"(2) Phỏng vấn hành vi (BEI) [60 phút/người]", how:"Đo năng lực hành vi & kinh nghiệm thực tế bằng bộ câu hỏi phỏng vấn chuyên sâu.", tool:"Phiếu chấm điểm đánh giá năng lực", pic:"Hội đồng nhân tài + Ứng viên", deadline:"04-05/09/2026"},
@@ -1223,10 +1221,11 @@ function renderFunnelTab(){
         <p style="margin:0; font-size:13px; line-height:1.6; color:var(--ink); font-weight:500;">${nl2br(activePhaseData.phuongthuc)}</p>
       </div>` : ''}
 
+      ${activePhaseData.source ? `
       <div class="ac-meta-card" style="margin-bottom:16px; display:block;">
         <div style="font-size:10px; font-weight:900; letter-spacing:1.3px; text-transform:uppercase; color:var(--muted); margin-bottom:6px;">Nguồn thông tin &amp; Tiêu chí căn cứ</div>
         <p>${nl2br(activePhaseData.source)}</p>
-      </div>
+      </div>` : ''}
       
       <div class="ac-steps-list">
         <div style="font-size:11px; font-weight:900; text-transform:uppercase; color:var(--muted); letter-spacing:0.5px; margin-bottom:4px;">Các bước triển khai cụ thể tại tầng này:</div>
