@@ -336,12 +336,33 @@
     .factor-main h3{margin:0 0 10px;font-size:22px;letter-spacing:-.8px}
     .factor-main p{font-size:13.5px;color:var(--muted);line-height:1.7;margin:0}
     .levels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:18px}
-    .level-card{border:1px solid var(--line);border-radius:18px;padding:16px;background:#fff}
-    .level-card .level-k{font-size:10px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .level-card{border:1px solid var(--line);border-left:4px solid var(--line-dark);border-radius:18px;padding:16px;background:#fff}
+    .level-card .level-k{display:inline-block;font-size:10px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#fff;margin-bottom:10px;padding:4px 10px;border-radius:100px}
     .level-card h4{font-size:13px;margin:0 0 8px;line-height:1.4}
     .level-card p{font-size:12.5px;color:var(--muted);line-height:1.65;margin:0;white-space:pre-line}
+    .level-card.lv-1{border-left-color:#B5452F}
+    .level-card.lv-1 .level-k{background:#B5452F}
+    .level-card.lv-1 h4{color:#8A3423}
+    .level-card.lv-2{border-left-color:#C08A2E}
+    .level-card.lv-2 .level-k{background:#C08A2E}
+    .level-card.lv-2 h4{color:#96691E}
+    .level-card.lv-3{border-left-color:var(--bim-3)}
+    .level-card.lv-3 .level-k{background:var(--bim-3)}
+    .level-card.lv-3 h4{color:var(--bim-2)}
+    .level-card.lv-4{border-left-color:var(--bim)}
+    .level-card.lv-4 .level-k{background:var(--bim)}
+    .level-card.lv-4 h4{color:var(--bim)}
     .comp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
     .comp{border:1px solid var(--line);background:#fff;border-radius:20px;padding:17px;min-height:190px}
+    .lead-table-wrap{overflow-x:auto;border:1px solid var(--line-dark);border-radius:12px}
+    .lead-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:640px}
+    .lead-table th,.lead-table td{border:1px solid var(--line-dark);padding:11px 14px;vertical-align:top;text-align:left}
+    .lead-table thead th{background:var(--bim-2);color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;text-align:center}
+    .lead-table td.lt-num{width:44px;text-align:center;font-weight:800;color:var(--gold);background:var(--mint)}
+    .lead-table td.lt-name{width:240px;background:var(--paper-2)}
+    .lead-table td.lt-name b{display:block;font-size:13px;color:var(--ink);margin-bottom:3px}
+    .lead-table td.lt-name .en{display:block;font-style:italic;font-size:11.5px;color:var(--muted)}
+    .lead-table td.lt-def{line-height:1.6;color:var(--ink-2)}
     .comp .num{color:var(--gold);font-weight:900;font-size:12px;margin-bottom:8px}
     .comp h3{font-size:15px;line-height:1.35;margin:0 0 9px;letter-spacing:-.25px}
     .comp p{font-size:12.5px;line-height:1.65;color:var(--muted);margin:0}
@@ -657,7 +678,7 @@
             <div><div class="section-title">Hệ năng lực lãnh đạo</div><div class="section-sub">7 năng lực thuộc nhóm Năng lực lãnh đạo (trọng số 35%)</div></div>
           </div>
           <div class="section-body">
-            <div class="comp-grid" id="leadershipGrid"></div>
+            <div class="lead-table-wrap" id="leadershipGrid"></div>
           </div>
         </div>
       </section>
@@ -1128,14 +1149,26 @@ function renderPortrait(){
   });
   renderFactor();
 
-  document.getElementById('leadershipGrid').innerHTML = DATA.leadership.map((c,i)=>{
-    const parts = c.name.split('\n');
-    return `<article class="comp">
-      <div class="num">${String(i+1).padStart(2,'0')}</div>
-      <h3>${esc(parts[0])}<br><span style="font-size:12px;font-weight:600;color:var(--muted)">${esc(parts[1]||'')}</span></h3>
-      <p>${esc(c.definition)}</p>
-    </article>`;
-  }).join('');
+  document.getElementById('leadershipGrid').innerHTML = `
+    <table class="lead-table">
+      <thead>
+        <tr>
+          <th style="width:44px">#</th>
+          <th>Tên năng lực</th>
+          <th>Định nghĩa năng lực</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${DATA.leadership.map((c,i)=>{
+          const parts = c.name.split('\n');
+          return `<tr>
+            <td class="lt-num">${String(i+1).padStart(2,'0')}</td>
+            <td class="lt-name"><b>${esc(parts[0])}</b><span class="en">${esc(parts[1]||'')}</span></td>
+            <td class="lt-def">${esc(c.definition)}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
 }
 function renderFactor(){
   const f = DATA.factors[activeFactor];
@@ -1157,7 +1190,7 @@ function renderFactor(){
         const halves = String(lv).split('\n\n');
         const title = halves[0]||lNames[i];
         const body = halves.slice(1).join('\n\n')||lv;
-        return `<div class="level-card">
+        return `<div class="level-card lv-${i+1}">
           <div class="level-k">${lNames[i]}</div>
           <h4>${esc(title)}</h4>
           <p>${esc(body)}</p>
